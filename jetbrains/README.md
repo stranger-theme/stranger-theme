@@ -1,48 +1,34 @@
-# Stranger Theme for JetBrains IDEs
+<div align="center">
 
-> 🔦 A dark theme collection inspired by the Netflix series Stranger Things.
+![Stranger Theme Logo](../stranger-theme/assets/stranger-theme-logo.png)
+
+</div>
+
+# Stranger Theme for JetBrains
+
+> 🔦 A dark theme collection for IntelliJ IDEA, PyCharm, WebStorm, and all JetBrains IDEs
 
 [![JetBrains Plugins](https://img.shields.io/jetbrains/plugin/v/com.strangertheme.theme?style=flat-square&label=Version&logo=jetbrains&logoColor=white)](https://plugins.jetbrains.com/plugin/XXXXX-stranger-theme)
 [![JetBrains Plugin Downloads](https://img.shields.io/jetbrains/plugin/d/com.strangertheme.theme?style=flat-square&label=Downloads)](https://plugins.jetbrains.com/plugin/XXXXX-stranger-theme)
 [![License](https://img.shields.io/github/license/stranger-theme/jetbrains?style=flat-square)](./LICENSE)
 
-![Screenshot](./assets/screenshot.png)
-
 ## Install
 
-All instructions can be found at [strangertheme.com](https://strangertheme.com).
+#### Via Plugin Marketplace
 
-### Using the Plugin Marketplace
+1. Open **Settings/Preferences** → **Plugins**
+2. Click **Marketplace** tab
+3. Search for `Stranger Theme`
+4. Click **Install** → **Restart IDE**
+5. Go to **Settings/Preferences** → **Appearance & Behavior** → **Appearance**
+6. Select your preferred Stranger Theme variant from the **Theme** dropdown
 
-1. Go to `Settings → Plugins → Marketplace`
-2. Search for `Stranger Theme`
-3. Click **Install** and restart the IDE
-4. Go to `Settings → Appearance & Behavior → Appearance`
-5. Select one of the Stranger Theme variants from the Theme dropdown
+#### Manual Installation
 
-### Using Git
-
-```bash
-git clone https://github.com/stranger-theme/jetbrains.git
-cd jetbrains
-./gradlew buildPlugin
-# Install the plugin from build/distributions/
-```
-
-## Supported IDEs
-
-- IntelliJ IDEA
-- WebStorm
-- PyCharm
-- PhpStorm
-- RubyMine
-- GoLand
-- CLion
-- DataGrip
-- Rider
-- Android Studio
-
-**Requires IDE version 2019.1 or later**
+1. Download the latest `.jar` from [Releases](https://github.com/stranger-theme/stranger-theme/releases)
+2. Open **Settings/Preferences** → **Plugins** → ⚙️ → **Install Plugin from Disk**
+3. Select the downloaded file
+4. Restart your IDE
 
 ## Theme Variants
 
@@ -51,21 +37,46 @@ cd jetbrains
 - **Hawkins** - Small-town America with warm, muted, autumnal colors
 - **The Lab** - Clinical, institutional aesthetic with sterile colors
 - **Tigers** - School colors with orange/black and vintage academic tones
-- **Demogorgon** - Fleshy pinks/reds with dark, organic textures
+- **Dimension X** - Dark red dimension with moody, organic textures
+
+## Supported IDEs
+
+All JetBrains IDEs version 2019.1+ are supported:
+
+- IntelliJ IDEA
+- PyCharm
+- WebStorm
+- PhpStorm
+- RubyMine
+- GoLand
+- CLion
+- DataGrip
+- Rider
+- Android Studio
 
 ## Development
 
-```bash
-# Build the plugin
-./gradlew buildPlugin
+### Building from Source
 
-# Run a test IDE instance with the plugin
-./gradlew runIde
+```bash
+npm install
+npm run build    # Generates .theme.json and Scheme.xml files
 ```
+
+### Gradle Build
+
+```bash
+./gradlew buildPlugin    # Creates plugin JAR
+./gradlew runIde        # Test in IDE instance
+```
+
+## Contributing
+
+Contributions are welcome! See the main repository's [Contributing Guide](../stranger-theme/CONTRIBUTING.md).
 
 ## Team
 
-This theme is maintained by the Stranger Theme team and [awesome contributors](https://github.com/stranger-theme/jetbrains/graphs/contributors).
+This theme is maintained by [@tcvieira](https://github.com/tcvieira) and [contributors](https://github.com/stranger-theme/stranger-theme/graphs/contributors).
 
 ## License
 

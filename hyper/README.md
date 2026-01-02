@@ -1,53 +1,44 @@
-# 🔦 Stranger Theme for Hyper Terminal
+<div align="center">
 
-A dark theme collection inspired by the Netflix series Stranger Things for Hyper Terminal.
+![Stranger Theme Logo](../stranger-theme/assets/stranger-theme-logo.png)
 
-## 🎨 Theme Variants
+</div>
 
-- `hyper-stranger-theme-upside-down` - Dark blue-black with desaturated tones
-- `hyper-stranger-theme-starcourt` - Vibrant 80s mall aesthetic with neon colors
-- `hyper-stranger-theme-hawkins` - Small-town America with warm, muted colors
-- `hyper-stranger-theme-the-lab` - Clinical, institutional aesthetic
-- `hyper-stranger-theme-tigers` - School colors with orange/black tones
-- `hyper-stranger-theme-dimension-x` - Dark red dimension with moody textures
+# Stranger Theme for Hyper
 
-## 📦 Installation
+> 🔦 A dark theme collection for Hyper Terminal
 
-### Using npm (Recommended)
+## Install
+
+#### Using Hyper CLI
 
 ```bash
-# Install your preferred variant
 hyper i hyper-stranger-theme-starcourt
 ```
 
-### Manual Installation
+#### Manual Installation
 
-1. Open your Hyper config file (`~/.hyper.js`)
-2. Add the theme to your plugins array:
+1. Edit `~/.hyper.js`
+2. Add theme to `plugins` array:
 
 ```javascript
 module.exports = {
-  // ...
   plugins: [
     'hyper-stranger-theme-starcourt'
-    // or any other variant
   ],
-  // ...
 };
 ```
 
 3. Restart Hyper
 
-### Local Installation (Development)
-
-1. Copy the theme folder to Hyper's local plugins:
+#### Local Installation (Development)
 
 ```bash
-# Example: Starcourt theme
+# Copy theme to local plugins
 cp -r themes/hyper-stranger-theme-starcourt ~/.hyper_plugins/local/
 ```
 
-2. Add to `localPlugins` in `~/.hyper.js`:
+Add to `localPlugins` in `~/.hyper.js`:
 
 ```javascript
 module.exports = {
@@ -57,37 +48,38 @@ module.exports = {
 };
 ```
 
-## 🛠️ Building
+## Theme Variants
+
+Each variant is published as a separate npm package:
+
+- `hyper-stranger-theme-upside-down` - Dark blue-black with desaturated tones
+- `hyper-stranger-theme-starcourt` - Vibrant 80s mall aesthetic with neon colors
+- `hyper-stranger-theme-hawkins` - Small-town America with warm, muted colors
+- `hyper-stranger-theme-the-lab` - Clinical, institutional aesthetic
+- `hyper-stranger-theme-tigers` - School colors with orange/black tones
+- `hyper-stranger-theme-dimension-x` - Dark red dimension with moody textures
+
+## Development
+
+### Building from Source
 
 ```bash
-# Build all Hyper themes from shared palettes
-npm run build
+npm install
+npm run build    # Generates Hyper plugin packages from shared palettes
 ```
 
-## 📁 Project Structure
+Each theme is a standalone npm package with:
+- `index.js` - Theme colors and CSS
+- `package.json` - npm metadata
 
-```
-hyper/
-├── themes/
-│   ├── hyper-stranger-theme-upside-down/
-│   │   ├── index.js
-│   │   └── package.json
-│   ├── hyper-stranger-theme-starcourt/
-│   │   ├── index.js
-│   │   └── package.json
-│   └── ...
-├── scripts/
-│   └── build.js              # Build script
-└── package.json
-```
+## Contributing
 
-## 🎯 Theme Structure
+Contributions are welcome! See the main repository's [Contributing Guide](../stranger-theme/CONTRIBUTING.md).
 
-Each Hyper theme is a standalone npm package containing:
+## Team
 
-- `index.js` - Theme colors and CSS customizations
-- `package.json` - Package metadata for npm publishing
+This theme is maintained by [@tcvieira](https://github.com/tcvieira) and [contributors](https://github.com/stranger-theme/stranger-theme/graphs/contributors).
 
-## 📜 License
+## License
 
-[MIT License](../LICENSE) © Stranger Theme
+[MIT License](./LICENSE) © Stranger Theme

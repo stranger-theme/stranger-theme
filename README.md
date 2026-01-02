@@ -1,80 +1,95 @@
-# 🔦 Stranger Theme
+<div align="center">
 
-> A dark theme collection inspired by the famous series Stranger Things. One theme. All platforms.
+![Stranger Theme Logo](./stranger-theme/assets/stranger-theme-logo.png)
 
-## 🎨 Theme Variants
+</div>
 
-All platforms include these 6 theme variants:
+# Stranger Theme
+
+> 🔦 A dark theme collection inspired by the Netflix series Stranger Things
+
+## Theme Variants
+
+Stranger Theme comes in 6 distinct variants, each capturing the essence of different locations and dimensions from the series:
 
 - **Upside Down** - Dark blue-black with desaturated tones
-- **Starcourt** - Vibrant 80s mall aesthetic with neon colors  
+- **Starcourt** - Vibrant 80s mall aesthetic with neon colors
 - **Hawkins** - Small-town America with warm, muted, autumnal colors
 - **The Lab** - Clinical, institutional aesthetic with sterile colors
 - **Tigers** - School colors with orange/black and vintage academic tones
 - **Dimension X** - Dark red dimension with moody, organic textures
 
-## 📦 Supported Platforms
+## Install
 
-### IDEs & Editors
+Choose your platform:
 
-| Platform | Directory | Build Command |
-| -------- | --------- | ------------- |
-| Visual Studio Code | [visual-studio-code](./visual-studio-code) | `npm run build` |
-| JetBrains IDEs | [jetbrains](./jetbrains) | `npm run build` |
-| Vim/Neovim | [vim](./vim) | `npm run build` |
-| Sublime Text | [sublime-text](./sublime-text) | `npm run build` |
+- [Visual Studio Code](./visual-studio-code)
+- [JetBrains IDEs](./jetbrains) (IntelliJ IDEA, PyCharm, WebStorm, etc.)
+- [Vim/Neovim](./vim)
+- [Sublime Text](./sublime-text)
+- [Terminal](./terminal) (Alacritty, iTerm2, Windows Terminal)
+- [Hyper](./hyper)
 
-### Terminals
+Each platform directory contains installation instructions specific to that environment.
 
-| Platform | Directory | Build Command |
-| -------- | --------- | ------------- |
-| Alacritty | [terminal/alacritty](./terminal/alacritty) | `npm run build` (in terminal/) |
-| iTerm2 | [terminal/iterm2](./terminal/iterm2) | `npm run build` (in terminal/) |
-| Windows Terminal | [terminal/windows-terminal](./terminal/windows-terminal) | `npm run build` (in terminal/) |
-| Hyper | [hyper](./hyper) | `npm run build` |
+## Color Palette
 
-## 🏗️ Project Structure
+All 6 theme variants are built from shared color definitions:
 
-```
-stranger-theme/
-├── shared/                  # Shared color palettes for all platforms
-│   └── palettes.js
-├── visual-studio-code/      # VS Code extension
-├── jetbrains/               # JetBrains plugin
-├── vim/                     # Vim/Neovim colorschemes
-├── sublime-text/            # Sublime Text themes
-├── terminal/                # Terminal themes
-│   ├── alacritty/
-│   ├── iterm2/
-│   └── windows-terminal/
-├── hyper/                   # Hyper terminal themes
-└── stranger-theme/          # Documentation and specs
-```
+| Color | Usage |
+| --- | --- |
+| Background | Editor/UI background |
+| Foreground | Main text color |
+| Selection | Selected text/UI elements |
+| Comment | Comments and muted text |
+| Cyan | Types, classes, tags |
+| Green | Functions, strings |
+| Orange | Numbers, constants, parameters |
+| Pink | Keywords, tags, operators |
+| Purple | Special keywords, numbers |
+| Red | Errors, deletions |
+| Yellow | Strings, warnings |
 
-## 🛠️ Building All Themes
+## Development
 
-Each platform has its own build script that generates themes from the shared color palettes:
+### Building Themes
+
+All themes are generated from shared color palettes in `shared/palettes.js`:
 
 ```bash
 # Build all platforms
-cd visual-studio-code && npm run build
-cd jetbrains && npm run build
-cd vim && npm run build
-cd sublime-text && npm run build
-cd terminal && npm run build
-cd hyper && npm run build
+npm run build
+
+# Build specific platforms
+npm run build:vscode
+npm run build:jetbrains
+npm run build:vim
+npm run build:sublime
+npm run build:terminal
+npm run build:hyper
 ```
 
-## 🎯 Adding a New Theme Variant
+### Adding a New Variant
 
 1. Add the new palette to `shared/palettes.js`
-2. Run the build script in each platform directory
+2. Run `npm run build` from the root directory
 3. All platforms will automatically generate the new variant
 
-## 🚀 Contributing
+For detailed architecture and development guidelines, see [CLAUDE.md](./CLAUDE.md).
 
-Want to add support for a new platform? Check out the [contribution guidelines](./stranger-theme/CONTRIBUTING.md).
+## Contributing
 
-## 📜 License
+Contributions are welcome! See our [Contributing Guide](./stranger-theme/CONTRIBUTING.md) for details on:
+
+- Setting up your development environment
+- Making changes to themes
+- Submitting pull requests
+- Adding support for new platforms
+
+## Team
+
+This theme is maintained by [@tcvieira](https://github.com/tcvieira) and [contributors](https://github.com/stranger-theme/stranger-theme/graphs/contributors).
+
+## License
 
 [MIT License](./stranger-theme/LICENSE) © Stranger Theme

@@ -1,8 +1,43 @@
-# 🔦 Stranger Theme for Sublime Text
+<div align="center">
 
-A dark theme collection inspired by the Netflix series Stranger Things.
+![Stranger Theme Logo](../stranger-theme/assets/stranger-theme-logo.png)
 
-## 🎨 Theme Variants
+</div>
+
+# Stranger Theme for Sublime Text
+
+> 🔦 A dark theme collection inspired by Stranger Things
+
+## Install
+
+#### Using Package Control
+
+1. Open **Command Palette**: `Ctrl+Shift+P` / `Cmd+Shift+P`
+2. Select **Package Control: Install Package**
+3. Search for `Stranger Theme`
+4. Press **Enter** to install
+
+#### Manual Installation
+
+1. Download `.tmTheme` files from the `themes/` folder
+2. Open Sublime Text → **Preferences** → **Browse Packages**
+3. Create a `Stranger Theme` folder
+4. Copy the `.tmTheme` files into this folder
+
+## Activate
+
+1. Go to **Preferences** → **Color Scheme**
+2. Select your preferred Stranger Theme variant
+
+Or add to `Preferences.sublime-settings`:
+
+```json
+{
+  "color_scheme": "Packages/Stranger Theme/Stranger-Theme-Starcourt.tmTheme"
+}
+```
+
+## Theme Variants
 
 - **Upside Down** - Dark blue-black with desaturated tones
 - **Starcourt** - Vibrant 80s mall aesthetic with neon colors
@@ -11,59 +46,23 @@ A dark theme collection inspired by the Netflix series Stranger Things.
 - **Tigers** - School colors with orange/black tones
 - **Dimension X** - Dark red dimension with moody textures
 
-## 📦 Installation
+## Development
 
-### Using Package Control (Recommended)
-
-1. Open Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
-2. Select `Package Control: Install Package`
-3. Search for `Stranger Theme`
-4. Press Enter to install
-
-### Manual Installation
-
-1. Download the `.tmTheme` files from `themes/` folder
-2. Open Sublime Text
-3. Go to **Preferences → Browse Packages**
-4. Create a folder called `Stranger Theme`
-5. Copy the `.tmTheme` files into this folder
-
-## ⚙️ Activation
-
-1. Go to **Preferences → Color Scheme**
-2. Select one of the Stranger Theme variants
-
-Or add to your settings (`Preferences.sublime-settings`):
-
-```json
-{
-  "color_scheme": "Packages/Stranger Theme/Stranger-Theme-Starcourt.tmTheme"
-}
-```
-
-## 🛠️ Building
+### Building from Source
 
 ```bash
-# Build themes from shared palettes
-npm run build
+npm install
+npm run build    # Generates .tmTheme files from shared palettes
 ```
 
-## 📁 Project Structure
+## Contributing
 
-```
-sublime-text/
-├── themes/                           # Generated theme files
-│   ├── Stranger-Theme-Upside-Down.tmTheme
-│   ├── Stranger-Theme-Starcourt.tmTheme
-│   ├── Stranger-Theme-Hawkins.tmTheme
-│   ├── Stranger-Theme-The-Lab.tmTheme
-│   ├── Stranger-Theme-Tigers.tmTheme
-│   └── Stranger-Theme-Dimension-X.tmTheme
-├── scripts/
-│   └── build.js                      # Build script
-└── package.json
-```
+Contributions are welcome! See the main repository's [Contributing Guide](../stranger-theme/CONTRIBUTING.md).
 
-## 📜 License
+## Team
 
-[MIT License](../LICENSE) © Stranger Theme
+This theme is maintained by [@tcvieira](https://github.com/tcvieira) and [contributors](https://github.com/stranger-theme/stranger-theme/graphs/contributors).
+
+## License
+
+[MIT License](./LICENSE) © Stranger Theme

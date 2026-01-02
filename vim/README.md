@@ -1,31 +1,28 @@
-# 🔦 Stranger Theme for Vim/Neovim
+<div align="center">
 
-A dark colorscheme collection inspired by the Netflix series Stranger Things.
+![Stranger Theme Logo](../stranger-theme/assets/stranger-theme-logo.png)
 
-## 🎨 Theme Variants
+</div>
 
-- `stranger_upside_down` - Dark blue-black with desaturated tones
-- `stranger_starcourt` - Vibrant 80s mall aesthetic with neon colors
-- `stranger_hawkins` - Small-town America with warm, muted colors
-- `stranger_the_lab` - Clinical, institutional aesthetic
-- `stranger_tigers` - School colors with orange/black tones
-- `stranger_dimension_x` - Dark red dimension with moody textures
+# Stranger Theme for Vim/Neovim
 
-## 📦 Installation
+> 🔦 A dark colorscheme collection inspired by Stranger Things
 
-### Using vim-plug
+## Install
+
+#### Using vim-plug
 
 ```vim
 Plug 'stranger-theme/stranger-theme', { 'rtp': 'vim' }
 ```
 
-### Using packer.nvim (Neovim)
+#### Using packer.nvim (Neovim)
 
 ```lua
 use { 'stranger-theme/stranger-theme', rtp = 'vim' }
 ```
 
-### Using lazy.nvim (Neovim)
+#### Using lazy.nvim (Neovim)
 
 ```lua
 {
@@ -36,72 +33,70 @@ use { 'stranger-theme/stranger-theme', rtp = 'vim' }
 }
 ```
 
-### Manual Installation
-
-Copy the colorscheme files to your colors directory:
+#### Manual Installation
 
 ```bash
 # Vim
 mkdir -p ~/.vim/colors
-cp vim/colors/*.vim ~/.vim/colors/
+cp colors/*.vim ~/.vim/colors/
 
 # Neovim
 mkdir -p ~/.config/nvim/colors
-cp vim/colors/*.vim ~/.config/nvim/colors/
+cp colors/*.vim ~/.config/nvim/colors/
 ```
 
-## ⚙️ Usage
+## Activate
 
 Add to your `.vimrc` or `init.vim`:
 
 ```vim
-" Enable true colors (recommended)
 set termguicolors
-
-" Set colorscheme
 colorscheme stranger_starcourt
 ```
 
-For Neovim with Lua (`init.lua`):
+Or in Neovim `init.lua`:
 
 ```lua
 vim.opt.termguicolors = true
 vim.cmd('colorscheme stranger_starcourt')
 ```
 
-## 🛠️ Building
+## Theme Variants
+
+- `stranger_upside_down` - Dark blue-black with desaturated tones
+- `stranger_starcourt` - Vibrant 80s mall aesthetic with neon colors
+- `stranger_hawkins` - Small-town America with warm, muted colors
+- `stranger_the_lab` - Clinical, institutional aesthetic
+- `stranger_tigers` - School colors with orange/black tones
+- `stranger_dimension_x` - Dark red dimension with moody textures
+
+## Plugin Support
+
+Includes highlight groups for:
+
+- Treesitter (Neovim)
+- Telescope (Neovim)
+- nvim-cmp (Neovim)
+- NERDTree
+- GitGutter
+
+## Development
+
+### Building from Source
 
 ```bash
-# Build colorschemes from shared palettes
-npm run build
+npm install
+npm run build    # Generates colorschemes from shared palettes
 ```
 
-## 📁 Project Structure
+## Contributing
 
-```
-vim/
-├── colors/                    # Generated colorschemes
-│   ├── stranger_upside_down.vim
-│   ├── stranger_starcourt.vim
-│   ├── stranger_hawkins.vim
-│   ├── stranger_the_lab.vim
-│   ├── stranger_tigers.vim
-│   └── stranger_dimension_x.vim
-├── scripts/
-│   └── build.js               # Build script
-└── package.json
-```
+Contributions are welcome! See the main repository's [Contributing Guide](../stranger-theme/CONTRIBUTING.md).
 
-## 🔌 Plugin Support
+## Team
 
-The theme includes highlight groups for popular plugins:
+This theme is maintained by [@tcvieira](https://github.com/tcvieira) and [contributors](https://github.com/stranger-theme/stranger-theme/graphs/contributors).
 
-- **Treesitter** (Neovim) - Enhanced syntax highlighting
-- **Telescope** (Neovim) - Fuzzy finder
-- **nvim-cmp** (Neovim) - Completion
-- **NERDTree** - File explorer
-- **GitGutter** - Git diff signs
+## License
 
-## 📜 License
-
-[MIT License](../LICENSE) © Stranger Theme
+[MIT License](./LICENSE) © Stranger Theme

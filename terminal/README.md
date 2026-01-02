@@ -1,8 +1,20 @@
-# 🔦 Stranger Theme for Terminal Emulators
+<div align="center">
 
-A dark theme collection inspired by the Netflix series Stranger Things for terminal emulators.
+![Stranger Theme Logo](../stranger-theme/assets/stranger-theme-logo.png)
 
-## 🎨 Theme Variants
+</div>
+
+# Stranger Theme for Terminal Emulators
+
+> 🔦 A dark theme collection for Alacritty, iTerm2, and Windows Terminal
+
+## Supported Terminals
+
+- [Alacritty](#alacritty)
+- [iTerm2](#iterm2)
+- [Windows Terminal](#windows-terminal)
+
+## Theme Variants
 
 - **Upside Down** - Dark blue-black with desaturated tones
 - **Starcourt** - Vibrant 80s mall aesthetic with neon colors
@@ -11,85 +23,46 @@ A dark theme collection inspired by the Netflix series Stranger Things for termi
 - **Tigers** - School colors with orange/black tones
 - **Dimension X** - Dark red dimension with moody textures
 
-## 📦 Supported Terminals
-
-- [Alacritty](#alacritty)
-- [iTerm2](#iterm2)
-- [Windows Terminal](#windows-terminal)
-
 ---
 
 ## Alacritty
 
-### Installation
-
-1. Copy the theme file to your Alacritty config directory:
+### Install
 
 ```bash
 # Create themes directory
 mkdir -p ~/.config/alacritty/themes
 
-# Copy theme (example: Starcourt)
+# Copy theme
 cp alacritty/stranger-theme-starcourt.toml ~/.config/alacritty/themes/
 ```
 
-2. Import in your `alacritty.toml`:
+Import in `alacritty.toml`:
 
 ```toml
 import = ["~/.config/alacritty/themes/stranger-theme-starcourt.toml"]
 ```
 
-### Available Files
-
-- `stranger-theme-upside-down.toml`
-- `stranger-theme-starcourt.toml`
-- `stranger-theme-hawkins.toml`
-- `stranger-theme-the-lab.toml`
-- `stranger-theme-tigers.toml`
-- `stranger-theme-dimension-x.toml`
-
 ---
 
 ## iTerm2
 
-### Installation
+### Install
 
-1. Open iTerm2
-2. Go to **Preferences → Profiles → Colors**
-3. Click **Color Presets** dropdown → **Import**
-4. Select the `.itermcolors` file
-5. Select the imported theme from **Color Presets**
-
-### Available Files
-
-- `Stranger-Theme-Upside-Down.itermcolors`
-- `Stranger-Theme-Starcourt.itermcolors`
-- `Stranger-Theme-Hawkins.itermcolors`
-- `Stranger-Theme-The-Lab.itermcolors`
-- `Stranger-Theme-Tigers.itermcolors`
-- `Stranger-Theme-Dimension-X.itermcolors`
+1. Open **iTerm2** → **Preferences** → **Profiles** → **Colors**
+2. Click **Color Presets** → **Import**
+3. Select the `.itermcolors` file from `iterm2/` folder
+4. Select the imported theme from **Color Presets**
 
 ---
 
 ## Windows Terminal
 
-### Installation
+### Install
 
-1. Open Windows Terminal
-2. Open Settings (`Ctrl+,`)
-3. Click **Open JSON file** (bottom left)
-4. Add the theme to the `schemes` array:
-
-```json
-{
-  "schemes": [
-    // ... existing schemes ...
-    // Paste the contents of the .json file here
-  ]
-}
-```
-
-5. Set your profile to use the theme:
+1. Open **Settings** (`Ctrl+,`) → **Open JSON file**
+2. Add theme to `schemes` array (paste contents from `windows-terminal/` JSON file)
+3. Set your profile:
 
 ```json
 {
@@ -101,36 +74,25 @@ import = ["~/.config/alacritty/themes/stranger-theme-starcourt.toml"]
 }
 ```
 
-### Available Files
-
-- `stranger-theme-upside-down.json`
-- `stranger-theme-starcourt.json`
-- `stranger-theme-hawkins.json`
-- `stranger-theme-the-lab.json`
-- `stranger-theme-tigers.json`
-- `stranger-theme-dimension-x.json`
-
 ---
 
-## 🛠️ Building
+## Development
+
+### Building from Source
 
 ```bash
-# Build all terminal themes from shared palettes
-npm run build
+npm install
+npm run build    # Generates themes for all terminals from shared palettes
 ```
 
-## 📁 Project Structure
+## Contributing
 
-```
-terminal/
-├── alacritty/              # Alacritty themes (.toml)
-├── iterm2/                 # iTerm2 themes (.itermcolors)
-├── windows-terminal/       # Windows Terminal themes (.json)
-├── scripts/
-│   └── build.js            # Build script
-└── package.json
-```
+Contributions are welcome! See the main repository's [Contributing Guide](../stranger-theme/CONTRIBUTING.md).
 
-## 📜 License
+## Team
 
-[MIT License](../LICENSE) © Stranger Theme
+This theme is maintained by [@tcvieira](https://github.com/tcvieira) and [contributors](https://github.com/stranger-theme/stranger-theme/graphs/contributors).
+
+## License
+
+[MIT License](./LICENSE) © Stranger Theme
