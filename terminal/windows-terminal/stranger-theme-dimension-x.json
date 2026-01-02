@@ -1,0 +1,23 @@
+{
+  "name": "Stranger Theme: Dimension X",
+  "cursorColor": "#E8D5D5",
+  "selectionBackground": "#3E2A2A",
+  "background": "#1E1A1A",
+  "foreground": "#E8D5D5",
+  "black": "#1E1A1A",
+  "blue": "#C678DD",
+  "cyan": "#D19A66",
+  "green": "#8B7355",
+  "purple": "#E06C75",
+  "red": "#FF55AA",
+  "white": "#E8D5D5",
+  "yellow": "#BCA89F",
+  "brightBlack": "#5C4A4A",
+  "brightBlue": "#E496FB",
+  "brightCyan": "#EFB884",
+  "brightGreen": "#A99173",
+  "brightPurple": "#FE8A93",
+  "brightRed": "#FF73C8",
+  "brightWhite": "#FFFFFF",
+  "brightYellow": "#DAC6BD"
+}

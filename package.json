@@ -1,0 +1,34 @@
+{
+  "name": "stranger-theme",
+  "version": "1.0.0",
+  "description": "A dark theme collection inspired by Stranger Things - All platforms",
+  "scripts": {
+    "build": "node scripts/build-all.js",
+    "build:vscode": "cd visual-studio-code && npm run build",
+    "build:jetbrains": "cd jetbrains && npm run build",
+    "build:vim": "cd vim && npm run build",
+    "build:sublime": "cd sublime-text && npm run build",
+    "build:terminal": "cd terminal && npm run build",
+    "build:hyper": "cd hyper && npm run build"
+  },
+  "keywords": [
+    "theme",
+    "stranger-things",
+    "dark-theme",
+    "vscode",
+    "jetbrains",
+    "vim",
+    "neovim",
+    "sublime-text",
+    "alacritty",
+    "iterm2",
+    "windows-terminal",
+    "hyper"
+  ],
+  "author": "Stranger Theme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stranger-theme/stranger-theme.git"
+  }
+}

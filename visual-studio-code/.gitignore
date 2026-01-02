@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+*.vsix
+build/
+out/
+dist/
+
+# IDE specific
+.idea/
+*.iml
+.vscode/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Gradle
+.gradle/
+gradle/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test outputs
+coverage/
+.nyc_output/

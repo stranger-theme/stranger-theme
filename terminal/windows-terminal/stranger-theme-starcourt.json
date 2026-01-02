@@ -1,0 +1,23 @@
+{
+  "name": "Stranger Theme: Starcourt",
+  "cursorColor": "#EAEAEA",
+  "selectionBackground": "#2E2E4A",
+  "background": "#1A1A2E",
+  "foreground": "#EAEAEA",
+  "black": "#1A1A2E",
+  "blue": "#BA55D3",
+  "cyan": "#00CED1",
+  "green": "#00FA9A",
+  "purple": "#FF1493",
+  "red": "#FF6B6B",
+  "white": "#EAEAEA",
+  "yellow": "#FFD700",
+  "brightBlack": "#6B5B95",
+  "brightBlue": "#D873F1",
+  "brightCyan": "#1EECEF",
+  "brightGreen": "#1EFFB8",
+  "brightPurple": "#FF32B1",
+  "brightRed": "#FF8989",
+  "brightWhite": "#FFFFFF",
+  "brightYellow": "#FFF51E"
+}

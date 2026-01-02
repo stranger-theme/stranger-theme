@@ -1,0 +1,17 @@
+{
+  "name": "stranger-theme-sublime-text",
+  "version": "1.0.0",
+  "description": "Stranger Things inspired theme for Sublime Text",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "keywords": [
+    "theme",
+    "sublime-text",
+    "tmTheme",
+    "stranger-things",
+    "dark-theme"
+  ],
+  "author": "Stranger Theme",
+  "license": "MIT"
+}

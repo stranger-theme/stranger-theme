@@ -1,0 +1,23 @@
+{
+  "name": "Stranger Theme: Upside Down",
+  "cursorColor": "#F8F8F2",
+  "selectionBackground": "#2A3C4A",
+  "background": "#0D1117",
+  "foreground": "#F8F8F2",
+  "black": "#0D1117",
+  "blue": "#61AFEF",
+  "cyan": "#56B6C2",
+  "green": "#98C379",
+  "purple": "#C678DD",
+  "red": "#E06C75",
+  "white": "#F8F8F2",
+  "yellow": "#E5C07B",
+  "brightBlack": "#5C6370",
+  "brightBlue": "#7FCDFF",
+  "brightCyan": "#74D4E0",
+  "brightGreen": "#B6E197",
+  "brightPurple": "#E496FB",
+  "brightRed": "#FE8A93",
+  "brightWhite": "#FFFFFF",
+  "brightYellow": "#FFDE99"
+}

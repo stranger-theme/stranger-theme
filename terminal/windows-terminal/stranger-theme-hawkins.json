@@ -1,0 +1,23 @@
+{
+  "name": "Stranger Theme: Hawkins",
+  "cursorColor": "#E8DCC8",
+  "selectionBackground": "#3C3228",
+  "background": "#2C2218",
+  "foreground": "#E8DCC8",
+  "black": "#2C2218",
+  "blue": "#B48EAD",
+  "cyan": "#88C0D0",
+  "green": "#A3BE8C",
+  "purple": "#D4A574",
+  "red": "#BF616A",
+  "white": "#E8DCC8",
+  "yellow": "#EBCB8B",
+  "brightBlack": "#6B5B45",
+  "brightBlue": "#D2ACCB",
+  "brightCyan": "#A6DEEE",
+  "brightGreen": "#C1DCAA",
+  "brightPurple": "#F2C392",
+  "brightRed": "#DD7F88",
+  "brightWhite": "#FFFFFF",
+  "brightYellow": "#FFE9A9"
+}

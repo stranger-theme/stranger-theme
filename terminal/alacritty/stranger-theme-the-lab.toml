@@ -1,0 +1,59 @@
+# Stranger Theme: The Lab for Alacritty
+# https://github.com/stranger-theme/alacritty
+
+[colors.primary]
+background = "#1A1D26"
+foreground = "#E0E5EC"
+bright_foreground = "#ffffff"
+
+[colors.cursor]
+text = "#1A1D26"
+cursor = "#E0E5EC"
+
+[colors.vi_mode_cursor]
+text = "CellBackground"
+cursor = "CellForeground"
+
+[colors.selection]
+text = "CellForeground"
+background = "#2A2D36"
+
+[colors.normal]
+black = "#1A1D26"
+red = "#FF4136"
+green = "#2ECC40"
+yellow = "#FFDC00"
+blue = "#B10DC9"
+magenta = "#7FDBFF"
+cyan = "#39CCCC"
+white = "#E0E5EC"
+
+[colors.bright]
+black = "#5D6D7E"
+red = "#FF5F54"
+green = "#4CEA5E"
+yellow = "#FFFA1E"
+blue = "#CF2BE7"
+magenta = "#9DF9FF"
+cyan = "#57EAEA"
+white = "#FFFFFF"
+
+[colors.search.matches]
+foreground = "#2A2D36"
+background = "#2ECC40"
+
+[colors.search.focused_match]
+foreground = "#2A2D36"
+background = "#FF851B"
+
+[colors.footer_bar]
+background = "#1A1D26"
+foreground = "#E0E5EC"
+
+[colors.hints.start]
+foreground = "#1A1D26"
+background = "#FFDC00"
+
+[colors.hints.end]
+foreground = "#FFDC00"
+background = "#1A1D26"

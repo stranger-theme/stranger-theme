@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idea-plugin>
+  <id>com.strangertheme.theme</id>
+  <name>Stranger Theme</name>
+  <version>1.0.0</version>
+  <vendor email="contact@strangertheme.com" url="https://github.com/stranger-theme">Stranger Theme</vendor>
+
+  <description><![CDATA[
+    <h1>Stranger Theme</h1>
+    <p>A dark theme collection inspired by the Netflix series Stranger Things.</p>
+    <p>Includes six theme variants based on iconic elements from the show:</p>
+    <ul>
+      <li>Upside Down: Dark blue-black with desaturated tones</li>
+      <li>Starcourt Mall: Vibrant 80s mall aesthetic with neon colors</li>
+      <li>Hawkins: Small-town America with warm, muted, autumnal colors</li>
+      <li>The Lab: Clinical, institutional aesthetic with sterile colors</li>
+      <li>Tigers: School colors with orange/black and vintage academic tones</li>
+      <li>Dimension X: Fleshy pinks/reds with dark, organic textures</li>
+    </ul>
+  ]]></description>
+
+  <change-notes><![CDATA[
+    <ul>
+      <li>1.0.0 - Initial release with seven theme variants</li>
+    </ul>
+  ]]></change-notes>
+
+  <idea-version since-build="191.0"/>
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <themeProvider id="eb971e1c-0a4c-42c3-9e4c-e72a1d026a71" path="/themes/UpsideDown.theme.json"/>
+    <themeProvider id="f5f4a640-8155-4e06-a5a7-43d5c5c6e2d1" path="/themes/Starcourt.theme.json"/>
+    <themeProvider id="a1b2c3d4-e5f6-4a5b-8c7d-9e0f1a2b3c4d" path="/themes/Hawkins.theme.json"/>
+    <themeProvider id="1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d" path="/themes/TheLab.theme.json"/>
+    <themeProvider id="2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d" path="/themes/Tigers.theme.json"/>
+    <themeProvider id="3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d" path="/themes/dimension-x.theme.json"/>
+  </extensions>
+</idea-plugin>

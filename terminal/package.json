@@ -1,0 +1,19 @@
+{
+  "name": "stranger-theme-terminal",
+  "version": "1.0.0",
+  "description": "Stranger Things inspired themes for terminal emulators (Alacritty, iTerm2, Windows Terminal)",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "keywords": [
+    "theme",
+    "terminal",
+    "alacritty",
+    "iterm2",
+    "windows-terminal",
+    "stranger-things",
+    "dark-theme"
+  ],
+  "author": "Stranger Theme",
+  "license": "MIT"
+}

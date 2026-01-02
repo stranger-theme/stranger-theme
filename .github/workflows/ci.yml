@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build All Themes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install VS Code dependencies
+        run: cd visual-studio-code && npm ci
+
+      - name: Build all themes
+        run: npm run build
+
+      - name: Verify generated files
+        run: |
+          # Check VS Code themes
+          test -f visual-studio-code/themes/starcourt-color-theme.json
+          echo "✅ VS Code themes generated"
+          
+          # Check JetBrains themes
+          test -f jetbrains/themes/Starcourt.theme.json
+          test -f jetbrains/themes/StarcourtScheme.xml
+          echo "✅ JetBrains themes generated"
+          
+          # Check Vim themes
+          test -f vim/colors/stranger_starcourt.vim
+          echo "✅ Vim colorschemes generated"
+          
+          # Check Sublime Text themes
+          test -f sublime-text/themes/Stranger-Theme-Starcourt.tmTheme
+          echo "✅ Sublime Text themes generated"
+          
+          # Check Terminal themes
+          test -f terminal/alacritty/stranger-theme-starcourt.toml
+          test -f terminal/iterm2/Stranger-Theme-Starcourt.itermcolors
+          test -f terminal/windows-terminal/stranger-theme-starcourt.json
+          echo "✅ Terminal themes generated"
+          
+          # Check Hyper themes
+          test -f hyper/themes/hyper-stranger-theme-starcourt/index.js
+          echo "✅ Hyper themes generated"
+          
+          echo ""
+          echo "🎉 All themes verified successfully!"
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: stranger-theme-builds
+          path: |
+            visual-studio-code/themes/
+            jetbrains/themes/
+            vim/colors/
+            sublime-text/themes/
+            terminal/
+            hyper/themes/

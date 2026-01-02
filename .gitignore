@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build artifacts (keep generated themes in git for easy installation)
+# Uncomment these if you prefer to generate on install
+# visual-studio-code/themes/
+# jetbrains/themes/
+# vim/colors/
+# sublime-text/themes/
+# terminal/alacritty/
+# terminal/iterm2/
+# terminal/windows-terminal/
+# hyper/themes/
+
+# VS Code extension package
+*.vsix
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp

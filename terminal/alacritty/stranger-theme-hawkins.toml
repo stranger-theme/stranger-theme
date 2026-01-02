@@ -1,0 +1,59 @@
+# Stranger Theme: Hawkins for Alacritty
+# https://github.com/stranger-theme/alacritty
+
+[colors.primary]
+background = "#2C2218"
+foreground = "#E8DCC8"
+bright_foreground = "#ffffff"
+
+[colors.cursor]
+text = "#2C2218"
+cursor = "#E8DCC8"
+
+[colors.vi_mode_cursor]
+text = "CellBackground"
+cursor = "CellForeground"
+
+[colors.selection]
+text = "CellForeground"
+background = "#3C3228"
+
+[colors.normal]
+black = "#2C2218"
+red = "#BF616A"
+green = "#A3BE8C"
+yellow = "#EBCB8B"
+blue = "#B48EAD"
+magenta = "#D4A574"
+cyan = "#88C0D0"
+white = "#E8DCC8"
+
+[colors.bright]
+black = "#6B5B45"
+red = "#DD7F88"
+green = "#C1DCAA"
+yellow = "#FFE9A9"
+blue = "#D2ACCB"
+magenta = "#F2C392"
+cyan = "#A6DEEE"
+white = "#FFFFFF"
+
+[colors.search.matches]
+foreground = "#3C3228"
+background = "#A3BE8C"
+
+[colors.search.focused_match]
+foreground = "#3C3228"
+background = "#D08770"
+
+[colors.footer_bar]
+background = "#2C2218"
+foreground = "#E8DCC8"
+
+[colors.hints.start]
+foreground = "#2C2218"
+background = "#EBCB8B"
+
+[colors.hints.end]
+foreground = "#EBCB8B"
+background = "#2C2218"

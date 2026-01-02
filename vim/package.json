@@ -1,0 +1,18 @@
+{
+  "name": "stranger-theme-vim",
+  "version": "1.0.0",
+  "description": "Stranger Things inspired theme for Vim and Neovim",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "keywords": [
+    "theme",
+    "vim",
+    "neovim",
+    "colorscheme",
+    "stranger-things",
+    "dark-theme"
+  ],
+  "author": "Stranger Theme",
+  "license": "MIT"
+}

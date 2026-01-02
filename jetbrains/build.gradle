@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '1.16.1'
+}
+
+group 'com.strangertheme'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+intellij {
+    version = '2023.3'
+    type = 'IC' // IntelliJ IDEA Community Edition
+    plugins = []
+    updateSinceUntilBuild = false
+}
+
+tasks {
+    patchPluginXml {
+        sinceBuild = '191'
+        untilBuild = ''
+    }
+    
+    buildSearchableOptions {
+        enabled = false
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['themes', 'META-INF']
+        }
+    }
+}

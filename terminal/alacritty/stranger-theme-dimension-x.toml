@@ -1,0 +1,59 @@
+# Stranger Theme: Dimension X for Alacritty
+# https://github.com/stranger-theme/alacritty
+
+[colors.primary]
+background = "#1E1A1A"
+foreground = "#E8D5D5"
+bright_foreground = "#ffffff"
+
+[colors.cursor]
+text = "#1E1A1A"
+cursor = "#E8D5D5"
+
+[colors.vi_mode_cursor]
+text = "CellBackground"
+cursor = "CellForeground"
+
+[colors.selection]
+text = "CellForeground"
+background = "#3E2A2A"
+
+[colors.normal]
+black = "#1E1A1A"
+red = "#FF55AA"
+green = "#8B7355"
+yellow = "#BCA89F"
+blue = "#C678DD"
+magenta = "#E06C75"
+cyan = "#D19A66"
+white = "#E8D5D5"
+
+[colors.bright]
+black = "#5C4A4A"
+red = "#FF73C8"
+green = "#A99173"
+yellow = "#DAC6BD"
+blue = "#E496FB"
+magenta = "#FE8A93"
+cyan = "#EFB884"
+white = "#FFFFFF"
+
+[colors.search.matches]
+foreground = "#3E2A2A"
+background = "#8B7355"
+
+[colors.search.focused_match]
+foreground = "#3E2A2A"
+background = "#FF6B6B"
+
+[colors.footer_bar]
+background = "#1E1A1A"
+foreground = "#E8D5D5"
+
+[colors.hints.start]
+foreground = "#1E1A1A"
+background = "#BCA89F"
+
+[colors.hints.end]
+foreground = "#BCA89F"
+background = "#1E1A1A"

@@ -1,0 +1,73 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Create Release with Artifacts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install VS Code dependencies
+        run: cd visual-studio-code && npm ci
+
+      - name: Build all themes
+        run: npm run build
+
+      - name: Install vsce
+        run: npm install -g @vscode/vsce
+
+      - name: Package VS Code extension
+        run: |
+          cd visual-studio-code
+          vsce package
+
+      - name: Create theme archives
+        run: |
+          # VS Code VSIX is already created
+          
+          # JetBrains themes
+          cd jetbrains/themes && zip -r ../../stranger-theme-jetbrains.zip . && cd ../..
+          
+          # Vim colorschemes
+          cd vim/colors && zip -r ../../stranger-theme-vim.zip . && cd ../..
+          
+          # Sublime Text themes
+          cd sublime-text/themes && zip -r ../../stranger-theme-sublime.zip . && cd ../..
+          
+          # Terminal themes
+          cd terminal
+          zip -r ../stranger-theme-alacritty.zip alacritty/
+          zip -r ../stranger-theme-iterm2.zip iterm2/
+          zip -r ../stranger-theme-windows-terminal.zip windows-terminal/
+          cd ..
+          
+          # Hyper themes
+          cd hyper/themes && zip -r ../../stranger-theme-hyper.zip . && cd ../..
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            visual-studio-code/*.vsix
+            stranger-theme-jetbrains.zip
+            stranger-theme-vim.zip
+            stranger-theme-sublime.zip
+            stranger-theme-alacritty.zip
+            stranger-theme-iterm2.zip
+            stranger-theme-windows-terminal.zip
+            stranger-theme-hyper.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

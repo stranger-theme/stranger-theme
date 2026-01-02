@@ -1,0 +1,84 @@
+{
+  "name": "stranger-theme",
+  "displayName": "Stranger Theme",
+  "description": "A collection of dark themes inspired by the famous Stranger Things series",
+  "version": "1.0.0",
+  "publisher": "stranger-theme",
+  "author": {
+    "name": "Stranger Theme",
+    "url": "https://strangertheme.com"
+  },
+  "icon": "assets/stranger-theme-logo.png",
+  "galleryBanner": {
+    "color": "#0D1117",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Stranger Theme: Upside Down",
+        "uiTheme": "vs-dark",
+        "path": "./themes/upside-down-color-theme.json"
+      },
+      {
+        "label": "Stranger Theme: Starcourt",
+        "uiTheme": "vs-dark",
+        "path": "./themes/starcourt-color-theme.json"
+      },
+      {
+        "label": "Stranger Theme: Hawkins",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hawkins-color-theme.json"
+      },
+      {
+        "label": "Stranger Theme: The Lab",
+        "uiTheme": "vs-dark",
+        "path": "./themes/the-lab-color-theme.json"
+      },
+      {
+        "label": "Stranger Theme: Tigers",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tigers-color-theme.json"
+      },
+      {
+        "label": "Stranger Theme: Dimension X",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dimension-x-color-theme.json"
+      }
+    ]
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "stranger things",
+    "upside down",
+    "starcourt",
+    "dimension x",
+    "hawkins",
+    "80s"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stranger-theme/vscode"
+  },
+  "homepage": "https://strangertheme.com",
+  "bugs": {
+    "url": "https://github.com/stranger-theme/vscode/issues"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "package": "npm run build && vsce package",
+    "publish": "npm run build && vsce publish"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^2.22.0",
+    "js-yaml": "^4.1.0"
+  }
+}

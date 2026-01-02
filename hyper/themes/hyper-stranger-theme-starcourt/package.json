@@ -1,0 +1,20 @@
+{
+  "name": "hyper-stranger-theme-starcourt",
+  "version": "1.0.0",
+  "description": "Stranger Theme: Starcourt for Hyper Terminal",
+  "main": "index.js",
+  "keywords": [
+    "hyper",
+    "hyper-theme",
+    "hyper-plugin",
+    "theme",
+    "stranger-things",
+    "dark-theme"
+  ],
+  "author": "Stranger Theme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stranger-theme/hyper"
+  }
+}
