@@ -1,12 +1,12 @@
 <div align="center">
 
-![Stranger Theme Logo](../stranger-theme/assets/stranger-theme-logo.png)
+<img src="../stranger-theme/assets/stranger-theme-logo.png" alt="Stranger Theme Logo" width="256" />
 
 </div>
 
 # Stranger Theme for Hyper
 
-> 🔦 A dark theme collection for Hyper Terminal
+> 🔦 A dark theme collection for Hyper Terminal inspired by the famous series Stranger Things
 
 ## Install
 

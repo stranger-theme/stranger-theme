@@ -1,12 +1,12 @@
 <div align="center">
 
-![Stranger Theme Logo](../stranger-theme/assets/stranger-theme-logo.png)
+<img src="../stranger-theme/assets/stranger-theme-logo.png" alt="Stranger Theme Logo" width="256" />
 
 </div>
 
 # Stranger Theme for Visual Studio Code
 
-> 🔦 A dark theme collection inspired by Stranger Things
+> 🔦 A dark theme collection inspired by the famous series Stranger Things
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/stranger-theme.stranger-theme?style=flat-square&label=Version&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=stranger-theme.stranger-theme)
 [![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/stranger-theme.stranger-theme?style=flat-square&label=Downloads)](https://marketplace.visualstudio.com/items?itemName=stranger-theme.stranger-theme)

@@ -1,12 +1,12 @@
 <div align="center">
 
-![Stranger Theme Logo](../stranger-theme/assets/stranger-theme-logo.png)
+<img src="../stranger-theme/assets/stranger-theme-logo.png" alt="Stranger Theme Logo" width="256" />
 
 </div>
 
 # Stranger Theme for JetBrains
 
-> 🔦 A dark theme collection for IntelliJ IDEA, PyCharm, WebStorm, and all JetBrains IDEs
+> 🔦 A dark theme collection for IntelliJ IDEA, PyCharm, WebStorm, and all JetBrains IDEs inspired by the famous series Stranger Things
 
 [![JetBrains Plugins](https://img.shields.io/jetbrains/plugin/v/com.strangertheme.theme?style=flat-square&label=Version&logo=jetbrains&logoColor=white)](https://plugins.jetbrains.com/plugin/XXXXX-stranger-theme)
 [![JetBrains Plugin Downloads](https://img.shields.io/jetbrains/plugin/d/com.strangertheme.theme?style=flat-square&label=Downloads)](https://plugins.jetbrains.com/plugin/XXXXX-stranger-theme)
