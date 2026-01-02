@@ -1,6 +1,6 @@
 # 🔦 Stranger Theme
 
-> A dark theme collection inspired by the Netflix series Stranger Things. One theme. All platforms.
+> A dark theme collection inspired by the famous series Stranger Things. One theme. All platforms.
 
 ## 🎨 Theme Variants
 
