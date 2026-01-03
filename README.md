@@ -34,21 +34,22 @@ Each platform directory contains installation instructions specific to that envi
 
 ## Color Palette
 
-All 6 theme variants are built from shared color definitions:
+All 6 theme variants are built from shared color definitions. The example below uses the Upside Down palette (see `shared/palettes.js` for all variants).
 
-| Color | Usage |
-| --- | --- |
-| Background | Editor/UI background |
-| Foreground | Main text color |
-| Selection | Selected text/UI elements |
-| Comment | Comments and muted text |
-| Cyan | Types, classes, tags |
-| Green | Functions, strings |
-| Orange | Numbers, constants, parameters |
-| Pink | Keywords, tags, operators |
-| Purple | Special keywords, numbers |
-| Red | Errors, deletions |
-| Yellow | Strings, warnings |
+| Palette | Hex | RGB | HSL | Color Picker Boxes |
+| --- | --- | --- | --- | --- |
+| Background | `#0D1117` | 13 17 23 | 216° 28% 7% | <span style="background-color:#0D1117;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Current Line | `#2A3C4A` | 42 60 74 | 206° 28% 23% | <span style="background-color:#2A3C4A;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Selection | `#2A3C4A` | 42 60 74 | 206° 28% 23% | <span style="background-color:#2A3C4A;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Foreground | `#F8F8F2` | 248 248 242 | 60° 30% 96% | <span style="background-color:#F8F8F2;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Comment | `#5C6370` | 92 99 112 | 219° 10% 40% | <span style="background-color:#5C6370;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Cyan | `#56B6C2` | 86 182 194 | 187° 47% 55% | <span style="background-color:#56B6C2;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Green | `#98C379` | 152 195 121 | 95° 38% 62% | <span style="background-color:#98C379;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Orange | `#D19A66` | 209 154 102 | 29° 54% 61% | <span style="background-color:#D19A66;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Pink | `#C678DD` | 198 120 221 | 286° 60% 67% | <span style="background-color:#C678DD;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Purple | `#61AFEF` | 97 175 239 | 207° 82% 66% | <span style="background-color:#61AFEF;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Red | `#E06C75` | 224 108 117 | 355° 65% 65% | <span style="background-color:#E06C75;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Yellow | `#E5C07B` | 229 192 123 | 39° 67% 69% | <span style="background-color:#E5C07B;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
 
 ## Development
 
