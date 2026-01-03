@@ -2,12 +2,12 @@
 # https://github.com/stranger-theme/alacritty
 
 [colors.primary]
-background = "#1A1A1A"
+background = "#181E18"
 foreground = "#F5F5F5"
 bright_foreground = "#ffffff"
 
 [colors.cursor]
-text = "#1A1A1A"
+text = "#181E18"
 cursor = "#F5F5F5"
 
 [colors.vi_mode_cursor]
@@ -16,10 +16,10 @@ cursor = "CellForeground"
 
 [colors.selection]
 text = "CellForeground"
-background = "#2A2A2A"
+background = "#283228"
 
 [colors.normal]
-black = "#1A1A1A"
+black = "#181E18"
 red = "#CC6666"
 green = "#B5BD68"
 yellow = "#F0C674"
@@ -29,7 +29,7 @@ cyan = "#81A2BE"
 white = "#F5F5F5"
 
 [colors.bright]
-black = "#5C5C5C"
+black = "#5C6C5C"
 red = "#EA8484"
 green = "#D3DB86"
 yellow = "#FFE492"
@@ -39,21 +39,21 @@ cyan = "#9FC0DC"
 white = "#FFFFFF"
 
 [colors.search.matches]
-foreground = "#2A2A2A"
+foreground = "#283228"
 background = "#B5BD68"
 
 [colors.search.focused_match]
-foreground = "#2A2A2A"
+foreground = "#283228"
 background = "#DE935F"
 
 [colors.footer_bar]
-background = "#1A1A1A"
+background = "#181E18"
 foreground = "#F5F5F5"
 
 [colors.hints.start]
-foreground = "#1A1A1A"
+foreground = "#181E18"
 background = "#F0C674"
 
 [colors.hints.end]
 foreground = "#F0C674"
-background = "#1A1A1A"
+background = "#181E18"

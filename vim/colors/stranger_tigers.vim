@@ -21,10 +21,10 @@ endif
 " }}}
 " Color Palette: {{{
 
-let s:bg        = ['#1A1A1A', 235]
+let s:bg        = ['#181E18', 235]
 let s:fg        = ['#F5F5F5', 253]
-let s:selection = ['#2A2A2A', 239]
-let s:comment   = ['#5C5C5C', 244]
+let s:selection = ['#283228', 239]
+let s:comment   = ['#5C6C5C', 244]
 let s:cyan      = ['#81A2BE', 117]
 let s:green     = ['#B5BD68', 114]
 let s:orange    = ['#DE935F', 215]
@@ -33,8 +33,8 @@ let s:purple    = ['#B294BB', 141]
 let s:red       = ['#CC6666', 203]
 let s:yellow    = ['#F0C674', 228]
 
-let s:bglight   = ['#2E2E2E', 236]
-let s:bglighter = ['#424242', 237]
+let s:bglight   = ['#2C322C', 236]
+let s:bglighter = ['#404640', 237]
 let s:none      = ['NONE', 'NONE']
 
 " }}}

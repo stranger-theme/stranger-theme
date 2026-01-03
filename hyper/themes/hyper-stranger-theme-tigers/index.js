@@ -5,13 +5,13 @@
  * Install: Add "hyper-stranger-theme-tigers" to your plugins in ~/.hyper.js
  */
 
-const backgroundColor = '#1A1A1A';
+const backgroundColor = '#181E18';
 const foregroundColor = '#F5F5F5';
-const borderColor = '#2A2A2A';
+const borderColor = '#283228';
 const cursorColor = '#F5F5F5';
 
 const colors = {
-  black: '#1A1A1A',
+  black: '#181E18',
   red: '#CC6666',
   green: '#B5BD68',
   yellow: '#F0C674',
@@ -19,7 +19,7 @@ const colors = {
   magenta: '#FF7F2A',
   cyan: '#81A2BE',
   white: '#F5F5F5',
-  lightBlack: '#5C5C5C',
+  lightBlack: '#5C6C5C',
   lightRed: '#EA8484',
   lightGreen: '#D3DB86',
   lightYellow: '#FFE492',
@@ -36,7 +36,7 @@ exports.decorateConfig = (config) => {
     borderColor,
     cursorColor,
     cursorAccentColor: backgroundColor,
-    selectionColor: '#2A2A2A',
+    selectionColor: '#283228',
     colors,
     termCSS: `
       ${config.termCSS || ''}

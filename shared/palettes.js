@@ -96,10 +96,10 @@ const THEME_PALETTES = {
     name: 'Stranger Theme: Tigers',
     displayName: 'Tigers',
     base: {
-      BG: '#1A1A1A',
+      BG: '#181E18',
       FG: '#F5F5F5',
-      SELECTION: '#2A2A2A',
-      COMMENT: '#5C5C5C',
+      SELECTION: '#283228',
+      COMMENT: '#5C6C5C',
       CYAN: '#81A2BE',
       GREEN: '#B5BD68',
       ORANGE: '#DE935F',
