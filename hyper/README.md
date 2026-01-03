@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="../stranger-theme/assets/stranger-theme-logo.png" alt="Stranger Theme Logo" width="256" />
+<img src="../assets/stranger-theme-logo.png" alt="Stranger Theme Logo" width="256" />
 
 </div>
 
@@ -74,7 +74,7 @@ Each theme is a standalone npm package with:
 
 ## Contributing
 
-Contributions are welcome! See the main repository's [Contributing Guide](../stranger-theme/CONTRIBUTING.md).
+Contributions are welcome! See the main repository's [Contributing Guide](../CONTRIBUTING.md).
 
 ## Team
 

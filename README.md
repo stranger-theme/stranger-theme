@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./stranger-theme/assets/stranger-theme-logo.png" alt="Stranger Theme Logo" width="256" />
+<img src="./assets/stranger-theme-logo.png" alt="Stranger Theme Logo" width="256" />
 
 </div>
 
@@ -79,7 +79,7 @@ For detailed architecture and development guidelines, see [CLAUDE.md](./CLAUDE.m
 
 ## Contributing
 
-Contributions are welcome! See our [Contributing Guide](./stranger-theme/CONTRIBUTING.md) for details on:
+Contributions are welcome! See our [Contributing Guide](./CONTRIBUTING.md) for details on:
 
 - Setting up your development environment
 - Making changes to themes
@@ -92,4 +92,4 @@ This theme is maintained by [@tcvieira](https://github.com/tcvieira) and [contri
 
 ## License
 
-[MIT License](./stranger-theme/LICENSE) © Stranger Theme
+[MIT License](./LICENSE) © Stranger Theme
