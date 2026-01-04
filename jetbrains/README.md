@@ -8,9 +8,9 @@
 
 > 🔦 A dark theme collection for IntelliJ IDEA, PyCharm, WebStorm, and all JetBrains IDEs inspired by the famous series Stranger Things
 
-[![JetBrains Plugins](https://img.shields.io/jetbrains/plugin/v/com.strangertheme.theme?style=flat-square&label=Version&logo=jetbrains&logoColor=white)](https://plugins.jetbrains.com/plugin/XXXXX-stranger-theme)
-[![JetBrains Plugin Downloads](https://img.shields.io/jetbrains/plugin/d/com.strangertheme.theme?style=flat-square&label=Downloads)](https://plugins.jetbrains.com/plugin/XXXXX-stranger-theme)
-[![License](https://img.shields.io/github/license/stranger-theme/jetbrains?style=flat-square)](./LICENSE)
+[![JetBrains Plugins](https://img.shields.io/jetbrains/plugin/v/com.strangertheme.theme?style=flat-square&label=Version&logo=jetbrains&logoColor=white)](https://plugins.jetbrains.com/plugin/29608-stranger-theme)
+[![JetBrains Plugin Downloads](https://img.shields.io/jetbrains/plugin/d/com.strangertheme.theme?style=flat-square&label=Downloads)](https://plugins.jetbrains.com/plugin/29608-stranger-theme)
+[![License](https://img.shields.io/github/license/stranger-theme/stranger-theme?style=flat-square)](./LICENSE)
 
 ## Install
 
