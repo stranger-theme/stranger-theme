@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="../assets/stranger-theme-logo.png" alt="Stranger Theme Logo" width="256" />
+<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/visual-studio-code/assets/stranger-theme-logo.png" alt="Stranger Theme Logo" width="256" />
 
 </div>
 
@@ -8,9 +8,9 @@
 
 > 🔦 A dark theme collection inspired by the famous series Stranger Things
 
-[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/stranger-theme.stranger-theme?style=flat-square&label=Version&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=stranger-theme.stranger-theme)
-[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/stranger-theme.stranger-theme?style=flat-square&label=Downloads)](https://marketplace.visualstudio.com/items?itemName=stranger-theme.stranger-theme)
-[![License](https://img.shields.io/github/license/stranger-theme/visual-studio-code?style=flat-square)](./LICENSE)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/StrangerTheme.stranger-theme-vscode?style=flat-square&label=Version&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=StrangerTheme.stranger-theme-vscode)
+[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/StrangerTheme.stranger-theme-vscode?style=flat-square&label=Downloads)](https://marketplace.visualstudio.com/items?itemName=StrangerTheme.stranger-theme-vscode)
+[![License](https://img.shields.io/github/license/stranger-theme/stranger-theme?style=flat-square)](./LICENSE)
 
 ## Install
 
@@ -25,7 +25,7 @@
 #### Command Line
 
 ```bash
-code --install-extension stranger-theme.stranger-theme
+code --install-extension StrangerTheme.stranger-theme-vscode
 ```
 
 ## Theme Variants
@@ -36,28 +36,6 @@ code --install-extension stranger-theme.stranger-theme
 - **The Lab** - Clinical, institutional aesthetic with sterile colors
 - **Tigers** - School colors with orange/black and vintage academic tones
 - **Dimension X** - Dark red dimension with moody, organic textures
-
-## Development
-
-### Building from Source
-
-```bash
-npm install
-npm run build    # Compiles YAML source to JSON themes
-npm run package  # Creates VSIX package
-```
-
-The build process generates theme files from `src/stranger-theme.yaml` using color palettes from `../shared/palettes.js`.
-
-### Testing Locally
-
-Press `F5` to launch the Extension Development Host, then select your theme from `Code → Preferences → Color Theme`.
-
-### Publishing
-
-```bash
-npm run publish
-```
 
 See the [VS Code Publishing Documentation](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) for credentials setup.
 

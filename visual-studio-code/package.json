@@ -1,6 +1,6 @@
 {
-  "name": "stranger-theme",
-  "displayName": "Stranger Theme",
+  "name": "stranger-theme-vscode",
+  "displayName": "Stranger Theme for VS Code",
   "description": "A collection of dark themes inspired by the famous Stranger Things series",
   "version": "1.0.0",
   "publisher": "StrangerTheme",
