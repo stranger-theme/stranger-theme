@@ -5,7 +5,7 @@ All notable changes to the Stranger Things Theme will be documented in this file
 ## [1.0.0] - 2025-04-18
 
 ### Added
-- Initial release with seven theme variants:
+- Initial release with six theme variants:
   - Upside Down: Dark blue-black with desaturated tones
   - Starcourt Mall: Vibrant 80s mall aesthetic with neon colors
   - Vecna: Blue-dominated palette with dark, textured appearance
