@@ -7,7 +7,7 @@
 
   <description><![CDATA[
     <h1>Stranger Theme</h1>
-    <p>A dark theme collection inspired by the Netflix series Stranger Things.</p>
+    <p>A dark theme collection inspired by the famous series Stranger Things.</p>
     <p>Includes six theme variants based on iconic elements from the show:</p>
     <ul>
       <li>Upside Down: Dark blue-black with desaturated tones</li>
@@ -35,6 +35,6 @@
     <themeProvider id="a1b2c3d4-e5f6-4a5b-8c7d-9e0f1a2b3c4d" path="/themes/Hawkins.theme.json"/>
     <themeProvider id="1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d" path="/themes/TheLab.theme.json"/>
     <themeProvider id="2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d" path="/themes/Tigers.theme.json"/>
-    <themeProvider id="3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d" path="/themes/dimension-x.theme.json"/>
+    <themeProvider id="3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d" path="/themes/DimensionX.theme.json"/>
   </extensions>
 </idea-plugin>

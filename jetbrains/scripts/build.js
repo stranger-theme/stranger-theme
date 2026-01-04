@@ -7,11 +7,14 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 // Import shared palettes
 const { THEME_PALETTES, adjustColor } = require('../../shared/palettes');
 
-const THEMES_DIR = path.join(__dirname, '..', 'themes');
+const THEMES_DIR = path.join(__dirname, '..', 'src', 'main', 'resources', 'themes');
+const META_INF_DIR = path.join(__dirname, '..', 'src', 'main', 'resources', 'META-INF');
+const ASSETS_DIR = path.join(__dirname, '..', 'assets');
 
 /**
  * Convert hex to JetBrains color format (6 hex digits without #)
@@ -714,6 +717,44 @@ function getThemeFileName(themeId) {
 }
 
 /**
+ * Generate plugin icons from logo
+ */
+function generatePluginIcons() {
+  console.log('Generating plugin icons...');
+
+  const logoPath = path.join(ASSETS_DIR, 'stranger-theme-logo.png');
+
+  if (!fs.existsSync(logoPath)) {
+    console.log('  Warning: Logo file not found, skipping icon generation');
+    return;
+  }
+
+  // Ensure META-INF directory exists
+  if (!fs.existsSync(META_INF_DIR)) {
+    fs.mkdirSync(META_INF_DIR, { recursive: true });
+  }
+
+  const icon40 = path.join(META_INF_DIR, 'pluginIcon.png');
+  const icon80 = path.join(META_INF_DIR, 'pluginIcon@2x.png');
+
+  try {
+    // Check if sips is available (macOS)
+    execSync('which sips', { stdio: 'ignore' });
+
+    // Generate 40x40 icon
+    execSync(`sips -z 40 40 "${logoPath}" --out "${icon40}"`, { stdio: 'ignore' });
+    console.log(`  -> ${icon40}`);
+
+    // Generate 80x80 icon for retina displays
+    execSync(`sips -z 80 80 "${logoPath}" --out "${icon80}"`, { stdio: 'ignore' });
+    console.log(`  -> ${icon80}`);
+  } catch (error) {
+    console.log('  Warning: Could not generate icons automatically (sips not available)');
+    console.log('  Please manually create pluginIcon.png (40x40) and pluginIcon@2x.png (80x80)');
+  }
+}
+
+/**
  * Main build function
  */
 function build() {
@@ -724,16 +765,20 @@ function build() {
     fs.mkdirSync(THEMES_DIR, { recursive: true });
   }
 
+  // Generate plugin icons
+  generatePluginIcons();
+  console.log();
+
   // Build each theme variant
   for (const [themeId, palette] of Object.entries(THEME_PALETTES)) {
     console.log(`Building ${palette.name}...`);
-    
+
     // Generate theme JSON
     const themeJson = generateThemeJson(themeId, palette);
     const themeFile = path.join(THEMES_DIR, getThemeFileName(themeId));
     fs.writeFileSync(themeFile, JSON.stringify(themeJson, null, 2));
     console.log(`  -> ${themeFile}`);
-    
+
     // Generate scheme XML
     const schemeXml = generateSchemeXml(themeId, palette);
     const schemeFile = path.join(THEMES_DIR, getSchemeFileName(themeId));

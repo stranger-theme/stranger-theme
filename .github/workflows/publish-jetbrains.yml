@@ -1,0 +1,73 @@
+name: Publish JetBrains Plugin
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g., 1.0.0)'
+        required: false
+      channel:
+        description: 'Release channel (stable, beta, alpha)'
+        required: false
+        default: 'stable'
+        type: choice
+        options:
+          - stable
+          - beta
+          - alpha
+
+jobs:
+  publish:
+    name: Publish to JetBrains Marketplace
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Install dependencies
+        run: cd jetbrains && npm ci
+
+      - name: Build themes and icons
+        run: npm run build:jetbrains
+
+      - name: Build plugin
+        run: |
+          cd jetbrains
+          gradle buildPlugin
+
+      - name: Verify plugin
+        run: |
+          cd jetbrains
+          gradle verifyPlugin
+
+      - name: Publish to JetBrains Marketplace
+        run: |
+          cd jetbrains
+          gradle publishPlugin \
+            -Pversion=${{ github.event.inputs.version || github.ref_name }} \
+            -Pchannel=${{ github.event.inputs.channel || 'stable' }}
+        env:
+          ORG_GRADLE_PROJECT_intellijPublishToken: ${{ secrets.JETBRAINS_MARKETPLACE_TOKEN }}
+
+      - name: Upload plugin artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jetbrains-plugin
+          path: jetbrains/build/distributions/*.zip

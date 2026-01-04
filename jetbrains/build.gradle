@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '1.16.1'
+    id 'org.jetbrains.intellij' version '1.17.4'
 }
 
 group 'com.strangertheme'
@@ -22,16 +22,19 @@ tasks {
         sinceBuild = '191'
         untilBuild = ''
     }
-    
+
     buildSearchableOptions {
         enabled = false
     }
-}
 
-sourceSets {
-    main {
-        resources {
-            srcDirs = ['themes', 'META-INF']
-        }
+    publishPlugin {
+        // Token can be set via environment variable or gradle.properties:
+        // export ORG_GRADLE_PROJECT_intellijPublishToken=YOUR_TOKEN
+        // or add to ~/.gradle/gradle.properties: intellijPublishToken=YOUR_TOKEN
+        token = project.findProperty('intellijPublishToken') ?: System.getenv('JETBRAINS_MARKETPLACE_TOKEN')
+
+        // Channel can be overridden via -Pchannel=beta
+        def channel = project.findProperty('channel') ?: 'stable'
+        channels = [channel]  // Options: 'stable', 'beta', 'alpha'
     }
 }

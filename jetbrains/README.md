@@ -60,14 +60,48 @@ All JetBrains IDEs version 2019.1+ are supported:
 
 ```bash
 npm install
-npm run build    # Generates .theme.json and Scheme.xml files
+npm run build           # Generates .theme.json, Scheme.xml files, and plugin icons
 ```
+
+The build script automatically:
+- Generates theme JSON files from shared color palettes
+- Creates XML color schemes for syntax highlighting
+- Resizes the logo to create plugin icons (40×40 and 80×80)
 
 ### Gradle Build
 
 ```bash
-./gradlew buildPlugin    # Creates plugin JAR
-./gradlew runIde        # Test in IDE instance
+gradle buildPlugin      # Creates plugin ZIP in build/distributions/
+gradle runIde          # Test plugin in a sandboxed IDE instance
+gradle verifyPlugin    # Validate plugin structure and compatibility
+```
+
+### Versioning
+
+When releasing updates:
+
+1. Update version in `package.json`
+2. Update version and change notes in `META-INF/plugin.xml`
+3. Rebuild and republish
+
+```xml
+<!-- In plugin.xml -->
+<version>1.1.0</version>
+<change-notes><![CDATA[
+  <ul>
+    <li>1.1.0 - Added new color variants</li>
+    <li>1.0.0 - Initial release</li>
+  </ul>
+]]></change-notes>
+```
+
+### Testing Before Publishing
+
+Always test your plugin before publishing:
+
+```bash
+gradle runIde  # Opens IDE with plugin installed
+gradle verifyPlugin  # Validates plugin compatibility
 ```
 
 ## Contributing
