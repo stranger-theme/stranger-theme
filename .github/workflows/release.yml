@@ -38,7 +38,7 @@ jobs:
           # VS Code VSIX is already created
           
           # JetBrains themes
-          cd jetbrains/themes && zip -r ../../stranger-theme-jetbrains.zip . && cd ../..
+          cd jetbrains/src/main/resources/themes && zip -r ../../../../../stranger-theme-jetbrains.zip . && cd ../../../../..
           
           # Vim colorschemes
           cd vim/colors && zip -r ../../stranger-theme-vim.zip . && cd ../..

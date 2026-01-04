@@ -33,8 +33,8 @@ jobs:
           echo "✅ VS Code themes generated"
           
           # Check JetBrains themes
-          test -f jetbrains/themes/Starcourt.theme.json
-          test -f jetbrains/themes/StarcourtScheme.xml
+          test -f jetbrains/src/main/resources/themes/Starcourt.theme.json
+          test -f jetbrains/src/main/resources/themes/StarcourtScheme.xml
           echo "✅ JetBrains themes generated"
           
           # Check Vim themes
@@ -64,7 +64,7 @@ jobs:
           name: stranger-theme-builds
           path: |
             visual-studio-code/themes/
-            jetbrains/themes/
+            jetbrains/src/main/resources/themes/
             vim/colors/
             sublime-text/themes/
             terminal/
