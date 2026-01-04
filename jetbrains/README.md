@@ -66,7 +66,7 @@ npm run build           # Generates .theme.json, Scheme.xml files, and plugin ic
 The build script automatically:
 - Generates theme JSON files from shared color palettes
 - Creates XML color schemes for syntax highlighting
-- Resizes the logo to create plugin icons (40×40 and 80×80)
+- Copies SVG plugin icons from root assets folder
 
 ### Gradle Build
 

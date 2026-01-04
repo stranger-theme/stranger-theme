@@ -14,7 +14,7 @@ const { THEME_PALETTES, adjustColor } = require('../../shared/palettes');
 
 const THEMES_DIR = path.join(__dirname, '..', 'src', 'main', 'resources', 'themes');
 const META_INF_DIR = path.join(__dirname, '..', 'src', 'main', 'resources', 'META-INF');
-const ASSETS_DIR = path.join(__dirname, '..', 'assets');
+const ROOT_ASSETS_DIR = path.join(__dirname, '..', '..', 'assets');
 
 /**
  * Convert hex to JetBrains color format (6 hex digits without #)
@@ -717,15 +717,17 @@ function getThemeFileName(themeId) {
 }
 
 /**
- * Generate plugin icons from logo
+ * Copy plugin icons from root assets directory
+ * JetBrains requires SVG format icons for Plugin Manager and Marketplace
  */
-function generatePluginIcons() {
-  console.log('Generating plugin icons...');
+function copyPluginIcons() {
+  console.log('Copying plugin icons...');
 
-  const logoPath = path.join(ASSETS_DIR, 'stranger-theme-logo.png');
+  const logoSvgPath = path.join(ROOT_ASSETS_DIR, 'stranger-theme-logo-small.svg');
 
-  if (!fs.existsSync(logoPath)) {
-    console.log('  Warning: Logo file not found, skipping icon generation');
+  if (!fs.existsSync(logoSvgPath)) {
+    console.log('  Warning: Logo SVG file not found, skipping icon copy');
+    console.log(`  Expected: ${logoSvgPath}`);
     return;
   }
 
@@ -734,23 +736,19 @@ function generatePluginIcons() {
     fs.mkdirSync(META_INF_DIR, { recursive: true });
   }
 
-  const icon40 = path.join(META_INF_DIR, 'pluginIcon.png');
-  const icon80 = path.join(META_INF_DIR, 'pluginIcon@2x.png');
+  const pluginIcon = path.join(META_INF_DIR, 'pluginIcon.svg');
+  const pluginIconDark = path.join(META_INF_DIR, 'pluginIcon_dark.svg');
 
   try {
-    // Check if sips is available (macOS)
-    execSync('which sips', { stdio: 'ignore' });
+    // Copy SVG as pluginIcon.svg (used for light themes or as default)
+    fs.copyFileSync(logoSvgPath, pluginIcon);
+    console.log(`  -> ${pluginIcon}`);
 
-    // Generate 40x40 icon
-    execSync(`sips -z 40 40 "${logoPath}" --out "${icon40}"`, { stdio: 'ignore' });
-    console.log(`  -> ${icon40}`);
-
-    // Generate 80x80 icon for retina displays
-    execSync(`sips -z 80 80 "${logoPath}" --out "${icon80}"`, { stdio: 'ignore' });
-    console.log(`  -> ${icon80}`);
+    // Copy SVG as pluginIcon_dark.svg (used for dark themes)
+    fs.copyFileSync(logoSvgPath, pluginIconDark);
+    console.log(`  -> ${pluginIconDark}`);
   } catch (error) {
-    console.log('  Warning: Could not generate icons automatically (sips not available)');
-    console.log('  Please manually create pluginIcon.png (40x40) and pluginIcon@2x.png (80x80)');
+    console.log(`  Error copying icons: ${error.message}`);
   }
 }
 
@@ -765,8 +763,8 @@ function build() {
     fs.mkdirSync(THEMES_DIR, { recursive: true });
   }
 
-  // Generate plugin icons
-  generatePluginIcons();
+  // Copy plugin icons (SVG format required by JetBrains)
+  copyPluginIcons();
   console.log();
 
   // Build each theme variant
