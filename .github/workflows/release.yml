@@ -9,6 +9,8 @@ jobs:
   release:
     name: Create Release with Artifacts
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
