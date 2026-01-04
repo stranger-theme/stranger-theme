@@ -1,6 +1,6 @@
 {
   "name": "stranger-theme-hyper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Stranger Things inspired themes for Hyper Terminal",
   "scripts": {
     "build": "node scripts/build.js"
