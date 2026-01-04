@@ -1,6 +1,6 @@
 {
   "name": "stranger-theme",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A dark theme collection inspired by Stranger Things - All platforms",
   "scripts": {
     "build": "node scripts/build-all.js",

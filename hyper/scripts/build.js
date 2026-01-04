@@ -89,7 +89,7 @@ exports.decorateConfig = (config) => {
 function generatePackageJson(themeId, palette) {
   return {
     name: `hyper-stranger-theme-${themeId}`,
-    version: "1.0.0",
+    version: "1.0.2",
     description: `Stranger Theme: ${palette.displayName} for Hyper Terminal`,
     main: "index.js",
     keywords: [
