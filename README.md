@@ -8,6 +8,12 @@
 
 > 🔦 A dark theme collection inspired by the famous series Stranger Things
 
+<div align="center">
+
+<a href="https://www.producthunt.com/products/stranger-theme?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-stranger-theme" target="_blank" rel="noopener noreferrer"><img alt="Stranger Theme - Turn your coding environment upside down | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1059824&amp;theme=neutral&amp;t=1767823358022"></a>
+
+</div>
+
 ## Theme Variants
 
 Stranger Theme comes in 6 distinct variants, each capturing the essence of different locations and dimensions from the series:
