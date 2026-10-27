@@ -49,11 +49,23 @@ jobs:
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
 
-      - name: Publish to Open VSX Registry
+      - name: Ensure Open VSX publisher namespace
+        id: namespace
         if: ${{ !cancelled() && steps.package.outcome == 'success' && env.OVSX_PAT != '' }}
         run: |
+          publisher="$(node -p "require('./visual-studio-code/package.json').publisher")"
+          status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "https://open-vsx.org/api/$publisher")"
+          case "$status" in
+            200) echo "Open VSX namespace already exists: $publisher" ;;
+            404) npx --yes ovsx create-namespace "$publisher" -p "$OVSX_PAT" ;;
+            *) echo "Open VSX namespace lookup failed: HTTP $status"; exit 1 ;;
+          esac
+
+      - name: Publish to Open VSX Registry
+        if: ${{ !cancelled() && steps.package.outcome == 'success' && steps.namespace.outcome == 'success' }}
+        run: |
           cd visual-studio-code
-          npx --yes ovsx publish stranger-theme.vsix -p "$OVSX_PAT"
+          npx --yes ovsx publish stranger-theme.vsix --skip-duplicate -p "$OVSX_PAT"
 
       - name: Report missing Open VSX credentials
         if: ${{ !cancelled() && steps.package.outcome == 'success' && env.OVSX_PAT == '' }}

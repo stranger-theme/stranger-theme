@@ -11,7 +11,7 @@
     "build:terminal": "cd terminal && npm run build",
     "build:hyper": "cd hyper && npm run build",
     "build:zed": "cd zed && npm run build",
-    "test": "node scripts/test-new-clients.js"
+    "test": "node scripts/test-new-clients.js && node scripts/test-openvsx-workflow.js"
   },
   "keywords": [
     "theme",
