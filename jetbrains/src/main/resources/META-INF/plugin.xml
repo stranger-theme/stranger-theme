@@ -2,7 +2,7 @@
 <idea-plugin>
   <id>com.strangertheme.theme</id>
   <name>Stranger Theme</name>
-  <version>1.0.0</version>
+  <version>1.0.3</version>
   <vendor email="contact@strangertheme.com" url="https://github.com/stranger-theme">Stranger Theme</vendor>
 
   <description><![CDATA[

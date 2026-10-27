@@ -1,0 +1,35 @@
+name: Check Distribution Credentials
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: https://registry.npmjs.org
+      - name: Verify npm authentication without publishing
+        run: npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  vscode:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+        working-directory: visual-studio-code
+      - name: Verify publisher permissions without publishing
+        run: npx --no-install vsce verify-pat StrangerTheme
+        working-directory: visual-studio-code
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}

@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.strangertheme'
-version = project.findProperty('releaseVersion') ?: '1.0.2'
+version = project.findProperty('releaseVersion') ?: '1.0.3'
 
 repositories {
     mavenCentral()
