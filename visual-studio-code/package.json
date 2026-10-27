@@ -65,11 +65,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/stranger-theme/vscode"
+    "url": "https://github.com/stranger-theme/stranger-theme.git"
   },
   "homepage": "https://strangertheme.com",
   "bugs": {
-    "url": "https://github.com/stranger-theme/vscode/issues"
+    "url": "https://github.com/stranger-theme/stranger-theme/issues"
   },
   "license": "MIT",
   "scripts": {

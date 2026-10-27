@@ -1,0 +1,23 @@
+# Stranger Theme: Tigers for Ghostty
+background = #181E18
+foreground = #F5F5F5
+cursor-color = #F5F5F5
+cursor-text = #181E18
+selection-background = #283228
+selection-foreground = #F5F5F5
+palette = 0=#181E18
+palette = 1=#CC6666
+palette = 2=#B5BD68
+palette = 3=#F0C674
+palette = 4=#B294BB
+palette = 5=#FF7F2A
+palette = 6=#81A2BE
+palette = 7=#F5F5F5
+palette = 8=#5C6C5C
+palette = 9=#EA8484
+palette = 10=#D3DB86
+palette = 11=#FFE492
+palette = 12=#D0B2D9
+palette = 13=#FF9D48
+palette = 14=#9FC0DC
+palette = 15=#FFFFFF

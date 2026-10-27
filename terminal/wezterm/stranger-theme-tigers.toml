@@ -1,0 +1,15 @@
+# Stranger Theme: Tigers for WezTerm
+[colors]
+background = "#181E18"
+foreground = "#F5F5F5"
+cursor_bg = "#F5F5F5"
+cursor_fg = "#181E18"
+cursor_border = "#F5F5F5"
+selection_bg = "#283228"
+selection_fg = "#F5F5F5"
+ansi = ["#181E18","#CC6666","#B5BD68","#F0C674","#B294BB","#FF7F2A","#81A2BE","#F5F5F5"]
+brights = ["#5C6C5C","#EA8484","#D3DB86","#FFE492","#D0B2D9","#FF9D48","#9FC0DC","#FFFFFF"]
+
+[metadata]
+name = "Stranger Theme: Tigers"
+author = "Stranger Theme"

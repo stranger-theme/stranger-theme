@@ -24,23 +24,50 @@ jobs:
       - name: Install VS Code dependencies
         run: cd visual-studio-code && npm ci
 
+      - name: Verify release version
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          node <<'NODE'
+          const assert = require('node:assert/strict');
+          const version = require('./package.json').version;
+          assert.equal(process.env.RELEASE_TAG, `v${version}`, 'Tag must match package version');
+          for (const dir of ['visual-studio-code', 'jetbrains', 'hyper']) {
+            assert.equal(require(`./${dir}/package.json`).version, version, `${dir} version mismatch`);
+          }
+          NODE
+
       - name: Build all themes
         run: npm run build
 
-      - name: Install vsce
-        run: npm install -g @vscode/vsce
+      - name: Validate generated client themes
+        run: npm test
 
       - name: Package VS Code extension
         run: |
           cd visual-studio-code
-          vsce package
+          npx --no-install vsce package
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.10.2'
+
+      - name: Package installable JetBrains plugin
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          gradle -p jetbrains buildPlugin verifyPlugin -PreleaseVersion="$version"
+          cp jetbrains/build/distributions/*.zip stranger-theme-jetbrains.zip
 
       - name: Create theme archives
         run: |
           # VS Code VSIX is already created
-          
-          # JetBrains themes
-          cd jetbrains/src/main/resources/themes && zip -r ../../../../../stranger-theme-jetbrains.zip . && cd ../../../../..
           
           # Vim colorschemes
           cd vim/colors && zip -r ../../stranger-theme-vim.zip . && cd ../..
@@ -53,13 +80,18 @@ jobs:
           zip -r ../stranger-theme-alacritty.zip alacritty/
           zip -r ../stranger-theme-iterm2.zip iterm2/
           zip -r ../stranger-theme-windows-terminal.zip windows-terminal/
+          zip -r ../stranger-theme-ghostty.zip ghostty/ README.md
+          zip -r ../stranger-theme-kitty.zip kitty/ README.md
+          zip -r ../stranger-theme-wezterm.zip wezterm/ README.md
           cd ..
+
+          cd zed && zip -r ../stranger-theme-zed.zip themes/ README.md && cd ..
           
           # Hyper themes
           cd hyper/themes && zip -r ../../stranger-theme-hyper.zip . && cd ../..
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: |
             visual-studio-code/*.vsix
@@ -70,6 +102,26 @@ jobs:
             stranger-theme-iterm2.zip
             stranger-theme-windows-terminal.zip
             stranger-theme-hyper.zip
+            stranger-theme-ghostty.zip
+            stranger-theme-kitty.zip
+            stranger-theme-wezterm.zip
+            stranger-theme-zed.zip
+          fail_on_unmatched_files: true
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-vscode:
+    needs: release
+    uses: ./.github/workflows/publish-vscode.yml
+    secrets: inherit
+
+  publish-jetbrains:
+    needs: release
+    uses: ./.github/workflows/publish-jetbrains.yml
+    secrets: inherit
+
+  publish-hyper:
+    needs: release
+    uses: ./.github/workflows/publish-hyper.yml
+    secrets: inherit

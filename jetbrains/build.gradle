@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.strangertheme'
-version '1.0.2'
+version = project.findProperty('releaseVersion') ?: '1.0.2'
 
 repositories {
     mavenCentral()
@@ -35,6 +35,6 @@ tasks {
 
         // Channel can be overridden via -Pchannel=beta
         def channel = project.findProperty('channel') ?: 'stable'
-        channels = [channel]  // Options: 'stable', 'beta', 'alpha'
+        channels = [channel == 'stable' ? 'default' : channel]
     }
 }

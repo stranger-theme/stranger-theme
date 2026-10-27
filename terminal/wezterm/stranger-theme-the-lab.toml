@@ -1,0 +1,15 @@
+# Stranger Theme: The Lab for WezTerm
+[colors]
+background = "#1A1D26"
+foreground = "#E0E5EC"
+cursor_bg = "#E0E5EC"
+cursor_fg = "#1A1D26"
+cursor_border = "#E0E5EC"
+selection_bg = "#2A2D36"
+selection_fg = "#E0E5EC"
+ansi = ["#1A1D26","#FF4136","#2ECC40","#FFDC00","#B10DC9","#7FDBFF","#39CCCC","#E0E5EC"]
+brights = ["#5D6D7E","#FF5F54","#4CEA5E","#FFFA1E","#CF2BE7","#9DF9FF","#57EAEA","#FFFFFF"]
+
+[metadata]
+name = "Stranger Theme: The Lab"
+author = "Stranger Theme"

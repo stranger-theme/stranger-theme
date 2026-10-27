@@ -25,7 +25,7 @@
 
 #### Manual Installation
 
-1. Download the latest `.jar` from [Releases](https://github.com/stranger-theme/stranger-theme/releases)
+1. Download `stranger-theme-jetbrains.zip` from [Releases](https://github.com/stranger-theme/stranger-theme/releases). This is the installable plugin ZIP, not a ZIP of theme resources.
 2. Open **Settings/Preferences** → **Plugins** → ⚙️ → **Install Plugin from Disk**
 3. Select the downloaded file
 4. Restart your IDE

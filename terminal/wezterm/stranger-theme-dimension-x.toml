@@ -1,0 +1,15 @@
+# Stranger Theme: Dimension X for WezTerm
+[colors]
+background = "#1E1A1A"
+foreground = "#E8D5D5"
+cursor_bg = "#E8D5D5"
+cursor_fg = "#1E1A1A"
+cursor_border = "#E8D5D5"
+selection_bg = "#3E2A2A"
+selection_fg = "#E8D5D5"
+ansi = ["#1E1A1A","#FF55AA","#8B7355","#BCA89F","#C678DD","#E06C75","#D19A66","#E8D5D5"]
+brights = ["#5C4A4A","#FF73C8","#A99173","#DAC6BD","#E496FB","#FE8A93","#EFB884","#FFFFFF"]
+
+[metadata]
+name = "Stranger Theme: Dimension X"
+author = "Stranger Theme"

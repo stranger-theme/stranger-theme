@@ -4,10 +4,15 @@ on:
   release:
     types: [published]
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version to publish (e.g., 1.0.0)'
-        required: false
+  workflow_call:
+    secrets:
+      VSCE_PAT:
+        required: true
+      OVSX_PAT:
+        required: true
+
+permissions:
+  contents: read
 
 jobs:
   publish:
@@ -29,30 +34,29 @@ jobs:
       - name: Build themes
         run: npm run build:vscode
 
-      - name: Install vsce
-        run: npm install -g @vscode/vsce
-
       - name: Package extension
+        id: package
         run: |
           cd visual-studio-code
-          vsce package
+          npx --no-install vsce package --out stranger-theme.vsix
 
       - name: Publish to VS Code Marketplace
         run: |
           cd visual-studio-code
-          vsce publish -p ${{ secrets.VSCE_PAT }}
+          npx --no-install vsce publish --packagePath stranger-theme.vsix -p "$VSCE_PAT"
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
 
       - name: Publish to Open VSX Registry
+        if: ${{ !cancelled() && steps.package.outcome == 'success' }}
         run: |
           cd visual-studio-code
-          npx ovsx publish -p ${{ secrets.OVSX_PAT }} || echo "Open VSX publish skipped"
+          npx --yes ovsx publish stranger-theme.vsix -p "$OVSX_PAT"
         env:
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
-        continue-on-error: true
 
       - name: Upload VSIX artifact
+        if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           name: vscode-extension

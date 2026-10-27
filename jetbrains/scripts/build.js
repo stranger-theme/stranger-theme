@@ -298,13 +298,16 @@ function generateSchemeXml(themeId, palette) {
     BGLighter: toJBColor(bgLighter)
   };
 
+// Pinned (not new Date()) so `npm run build` is deterministic and doesn't dirty the tree.
+const BUILD_DATE = '2026-01-04';
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <scheme name="${palette.name}" version="142" parent_scheme="Darcula">
   <metaInfo>
-    <property name="created">${new Date().toISOString().split('T')[0]}T00:00:00</property>
+    <property name="created">${BUILD_DATE}T00:00:00</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2023.3.0.0</property>
-    <property name="modified">${new Date().toISOString().split('T')[0]}T00:00:00</property>
+    <property name="modified">${BUILD_DATE}T00:00:00</property>
     <property name="originalScheme">${palette.name}</property>
   </metaInfo>
   <colors>

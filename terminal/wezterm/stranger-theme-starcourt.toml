@@ -1,0 +1,15 @@
+# Stranger Theme: Starcourt for WezTerm
+[colors]
+background = "#1A1A2E"
+foreground = "#EAEAEA"
+cursor_bg = "#EAEAEA"
+cursor_fg = "#1A1A2E"
+cursor_border = "#EAEAEA"
+selection_bg = "#2E2E4A"
+selection_fg = "#EAEAEA"
+ansi = ["#1A1A2E","#FF6B6B","#00FA9A","#FFD700","#BA55D3","#FF1493","#00CED1","#EAEAEA"]
+brights = ["#6B5B95","#FF8989","#1EFFB8","#FFF51E","#D873F1","#FF32B1","#1EECEF","#FFFFFF"]
+
+[metadata]
+name = "Stranger Theme: Starcourt"
+author = "Stranger Theme"

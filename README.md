@@ -33,8 +33,9 @@ Choose your platform:
 - [JetBrains IDEs](./jetbrains) (IntelliJ IDEA, PyCharm, WebStorm, etc.)
 - [Vim/Neovim](./vim)
 - [Sublime Text](./sublime-text)
-- [Terminal](./terminal) (Alacritty, iTerm2, Windows Terminal)
+- [Terminal](./terminal) (Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, WezTerm)
 - [Hyper](./hyper)
+- [Zed](./zed)
 
 Each platform directory contains installation instructions specific to that environment.
 
@@ -74,6 +75,10 @@ npm run build:vim
 npm run build:sublime
 npm run build:terminal
 npm run build:hyper
+npm run build:zed
+
+# Validate the four new clients, all six variants, and unchanged legacy output
+npm test
 ```
 
 ### Adding a New Variant

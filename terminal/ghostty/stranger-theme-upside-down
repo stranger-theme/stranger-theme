@@ -1,0 +1,23 @@
+# Stranger Theme: Upside Down for Ghostty
+background = #0D1117
+foreground = #F8F8F2
+cursor-color = #F8F8F2
+cursor-text = #0D1117
+selection-background = #2A3C4A
+selection-foreground = #F8F8F2
+palette = 0=#0D1117
+palette = 1=#E06C75
+palette = 2=#98C379
+palette = 3=#E5C07B
+palette = 4=#61AFEF
+palette = 5=#C678DD
+palette = 6=#56B6C2
+palette = 7=#F8F8F2
+palette = 8=#5C6370
+palette = 9=#FE8A93
+palette = 10=#B6E197
+palette = 11=#FFDE99
+palette = 12=#7FCDFF
+palette = 13=#E496FB
+palette = 14=#74D4E0
+palette = 15=#FFFFFF

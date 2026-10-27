@@ -1,0 +1,11 @@
+{
+  "name": "stranger-theme-zed",
+  "version": "1.0.2",
+  "private": true,
+  "description": "Six Stranger Theme variants for Zed",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "author": "Stranger Theme",
+  "license": "MIT"
+}

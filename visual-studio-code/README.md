@@ -90,7 +90,7 @@ code --install-extension StrangerTheme.stranger-theme-vscode
 
 ## Contributing
 
-Contributions are welcome! See the main repository's [Contributing Guide](../CONTRIBUTING.md).
+Contributions are welcome! See the main repository's [Contributing Guide](https://github.com/stranger-theme/stranger-theme/blob/main/CONTRIBUTING.md).
 
 ---
 
