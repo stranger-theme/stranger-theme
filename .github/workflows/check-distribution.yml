@@ -28,7 +28,7 @@ jobs:
           node-version: '22'
       - run: npm ci
         working-directory: visual-studio-code
-      - name: Verify publisher permissions without publishing
+      - name: Verify publisher authentication and membership
         run: npx --no-install vsce verify-pat StrangerTheme
         working-directory: visual-studio-code
         env:

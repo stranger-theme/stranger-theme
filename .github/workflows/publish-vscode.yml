@@ -9,7 +9,7 @@ on:
       VSCE_PAT:
         required: true
       OVSX_PAT:
-        required: true
+        required: false
 
 permissions:
   contents: read
@@ -18,6 +18,8 @@ jobs:
   publish:
     name: Publish to VS Code Marketplace
     runs-on: ubuntu-latest
+    env:
+      OVSX_PAT: ${{ secrets.OVSX_PAT }}
 
     steps:
       - name: Checkout
@@ -48,12 +50,14 @@ jobs:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
 
       - name: Publish to Open VSX Registry
-        if: ${{ !cancelled() && steps.package.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.package.outcome == 'success' && env.OVSX_PAT != '' }}
         run: |
           cd visual-studio-code
           npx --yes ovsx publish stranger-theme.vsix -p "$OVSX_PAT"
-        env:
-          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+
+      - name: Report missing Open VSX credentials
+        if: ${{ !cancelled() && steps.package.outcome == 'success' && env.OVSX_PAT == '' }}
+        run: echo '::warning::Open VSX was not published because OVSX_PAT is missing.'
 
       - name: Upload VSIX artifact
         if: ${{ !cancelled() }}
