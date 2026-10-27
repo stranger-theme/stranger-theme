@@ -1,0 +1,23 @@
+# Stranger Theme: The Lab for Ghostty
+background = #1A1D26
+foreground = #E0E5EC
+cursor-color = #E0E5EC
+cursor-text = #1A1D26
+selection-background = #2A2D36
+selection-foreground = #E0E5EC
+palette = 0=#1A1D26
+palette = 1=#FF4136
+palette = 2=#2ECC40
+palette = 3=#FFDC00
+palette = 4=#B10DC9
+palette = 5=#7FDBFF
+palette = 6=#39CCCC
+palette = 7=#E0E5EC
+palette = 8=#5D6D7E
+palette = 9=#FF5F54
+palette = 10=#4CEA5E
+palette = 11=#FFFA1E
+palette = 12=#CF2BE7
+palette = 13=#9DF9FF
+palette = 14=#57EAEA
+palette = 15=#FFFFFF

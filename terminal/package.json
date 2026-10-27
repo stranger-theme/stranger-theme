@@ -1,6 +1,6 @@
 {
   "name": "stranger-theme-terminal",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Stranger Things inspired themes for terminal emulators (Alacritty, iTerm2, Windows Terminal)",
   "scripts": {
     "build": "node scripts/build.js"

@@ -17,6 +17,13 @@ on:
           - stable
           - beta
           - alpha
+  workflow_call:
+    secrets:
+      JETBRAINS_MARKETPLACE_TOKEN:
+        required: true
+
+permissions:
+  contents: read
 
 jobs:
   publish:
@@ -40,9 +47,17 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.10.2'
 
-      - name: Install dependencies
-        run: cd jetbrains && npm ci
+      - name: Resolve package version
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
+        run: |
+          version="${REQUESTED_VERSION:-$(node -p "require('./jetbrains/package.json').version")}"
+          version="${version#v}"
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          echo "PLUGIN_VERSION=$version" >> "$GITHUB_ENV"
 
       - name: Build themes and icons
         run: npm run build:jetbrains
@@ -50,20 +65,21 @@ jobs:
       - name: Build plugin
         run: |
           cd jetbrains
-          gradle buildPlugin
+          gradle buildPlugin -PreleaseVersion="$PLUGIN_VERSION"
 
       - name: Verify plugin
         run: |
           cd jetbrains
-          gradle verifyPlugin
+          gradle verifyPlugin -PreleaseVersion="$PLUGIN_VERSION"
 
       - name: Publish to JetBrains Marketplace
         run: |
           cd jetbrains
           gradle publishPlugin \
-            -Pversion=${{ github.event.inputs.version || github.ref_name }} \
-            -Pchannel=${{ github.event.inputs.channel || 'stable' }}
+            -PreleaseVersion="$PLUGIN_VERSION" \
+            -Pchannel="$RELEASE_CHANNEL"
         env:
+          RELEASE_CHANNEL: ${{ inputs.channel || 'stable' }}
           ORG_GRADLE_PROJECT_intellijPublishToken: ${{ secrets.JETBRAINS_MARKETPLACE_TOKEN }}
 
       - name: Upload plugin artifact

@@ -26,6 +26,9 @@ jobs:
       - name: Build all themes
         run: npm run build
 
+      - name: Validate all new client variants
+        run: npm test
+
       - name: Verify generated files
         run: |
           # Check VS Code themes
@@ -69,3 +72,5 @@ jobs:
             sublime-text/themes/
             terminal/
             hyper/themes/
+            zed/themes/
+            zed/README.md

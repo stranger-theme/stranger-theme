@@ -7,6 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { version } = require('../package.json');
 
 // Import shared palettes
 const { THEME_PALETTES, adjustColor, getDerivedColors } = require('../../shared/palettes');
@@ -89,7 +90,7 @@ exports.decorateConfig = (config) => {
 function generatePackageJson(themeId, palette) {
   return {
     name: `hyper-stranger-theme-${themeId}`,
-    version: "1.0.2",
+    version,
     description: `Stranger Theme: ${palette.displayName} for Hyper Terminal`,
     main: "index.js",
     keywords: [

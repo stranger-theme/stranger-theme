@@ -1,0 +1,23 @@
+# Stranger Theme: Starcourt for Ghostty
+background = #1A1A2E
+foreground = #EAEAEA
+cursor-color = #EAEAEA
+cursor-text = #1A1A2E
+selection-background = #2E2E4A
+selection-foreground = #EAEAEA
+palette = 0=#1A1A2E
+palette = 1=#FF6B6B
+palette = 2=#00FA9A
+palette = 3=#FFD700
+palette = 4=#BA55D3
+palette = 5=#FF1493
+palette = 6=#00CED1
+palette = 7=#EAEAEA
+palette = 8=#6B5B95
+palette = 9=#FF8989
+palette = 10=#1EFFB8
+palette = 11=#FFF51E
+palette = 12=#D873F1
+palette = 13=#FF32B1
+palette = 14=#1EECEF
+palette = 15=#FFFFFF

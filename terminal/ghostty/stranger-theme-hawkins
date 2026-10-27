@@ -1,0 +1,23 @@
+# Stranger Theme: Hawkins for Ghostty
+background = #2C2218
+foreground = #E8DCC8
+cursor-color = #E8DCC8
+cursor-text = #2C2218
+selection-background = #3C3228
+selection-foreground = #E8DCC8
+palette = 0=#2C2218
+palette = 1=#BF616A
+palette = 2=#A3BE8C
+palette = 3=#EBCB8B
+palette = 4=#B48EAD
+palette = 5=#D4A574
+palette = 6=#88C0D0
+palette = 7=#E8DCC8
+palette = 8=#6B5B45
+palette = 9=#DD7F88
+palette = 10=#C1DCAA
+palette = 11=#FFE9A9
+palette = 12=#D2ACCB
+palette = 13=#F2C392
+palette = 14=#A6DEEE
+palette = 15=#FFFFFF

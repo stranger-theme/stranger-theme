@@ -17,8 +17,9 @@ const PLATFORMS = [
   { name: 'JetBrains', dir: 'jetbrains' },
   { name: 'Vim/Neovim', dir: 'vim' },
   { name: 'Sublime Text', dir: 'sublime-text' },
-  { name: 'Terminal (Alacritty, iTerm2, Windows Terminal)', dir: 'terminal' },
-  { name: 'Hyper', dir: 'hyper' }
+  { name: 'Terminal (Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, WezTerm)', dir: 'terminal' },
+  { name: 'Hyper', dir: 'hyper' },
+  { name: 'Zed', dir: 'zed' }
 ];
 
 /**
@@ -112,13 +113,17 @@ function build() {
   // Count generated files
   console.log('📁 Generated Files:');
   console.log(`   • VS Code:          ${countFiles(path.join(ROOT_DIR, 'visual-studio-code/themes'), ['.json'])} themes`);
-  console.log(`   • JetBrains:        ${countFiles(path.join(ROOT_DIR, 'jetbrains/themes'), ['.json', '.xml'])} files`);
+  console.log(`   • JetBrains:        ${countFiles(path.join(ROOT_DIR, 'jetbrains/src/main/resources/themes'), ['.json', '.xml'])} files`);
   console.log(`   • Vim:              ${countFiles(path.join(ROOT_DIR, 'vim/colors'), ['.vim'])} colorschemes`);
   console.log(`   • Sublime Text:     ${countFiles(path.join(ROOT_DIR, 'sublime-text/themes'), ['.tmTheme'])} themes`);
   console.log(`   • Alacritty:        ${countFiles(path.join(ROOT_DIR, 'terminal/alacritty'), ['.toml'])} themes`);
   console.log(`   • iTerm2:           ${countFiles(path.join(ROOT_DIR, 'terminal/iterm2'), ['.itermcolors'])} themes`);
   console.log(`   • Windows Terminal: ${countFiles(path.join(ROOT_DIR, 'terminal/windows-terminal'), ['.json'])} themes`);
   console.log(`   • Hyper:            ${countFiles(path.join(ROOT_DIR, 'hyper/themes'))} plugins`);
+  console.log(`   • Ghostty:          ${countFiles(path.join(ROOT_DIR, 'terminal/ghostty'))} themes`);
+  console.log(`   • Kitty:            ${countFiles(path.join(ROOT_DIR, 'terminal/kitty'), ['.conf'])} themes`);
+  console.log(`   • WezTerm:          ${countFiles(path.join(ROOT_DIR, 'terminal/wezterm'), ['.toml'])} themes`);
+  console.log(`   • Zed:              ${countFiles(path.join(ROOT_DIR, 'zed/themes'), ['.json'])} theme family`);
   console.log('');
   
   if (failCount > 0) {

@@ -2,7 +2,7 @@
 
 /**
  * Build script for Stranger Theme - Terminal Themes
- * Generates themes for Alacritty, iTerm2, and Windows Terminal
+ * Generates themes for Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, and WezTerm
  */
 
 const fs = require('fs');
@@ -14,8 +14,61 @@ const { THEME_PALETTES, adjustColor, getDerivedColors, hexToNormalizedRgb } = re
 const OUTPUT_DIRS = {
   alacritty: path.join(__dirname, '..', 'alacritty'),
   iterm2: path.join(__dirname, '..', 'iterm2'),
-  windowsTerminal: path.join(__dirname, '..', 'windows-terminal')
+  windowsTerminal: path.join(__dirname, '..', 'windows-terminal'),
+  ghostty: path.join(__dirname, '..', 'ghostty'),
+  kitty: path.join(__dirname, '..', 'kitty'),
+  wezterm: path.join(__dirname, '..', 'wezterm')
 };
+
+const ANSI_NAMES = ['BLACK', 'RED', 'GREEN', 'YELLOW', 'BLUE', 'MAGENTA', 'CYAN', 'WHITE'];
+
+function generateGhosttyTheme(palette) {
+  const c = getDerivedColors(palette.base);
+  const colors = [...ANSI_NAMES.map(name => c[`ANSI_${name}`]), ...ANSI_NAMES.map(name => c[`ANSI_BRIGHT_${name}`])];
+  return `# ${palette.name} for Ghostty
+background = ${c.BG}
+foreground = ${c.FG}
+cursor-color = ${c.FG}
+cursor-text = ${c.BG}
+selection-background = ${c.SELECTION}
+selection-foreground = ${c.FG}
+${colors.map((color, index) => `palette = ${index}=${color}`).join('\n')}
+`;
+}
+
+function generateKittyTheme(palette) {
+  const c = getDerivedColors(palette.base);
+  const colors = [...ANSI_NAMES.map(name => c[`ANSI_${name}`]), ...ANSI_NAMES.map(name => c[`ANSI_BRIGHT_${name}`])];
+  return `# ${palette.name} for Kitty
+background ${c.BG}
+foreground ${c.FG}
+cursor ${c.FG}
+cursor_text_color ${c.BG}
+selection_background ${c.SELECTION}
+selection_foreground ${c.FG}
+${colors.map((color, index) => `color${index} ${color}`).join('\n')}
+`;
+}
+
+function generateWezTermTheme(palette) {
+  const c = getDerivedColors(palette.base);
+  return `# ${palette.name} for WezTerm
+[colors]
+background = "${c.BG}"
+foreground = "${c.FG}"
+cursor_bg = "${c.FG}"
+cursor_fg = "${c.BG}"
+cursor_border = "${c.FG}"
+selection_bg = "${c.SELECTION}"
+selection_fg = "${c.FG}"
+ansi = ${JSON.stringify(ANSI_NAMES.map(name => c[`ANSI_${name}`]))}
+brights = ${JSON.stringify(ANSI_NAMES.map(name => c[`ANSI_BRIGHT_${name}`]))}
+
+[metadata]
+name = "${palette.name}"
+author = "Stranger Theme"
+`;
+}
 
 /**
  * Generate Alacritty theme (TOML format)
@@ -244,6 +297,18 @@ function build() {
     const wtFile = path.join(OUTPUT_DIRS.windowsTerminal, `${fileBase}.json`);
     fs.writeFileSync(wtFile, JSON.stringify(wtTheme, null, 2));
     console.log(`  -> ${wtFile}`);
+
+    const ghosttyFile = path.join(OUTPUT_DIRS.ghostty, fileBase);
+    fs.writeFileSync(ghosttyFile, generateGhosttyTheme(palette));
+    console.log(`  -> ${ghosttyFile}`);
+
+    const kittyFile = path.join(OUTPUT_DIRS.kitty, `${fileBase}.conf`);
+    fs.writeFileSync(kittyFile, generateKittyTheme(palette));
+    console.log(`  -> ${kittyFile}`);
+
+    const weztermFile = path.join(OUTPUT_DIRS.wezterm, `${fileBase}.toml`);
+    fs.writeFileSync(weztermFile, generateWezTermTheme(palette));
+    console.log(`  -> ${weztermFile}`);
   }
 
   console.log('\nBuild complete!');

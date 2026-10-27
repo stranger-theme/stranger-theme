@@ -4,6 +4,13 @@ on:
   release:
     types: [published]
   workflow_dispatch:
+  workflow_call:
+    secrets:
+      NPM_TOKEN:
+        required: true
+
+permissions:
+  contents: read
 
 jobs:
   publish:
@@ -30,7 +37,7 @@ jobs:
             if [ -f "$dir/package.json" ]; then
               echo "📦 Publishing $dir..."
               cd "$dir"
-              npm publish --access public || echo "⚠️ Failed to publish $dir (may already exist)"
+              npm publish --access public
               cd ..
             fi
           done

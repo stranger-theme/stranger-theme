@@ -10,6 +10,8 @@
 
 ## Install
 
+Use the local installation below when the package is unavailable on npm. The CLI and `plugins` methods require a published npm package.
+
 #### Using Hyper CLI
 
 ```bash
@@ -31,14 +33,23 @@ module.exports = {
 
 3. Restart Hyper
 
-#### Local Installation (Development)
+#### Local Installation
+
+Run from this `hyper/` directory in a cloned repository. Open Hyper's preferences to find the active configuration file. For Hyper 3, the local plugin directory is:
+
+- macOS: `~/Library/Application Support/Hyper/.hyper_plugins/local/`
+- Linux: `~/.config/Hyper/.hyper_plugins/local/`
+- Windows: `%APPDATA%\Hyper\.hyper_plugins\local\`
+
+For example, on macOS:
 
 ```bash
 # Copy theme to local plugins
-cp -r themes/hyper-stranger-theme-starcourt ~/.hyper_plugins/local/
+mkdir -p "$HOME/Library/Application Support/Hyper/.hyper_plugins/local"
+cp -r themes/hyper-stranger-theme-starcourt "$HOME/Library/Application Support/Hyper/.hyper_plugins/local/"
 ```
 
-Add to `localPlugins` in `~/.hyper.js`:
+Merge into `localPlugins` in the active `.hyper.js`, preserving your existing configuration:
 
 ```javascript
 module.exports = {
@@ -50,7 +61,7 @@ module.exports = {
 
 ## Theme Variants
 
-Each variant is published as a separate npm package:
+Each variant is generated as a separate plugin package:
 
 - `hyper-stranger-theme-upside-down` - Dark blue-black with desaturated tones
 - `hyper-stranger-theme-starcourt` - Vibrant 80s mall aesthetic with neon colors
@@ -82,4 +93,4 @@ This theme is maintained by [@tcvieira](https://github.com/tcvieira) and [contri
 
 ## License
 
-[MIT License](./LICENSE) © Stranger Theme
+[MIT License](../LICENSE) © Stranger Theme

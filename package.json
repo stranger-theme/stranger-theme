@@ -1,6 +1,6 @@
 {
   "name": "stranger-theme",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A dark theme collection inspired by Stranger Things - All platforms",
   "scripts": {
     "build": "node scripts/build-all.js",
@@ -9,7 +9,9 @@
     "build:vim": "cd vim && npm run build",
     "build:sublime": "cd sublime-text && npm run build",
     "build:terminal": "cd terminal && npm run build",
-    "build:hyper": "cd hyper && npm run build"
+    "build:hyper": "cd hyper && npm run build",
+    "build:zed": "cd zed && npm run build",
+    "test": "node scripts/test-new-clients.js"
   },
   "keywords": [
     "theme",
@@ -23,7 +25,11 @@
     "alacritty",
     "iterm2",
     "windows-terminal",
-    "hyper"
+    "hyper",
+    "ghostty",
+    "kitty",
+    "wezterm",
+    "zed"
   ],
   "author": "Stranger Theme",
   "license": "MIT",

@@ -1,0 +1,15 @@
+# Stranger Theme: Hawkins for WezTerm
+[colors]
+background = "#2C2218"
+foreground = "#E8DCC8"
+cursor_bg = "#E8DCC8"
+cursor_fg = "#2C2218"
+cursor_border = "#E8DCC8"
+selection_bg = "#3C3228"
+selection_fg = "#E8DCC8"
+ansi = ["#2C2218","#BF616A","#A3BE8C","#EBCB8B","#B48EAD","#D4A574","#88C0D0","#E8DCC8"]
+brights = ["#6B5B45","#DD7F88","#C1DCAA","#FFE9A9","#D2ACCB","#F2C392","#A6DEEE","#FFFFFF"]
+
+[metadata]
+name = "Stranger Theme: Hawkins"
+author = "Stranger Theme"

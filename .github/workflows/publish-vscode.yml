@@ -4,15 +4,22 @@ on:
   release:
     types: [published]
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version to publish (e.g., 1.0.0)'
+  workflow_call:
+    secrets:
+      VSCE_PAT:
+        required: true
+      OVSX_PAT:
         required: false
+
+permissions:
+  contents: read
 
 jobs:
   publish:
     name: Publish to VS Code Marketplace
     runs-on: ubuntu-latest
+    env:
+      OVSX_PAT: ${{ secrets.OVSX_PAT }}
 
     steps:
       - name: Checkout
@@ -29,30 +36,31 @@ jobs:
       - name: Build themes
         run: npm run build:vscode
 
-      - name: Install vsce
-        run: npm install -g @vscode/vsce
-
       - name: Package extension
+        id: package
         run: |
           cd visual-studio-code
-          vsce package
+          npx --no-install vsce package --out stranger-theme.vsix
 
       - name: Publish to VS Code Marketplace
         run: |
           cd visual-studio-code
-          vsce publish -p ${{ secrets.VSCE_PAT }}
+          npx --no-install vsce publish --packagePath stranger-theme.vsix -p "$VSCE_PAT"
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
 
       - name: Publish to Open VSX Registry
+        if: ${{ !cancelled() && steps.package.outcome == 'success' && env.OVSX_PAT != '' }}
         run: |
           cd visual-studio-code
-          npx ovsx publish -p ${{ secrets.OVSX_PAT }} || echo "Open VSX publish skipped"
-        env:
-          OVSX_PAT: ${{ secrets.OVSX_PAT }}
-        continue-on-error: true
+          npx --yes ovsx publish stranger-theme.vsix -p "$OVSX_PAT"
+
+      - name: Report missing Open VSX credentials
+        if: ${{ !cancelled() && steps.package.outcome == 'success' && env.OVSX_PAT == '' }}
+        run: echo '::warning::Open VSX was not published because OVSX_PAT is missing.'
 
       - name: Upload VSIX artifact
+        if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           name: vscode-extension
