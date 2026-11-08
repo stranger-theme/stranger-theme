@@ -4,7 +4,9 @@ Six dark variants for Zed: Upside Down, Starcourt, Hawkins, The Lab, Tigers, and
 
 ## Install
 
-Download the Zed archive from [Releases](https://github.com/stranger-theme/stranger-theme/releases), or use this directory in a cloned repository. Run the following commands from the extracted archive directory or this `zed/` directory.
+From Zed: open **Extensions** (`zed: extensions`), search for **Stranger Theme** and click **Install**.
+
+Manual install: download the Zed archive from [Releases](https://github.com/stranger-theme/stranger-theme/releases), or use this directory in a cloned repository. Run the following commands from the extracted archive directory or this `zed/` directory.
 
 On macOS or Linux:
 

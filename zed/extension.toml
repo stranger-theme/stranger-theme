@@ -1,0 +1,7 @@
+id = "stranger-theme"
+name = "Stranger Theme"
+version = "1.0.3"
+schema_version = 1
+authors = ["Stranger Theme"]
+description = "Six dark themes inspired by Stranger Things: Upside Down, Starcourt, Hawkins, The Lab, Tigers and Dimension X."
+repository = "https://github.com/stranger-theme/stranger-theme"

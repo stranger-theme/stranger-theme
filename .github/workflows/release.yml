@@ -35,6 +35,8 @@ jobs:
           for (const dir of ['visual-studio-code', 'jetbrains', 'hyper']) {
             assert.equal(require(`./${dir}/package.json`).version, version, `${dir} version mismatch`);
           }
+          const zed = require('node:fs').readFileSync('zed/extension.toml', 'utf8');
+          assert.match(zed, new RegExp(`^version = "${version}"$`, 'm'), 'zed/extension.toml version mismatch');
           NODE
 
       - name: Build all themes
@@ -74,6 +76,8 @@ jobs:
           
           # Sublime Text themes
           cd sublime-text/themes && zip -r ../../stranger-theme-sublime.zip . && cd ../..
+          # Package Control installs this asset (see wbond/package_control_channel)
+          cp stranger-theme-sublime.zip StrangerTheme.sublime-package
           
           # Terminal themes
           cd terminal
@@ -98,6 +102,7 @@ jobs:
             stranger-theme-jetbrains.zip
             stranger-theme-vim.zip
             stranger-theme-sublime.zip
+            StrangerTheme.sublime-package
             stranger-theme-alacritty.zip
             stranger-theme-iterm2.zip
             stranger-theme-windows-terminal.zip
