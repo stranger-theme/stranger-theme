@@ -14,7 +14,7 @@
 
 1. Open **Command Palette**: `Ctrl+Shift+P` / `Cmd+Shift+P`
 2. Select **Package Control: Install Package**
-3. Search for `Stranger Theme`
+3. Search for `Stranger Theme Color Schemes`
 4. Press **Enter** to install
 
 #### Manual Installation
