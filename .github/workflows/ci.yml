@@ -26,6 +26,14 @@ jobs:
       - name: Build all themes
         run: npm run build
 
+      - name: Check generated files are up to date
+        run: |
+          if ! git diff --exit-code || [ -n "$(git status --porcelain)" ]; then
+            git status --short
+            echo "::error::Generated theme files are stale. Run 'npm run build' and commit the result."
+            exit 1
+          fi
+
       - name: Validate all new client variants
         run: npm test
 

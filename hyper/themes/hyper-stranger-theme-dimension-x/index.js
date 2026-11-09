@@ -7,11 +7,11 @@
 
 const backgroundColor = '#1E1A1A';
 const foregroundColor = '#E8D5D5';
-const borderColor = '#3E2A2A';
+const borderColor = '#523535';
 const cursorColor = '#E8D5D5';
 
 const colors = {
-  black: '#1E1A1A',
+  black: '#464242',
   red: '#FF55AA',
   green: '#8B7355',
   yellow: '#BCA89F',
@@ -19,7 +19,7 @@ const colors = {
   magenta: '#E06C75',
   cyan: '#D19A66',
   white: '#E8D5D5',
-  lightBlack: '#5C4A4A',
+  lightBlack: '#9A7C7C',
   lightRed: '#FF73C8',
   lightGreen: '#A99173',
   lightYellow: '#DAC6BD',
@@ -36,7 +36,7 @@ exports.decorateConfig = (config) => {
     borderColor,
     cursorColor,
     cursorAccentColor: backgroundColor,
-    selectionColor: '#3E2A2A',
+    selectionColor: '#523535',
     colors,
     termCSS: `
       ${config.termCSS || ''}

@@ -19,7 +19,7 @@ text = "CellForeground"
 background = "#2A3C4A"
 
 [colors.normal]
-black = "#0D1117"
+black = "#35393F"
 red = "#E06C75"
 green = "#98C379"
 yellow = "#E5C07B"
@@ -29,7 +29,7 @@ cyan = "#56B6C2"
 white = "#F8F8F2"
 
 [colors.bright]
-black = "#5C6370"
+black = "#7A8495"
 red = "#FE8A93"
 green = "#B6E197"
 yellow = "#FFDE99"
@@ -39,11 +39,11 @@ cyan = "#74D4E0"
 white = "#FFFFFF"
 
 [colors.search.matches]
-foreground = "#2A3C4A"
+foreground = "#0D1117"
 background = "#98C379"
 
 [colors.search.focused_match]
-foreground = "#2A3C4A"
+foreground = "#0D1117"
 background = "#D19A66"
 
 [colors.footer_bar]

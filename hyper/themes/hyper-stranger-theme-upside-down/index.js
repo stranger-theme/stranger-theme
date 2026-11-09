@@ -11,7 +11,7 @@ const borderColor = '#2A3C4A';
 const cursorColor = '#F8F8F2';
 
 const colors = {
-  black: '#0D1117',
+  black: '#35393F',
   red: '#E06C75',
   green: '#98C379',
   yellow: '#E5C07B',
@@ -19,7 +19,7 @@ const colors = {
   magenta: '#C678DD',
   cyan: '#56B6C2',
   white: '#F8F8F2',
-  lightBlack: '#5C6370',
+  lightBlack: '#7A8495',
   lightRed: '#FE8A93',
   lightGreen: '#B6E197',
   lightYellow: '#FFDE99',

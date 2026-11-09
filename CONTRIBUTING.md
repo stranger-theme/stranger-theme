@@ -38,7 +38,7 @@ When contributing to the Stranger Things Theme, please ensure your changes maint
 - **Hawkins**: Small-town America with warm, muted, autumnal colors
 - **The Lab**: Clinical, institutional aesthetic with sterile whites and cold blues
 - **Tigers (Hawkins School)**: School colors with orange/black and vintage academic tones
-- **Demogorgon**: Fleshy pinks/reds with dark, organic textures
+- **Dimension X**: Dark red dimension with moody, organic textures
 
 ## Pull Requests
 

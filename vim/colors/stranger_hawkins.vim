@@ -7,6 +7,7 @@
 
 " Initialization: {{{
 
+set background=dark
 highlight clear
 if exists('syntax_on')
   syntax reset
@@ -14,7 +15,7 @@ endif
 
 let g:colors_name = 'stranger_hawkins'
 
-if !has('gui_running') && &t_Co < 256
+if !has('gui_running') && !(exists('&termguicolors') && &termguicolors) && &t_Co < 256
   finish
 endif
 
@@ -23,8 +24,8 @@ endif
 
 let s:bg        = ['#2C2218', 235]
 let s:fg        = ['#E8DCC8', 253]
-let s:selection = ['#3C3228', 239]
-let s:comment   = ['#6B5B45', 244]
+let s:selection = ['#4D4339', 239]
+let s:comment   = ['#9E8766', 244]
 let s:cyan      = ['#88C0D0', 117]
 let s:green     = ['#A3BE8C', 114]
 let s:orange    = ['#D08770', 215]
@@ -37,6 +38,15 @@ let s:bglight   = ['#40362C', 236]
 let s:bglighter = ['#544A40', 237]
 let s:none      = ['NONE', 'NONE']
 
+" Subtle accent tints for diff / diagnostic backgrounds
+let s:red_bg    = ['#462D27', 52]
+let s:green_bg  = ['#413E2D', 22]
+let s:orange_bg = ['#4A3428', 58]
+let s:orange_hi = ['#654537', 94]
+let s:yellow_bg = ['#493B29', 58]
+let s:cyan_bg   = ['#3A3A34', 23]
+let s:purple_bg = ['#40322E', 54]
+
 " }}}
 " Helper Function: {{{
 
@@ -44,14 +54,14 @@ function! s:h(scope, fg, ...)
   let l:fg = a:fg
   let l:bg = get(a:, 1, s:none)
   let l:attr = get(a:, 2, '')
-  let l:sp = get(a:, 3, '')
+  let l:sp = get(a:, 3, [])
 
   let l:hl = 'highlight ' . a:scope
   let l:hl .= ' guifg=' . l:fg[0] . ' ctermfg=' . l:fg[1]
   let l:hl .= ' guibg=' . l:bg[0] . ' ctermbg=' . l:bg[1]
   let l:hl .= ' gui=' . (l:attr ==# '' ? 'NONE' : l:attr)
   let l:hl .= ' cterm=' . (l:attr ==# '' ? 'NONE' : l:attr)
-  if l:sp !=# ''
+  if !empty(l:sp)
     let l:hl .= ' guisp=' . l:sp[0]
   endif
   execute l:hl
@@ -68,10 +78,10 @@ call s:h('CursorColumn', s:none, s:bglight)
 call s:h('CursorLine', s:none, s:bglight)
 call s:h('CursorLineNr', s:yellow, s:bglight)
 call s:h('Directory', s:cyan)
-call s:h('DiffAdd', s:green, s:none)
-call s:h('DiffChange', s:orange, s:none)
-call s:h('DiffDelete', s:red, s:none)
-call s:h('DiffText', s:fg, s:none)
+call s:h('DiffAdd', s:none, s:green_bg)
+call s:h('DiffChange', s:none, s:orange_bg)
+call s:h('DiffDelete', s:red, s:red_bg)
+call s:h('DiffText', s:fg, s:orange_hi, 'bold')
 call s:h('EndOfBuffer', s:bg)
 call s:h('ErrorMsg', s:red, s:none, 'bold')
 call s:h('VertSplit', s:selection)
@@ -80,6 +90,7 @@ call s:h('Folded', s:comment, s:bglight)
 call s:h('FoldColumn', s:comment, s:bg)
 call s:h('SignColumn', s:none, s:bg)
 call s:h('IncSearch', s:bg, s:orange)
+call s:h('CurSearch', s:bg, s:orange, 'bold')
 call s:h('LineNr', s:comment)
 call s:h('MatchParen', s:green, s:none, 'bold')
 call s:h('ModeMsg', s:fg)
@@ -106,6 +117,9 @@ call s:h('Visual', s:none, s:selection)
 call s:h('VisualNOS', s:none, s:selection)
 call s:h('WarningMsg', s:yellow)
 call s:h('WildMenu', s:bg, s:cyan)
+call s:h('NormalFloat', s:fg, s:bglight)
+call s:h('FloatBorder', s:comment, s:bglight)
+call s:h('FloatTitle', s:cyan, s:bglight, 'bold')
 " }}}
 
 " Syntax: {{{
@@ -144,6 +158,33 @@ call s:h('Underlined', s:cyan, s:none, 'underline')
 call s:h('Ignore', s:comment)
 call s:h('Error', s:red, s:none, 'bold')
 call s:h('Todo', s:yellow, s:none, 'bold,italic')
+call s:h('Bold', s:none, s:none, 'bold')
+call s:h('Italic', s:none, s:none, 'italic')
+" }}}
+
+" Diagnostics (Neovim): {{{
+if has('nvim')
+  call s:h('DiagnosticError', s:red)
+  call s:h('DiagnosticWarn', s:yellow)
+  call s:h('DiagnosticInfo', s:cyan)
+  call s:h('DiagnosticHint', s:purple)
+  call s:h('DiagnosticOk', s:green)
+  call s:h('DiagnosticUnderlineError', s:none, s:none, 'undercurl', s:red)
+  call s:h('DiagnosticUnderlineWarn', s:none, s:none, 'undercurl', s:yellow)
+  call s:h('DiagnosticUnderlineInfo', s:none, s:none, 'undercurl', s:cyan)
+  call s:h('DiagnosticUnderlineHint', s:none, s:none, 'undercurl', s:purple)
+  call s:h('DiagnosticUnderlineOk', s:none, s:none, 'undercurl', s:green)
+  call s:h('DiagnosticVirtualTextError', s:red, s:red_bg)
+  call s:h('DiagnosticVirtualTextWarn', s:yellow, s:yellow_bg)
+  call s:h('DiagnosticVirtualTextInfo', s:cyan, s:cyan_bg)
+  call s:h('DiagnosticVirtualTextHint', s:purple, s:purple_bg)
+  call s:h('DiagnosticVirtualTextOk', s:green, s:green_bg)
+  call s:h('DiagnosticSignError', s:red, s:bg)
+  call s:h('DiagnosticSignWarn', s:yellow, s:bg)
+  call s:h('DiagnosticSignInfo', s:cyan, s:bg)
+  call s:h('DiagnosticSignHint', s:purple, s:bg)
+  call s:h('DiagnosticSignOk', s:green, s:bg)
+endif
 " }}}
 
 " Treesitter: {{{
@@ -194,6 +235,54 @@ if has('nvim')
   highlight! link @punctuation.bracket Delimiter
   highlight! link @punctuation.delimiter Delimiter
   highlight! link @punctuation.special Special
+
+  " Modern captures (nvim-treesitter >= 0.9 / Neovim 0.10)
+  highlight! link @module Type
+  highlight! link @module.builtin Special
+  highlight! link @attribute PreProc
+  highlight! link @constant.builtin Constant
+  highlight! link @constant.macro Macro
+  highlight! link @number.float Float
+  highlight! link @string.regexp SpecialChar
+  highlight! link @string.escape SpecialChar
+  highlight! link @string.special Special
+  highlight! link @variable.member Identifier
+  highlight! link @variable.parameter Identifier
+  highlight! link @function.call Function
+  highlight! link @function.method Function
+  highlight! link @function.method.call Function
+  highlight! link @type.definition Typedef
+  highlight! link @keyword.conditional Conditional
+  highlight! link @keyword.repeat Repeat
+  highlight! link @keyword.import Include
+  highlight! link @keyword.exception Exception
+  highlight! link @keyword.directive PreProc
+  highlight! link @markup.heading Title
+  highlight! link @markup.italic Italic
+  highlight! link @markup.strong Bold
+  highlight! link @markup.underline Underlined
+  highlight! link @markup.link Underlined
+  highlight! link @markup.link.url Underlined
+  highlight! link @markup.link.label Special
+  highlight! link @markup.raw String
+  highlight! link @markup.list Special
+  highlight! link @markup.quote Comment
+  highlight! link @comment.todo Todo
+  highlight! link @comment.note DiagnosticInfo
+  highlight! link @comment.warning DiagnosticWarn
+  highlight! link @comment.error DiagnosticError
+
+  " LSP semantic tokens
+  highlight! link @lsp.type.class Type
+  highlight! link @lsp.type.enum Type
+  highlight! link @lsp.type.interface Type
+  highlight! link @lsp.type.namespace @module
+  highlight! link @lsp.type.parameter @variable.parameter
+  highlight! link @lsp.type.property @property
+  highlight! link @lsp.type.function Function
+  highlight! link @lsp.type.method Function
+  highlight! link @lsp.type.macro Macro
+  highlight! link @lsp.type.decorator @attribute
   
   " HTML/JSX
   call s:h('@tag.html', s:pink)
@@ -245,6 +334,29 @@ endif
 
 " }}}
 
+" }}}
+
+" Terminal Colors: {{{
+if has('nvim')
+  let g:terminal_color_0 = '#544A40'
+  let g:terminal_color_1 = '#BF616A'
+  let g:terminal_color_2 = '#A3BE8C'
+  let g:terminal_color_3 = '#EBCB8B'
+  let g:terminal_color_4 = '#B48EAD'
+  let g:terminal_color_5 = '#D4A574'
+  let g:terminal_color_6 = '#88C0D0'
+  let g:terminal_color_7 = '#E8DCC8'
+  let g:terminal_color_8 = '#9E8766'
+  let g:terminal_color_9 = '#DD7F88'
+  let g:terminal_color_10 = '#C1DCAA'
+  let g:terminal_color_11 = '#FFE9A9'
+  let g:terminal_color_12 = '#D2ACCB'
+  let g:terminal_color_13 = '#F2C392'
+  let g:terminal_color_14 = '#A6DEEE'
+  let g:terminal_color_15 = '#FFFFFF'
+elseif has('terminal')
+  let g:terminal_ansi_colors = ['#544A40', '#BF616A', '#A3BE8C', '#EBCB8B', '#B48EAD', '#D4A574', '#88C0D0', '#E8DCC8', '#9E8766', '#DD7F88', '#C1DCAA', '#FFE9A9', '#D2ACCB', '#F2C392', '#A6DEEE', '#FFFFFF']
+endif
 " }}}
 
 " vim: fdm=marker:

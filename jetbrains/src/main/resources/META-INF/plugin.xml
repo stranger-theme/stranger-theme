@@ -2,7 +2,7 @@
 <idea-plugin>
   <id>com.strangertheme.theme</id>
   <name>Stranger Theme</name>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <vendor email="contact@strangertheme.com" url="https://github.com/stranger-theme">Stranger Theme</vendor>
 
   <description><![CDATA[
@@ -21,7 +21,10 @@
 
   <change-notes><![CDATA[
     <ul>
-      <li>1.0.0 - Initial release with six theme variants</li>
+      <li>1.0.4 - Readable comments in all variants (WCAG 4.5:1)</li>
+      <li>1.0.4 - Selection visible over the current line in Starcourt, Hawkins, The Lab, Tigers and Dimension X</li>
+      <li>1.0.4 - Visible terminal ANSI black</li>
+      <li>1.0.0 - Initial release with six theme variants (Dimension X was formerly Demogorgon)</li>
     </ul>
   ]]></change-notes>
 

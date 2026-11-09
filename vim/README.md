@@ -27,8 +27,12 @@ use { 'stranger-theme/stranger-theme', rtp = 'vim' }
 ```lua
 {
   'stranger-theme/stranger-theme',
-  config = function()
-    vim.cmd('colorscheme stranger_starcourt')
+  lazy = false,
+  priority = 1000,
+  config = function(plugin)
+    -- the colorschemes live in the repo's vim/ subdirectory
+    vim.opt.rtp:append(plugin.dir .. '/vim')
+    vim.cmd.colorscheme('stranger_starcourt')
   end,
 }
 ```
@@ -74,7 +78,8 @@ vim.cmd('colorscheme stranger_starcourt')
 
 Includes highlight groups for:
 
-- Treesitter (Neovim)
+- Treesitter and LSP semantic tokens (Neovim)
+- LSP diagnostics and floating windows (Neovim)
 - Telescope (Neovim)
 - nvim-cmp (Neovim)
 - NERDTree

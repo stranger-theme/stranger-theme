@@ -26,17 +26,17 @@
 				<key>foreground</key>
 				<string>#EAEAEA</string>
 				<key>invisibles</key>
-				<string>#6B5B95</string>
+				<string>#8C77C3</string>
 				<key>lineHighlight</key>
 				<string>#2E2E42</string>
 				<key>selection</key>
-				<string>#2E2E4A</string>
+				<string>#3D3D66</string>
 				<key>findHighlight</key>
 				<string>#FFD700</string>
 				<key>findHighlightForeground</key>
 				<string>#1A1A2E</string>
 				<key>selectionBorder</key>
-				<string>#2E2E4A</string>
+				<string>#3D3D66</string>
 				<key>activeGuide</key>
 				<string>#FF1493B0</string>
 				<key>bracketsForeground</key>
@@ -59,7 +59,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#6B5B95</string>
+				<string>#8C77C3</string>
 				<key>fontStyle</key>
 				<string>italic</string>
 			</dict>
@@ -389,7 +389,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#6B5B95</string>
+				<string>#8C77C3</string>
 			</dict>
 		</dict>
 		<dict>

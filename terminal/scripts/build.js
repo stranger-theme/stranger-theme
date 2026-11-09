@@ -118,11 +118,11 @@ cyan = "${c.ANSI_BRIGHT_CYAN}"
 white = "${c.ANSI_BRIGHT_WHITE}"
 
 [colors.search.matches]
-foreground = "${c.SELECTION}"
+foreground = "${c.BG}"
 background = "${c.GREEN}"
 
 [colors.search.focused_match]
-foreground = "${c.SELECTION}"
+foreground = "${c.BG}"
 background = "${c.ORANGE}"
 
 [colors.footer_bar]

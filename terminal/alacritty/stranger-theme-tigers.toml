@@ -16,10 +16,10 @@ cursor = "CellForeground"
 
 [colors.selection]
 text = "CellForeground"
-background = "#283228"
+background = "#38463A"
 
 [colors.normal]
-black = "#181E18"
+black = "#404640"
 red = "#CC6666"
 green = "#B5BD68"
 yellow = "#F0C674"
@@ -29,7 +29,7 @@ cyan = "#81A2BE"
 white = "#F5F5F5"
 
 [colors.bright]
-black = "#5C6C5C"
+black = "#758975"
 red = "#EA8484"
 green = "#D3DB86"
 yellow = "#FFE492"
@@ -39,11 +39,11 @@ cyan = "#9FC0DC"
 white = "#FFFFFF"
 
 [colors.search.matches]
-foreground = "#283228"
+foreground = "#181E18"
 background = "#B5BD68"
 
 [colors.search.focused_match]
-foreground = "#283228"
+foreground = "#181E18"
 background = "#DE935F"
 
 [colors.footer_bar]

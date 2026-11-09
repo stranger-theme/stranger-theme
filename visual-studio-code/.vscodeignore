@@ -23,3 +23,4 @@ assets/*.png
 !assets/stranger-theme-logo.png
 color_palettes.md
 theme_color_palettes.md
+.omc/**
