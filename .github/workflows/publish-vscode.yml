@@ -6,13 +6,15 @@ on:
   workflow_dispatch:
   workflow_call:
     secrets:
-      VSCE_PAT:
-        required: true
       OVSX_PAT:
         required: false
 
+# VS Code Marketplace uses Trusted Publishing (GitHub OIDC), no PAT.
+# Marketplace policy: owner stranger-theme, repo stranger-theme, workflow
+# publish-vscode.yml (and release.yml, which calls this file), no environment.
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   publish:
@@ -28,7 +30,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Install dependencies
         run: cd visual-studio-code && npm ci
@@ -45,9 +47,7 @@ jobs:
       - name: Publish to VS Code Marketplace
         run: |
           cd visual-studio-code
-          npx --no-install vsce publish --packagePath stranger-theme.vsix -p "$VSCE_PAT"
-        env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+          npx --no-install vsce publish --packagePath stranger-theme.vsix --oidc --skip-duplicate
 
       - name: Ensure Open VSX publisher namespace
         id: namespace

@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Install VS Code dependencies
         run: cd visual-studio-code && npm ci
@@ -118,6 +118,9 @@ jobs:
 
   publish-vscode:
     needs: release
+    permissions:
+      contents: read
+      id-token: write
     uses: ./.github/workflows/publish-vscode.yml
     secrets: inherit
 

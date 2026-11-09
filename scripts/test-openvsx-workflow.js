@@ -8,6 +8,15 @@ const yaml = require('../visual-studio-code/node_modules/js-yaml');
 const root = path.join(__dirname, '..');
 const workflow = yaml.load(fs.readFileSync(path.join(root, '.github/workflows/publish-vscode.yml'), 'utf8'));
 const step = workflow.jobs.publish.steps.find(step => step.id === 'namespace');
+// VS Code Marketplace publishes through Trusted Publishing (OIDC), never a PAT.
+const marketplace = workflow.jobs.publish.steps.find(step => step.name === 'Publish to VS Code Marketplace');
+assert.match(marketplace.run, /vsce publish .*--oidc/);
+assert.equal(workflow.permissions['id-token'], 'write');
+const release = yaml.load(fs.readFileSync(path.join(root, '.github/workflows/release.yml'), 'utf8'));
+assert.equal(release.jobs['publish-vscode'].permissions['id-token'], 'write', 'caller must grant id-token');
+for (const file of fs.readdirSync(path.join(root, '.github/workflows'))) {
+  assert.ok(!fs.readFileSync(path.join(root, '.github/workflows', file), 'utf8').includes('VSCE_PAT'), `${file} still uses VSCE_PAT`);
+}
 assert.ok(step.run);
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'openvsx-workflow-'));
 const callFile = path.join(temp, 'namespace-call');
@@ -32,4 +41,4 @@ try {
 } finally {
   fs.rmSync(temp, { recursive: true, force: true });
 }
-console.log('Open VSX bootstrap: existing, missing, server error and network failure passed');
+console.log('Open VSX bootstrap: existing, missing, server error and network failure passed; Marketplace uses OIDC');

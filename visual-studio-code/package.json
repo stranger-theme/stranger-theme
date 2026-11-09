@@ -78,7 +78,7 @@
     "publish": "npm run build && vsce publish"
   },
   "devDependencies": {
-    "@vscode/vsce": "^2.22.0",
+    "@vscode/vsce": "^4.1.0",
     "js-yaml": "^4.1.0"
   }
 }
