@@ -12,7 +12,7 @@ All notable changes to the Stranger Things Theme will be documented in this file
   - Hawkins: Small-town America with warm, muted, autumnal colors
   - The Lab: Clinical, institutional aesthetic with sterile colors
   - Tigers (Hawkins School): School colors with orange/black
-  - Demogorgon: Fleshy pinks/reds with dark, organic textures
+  - Dimension X (formerly Demogorgon): Dark red dimension with moody, organic textures
 - Support for Visual Studio Code
 - Support for JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm, etc.)
 - Complete documentation and contribution guidelines

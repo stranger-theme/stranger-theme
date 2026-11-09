@@ -7,11 +7,11 @@
     "*": {
       "background": "#0D1117",
       "foreground": "#F8F8F2",
-      "infoForeground": "#5C6370",
+      "infoForeground": "#7A8495",
       "selectionBackground": "#2A3C4A",
       "selectionForeground": "#F8F8F2",
       "selectionInactiveBackground": "#21252B",
-      "disabledForeground": "#5C6370",
+      "disabledForeground": "#7A8495",
       "disabledBackground": "#0D1117",
       "inactiveBackground": "#0D1117",
       "errorForeground": "#E06C75",
@@ -47,7 +47,7 @@
       "nonEditableBackground": "#0D1117",
       "ArrowButton": {
         "iconColor": "#F8F8F2",
-        "disabledIconColor": "#5C6370",
+        "disabledIconColor": "#7A8495",
         "nonEditableBackground": "#0D1117"
       }
     },
@@ -79,12 +79,12 @@
     },
     "EditorPane": {
       "inactiveBackground": "#0D1117",
-      "inactiveForeground": "#5C6370"
+      "inactiveForeground": "#7A8495"
     },
     "EditorTabs": {
       "selectedBackground": "#2A3C4A",
       "selectedForeground": "#F8F8F2",
-      "inactiveUnderlineColor": "#5C6370",
+      "inactiveUnderlineColor": "#7A8495",
       "underlineColor": "#C678DD",
       "underlinedTabBackground": "#2A3C4A",
       "hoverBackground": "#21252B",
@@ -118,8 +118,8 @@
       "selectionBackground": "#2A3C4A",
       "selectionForeground": "#F8F8F2",
       "disabledBackground": "#0D1117",
-      "disabledForeground": "#5C6370",
-      "acceleratorForeground": "#5C6370",
+      "disabledForeground": "#7A8495",
+      "acceleratorForeground": "#7A8495",
       "acceleratorSelectionForeground": "#F8F8F2",
       "borderColor": "#0D1117",
       "separatorColor": "#0D1117"
@@ -205,7 +205,7 @@
       "GitLog": {
         "headIconColor": "#98C379",
         "localBranchIconColor": "#98C379",
-        "otherIconColor": "#5C6370",
+        "otherIconColor": "#7A8495",
         "remoteBranchIconColor": "#C678DD",
         "tagIconColor": "#E5C07B"
       }
@@ -225,12 +225,12 @@
     "ColorPalette": {
       "Actions.Blue": "#56B6C2",
       "Actions.Green": "#98C379",
-      "Actions.Grey": "#5C6370",
+      "Actions.Grey": "#7A8495",
       "Actions.Red": "#E06C75",
       "Actions.Yellow": "#E5C07B",
       "Objects.Blue": "#56B6C2",
       "Objects.Green": "#98C379",
-      "Objects.Grey": "#5C6370",
+      "Objects.Grey": "#7A8495",
       "Objects.Pink": "#C678DD",
       "Objects.Purple": "#61AFEF",
       "Objects.Red": "#E06C75",

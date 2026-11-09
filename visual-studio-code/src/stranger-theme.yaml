@@ -10,22 +10,22 @@ colors:
   # Integrated Terminal Colors
   terminal.background: "{{BG}}"
   terminal.foreground: "{{FG}}"
-  terminal.ansiBrightBlack: "{{COMMENT}}"
-  terminal.ansiBrightRed: "{{RED}}"
-  terminal.ansiBrightGreen: "{{GREEN}}"
-  terminal.ansiBrightYellow: "{{YELLOW}}"
-  terminal.ansiBrightBlue: "{{PURPLE}}"
-  terminal.ansiBrightMagenta: "{{PINK}}"
-  terminal.ansiBrightCyan: "{{CYAN}}"
-  terminal.ansiBrightWhite: "{{WHITE}}"
-  terminal.ansiBlack: "{{BG}}"
-  terminal.ansiRed: "{{RED}}"
-  terminal.ansiGreen: "{{GREEN}}"
-  terminal.ansiYellow: "{{YELLOW}}"
-  terminal.ansiBlue: "{{PURPLE}}"
-  terminal.ansiMagenta: "{{PINK}}"
-  terminal.ansiCyan: "{{CYAN}}"
-  terminal.ansiWhite: "{{FG}}"
+  terminal.ansiBrightBlack: "{{ANSI_BRIGHT_BLACK}}"
+  terminal.ansiBrightRed: "{{ANSI_BRIGHT_RED}}"
+  terminal.ansiBrightGreen: "{{ANSI_BRIGHT_GREEN}}"
+  terminal.ansiBrightYellow: "{{ANSI_BRIGHT_YELLOW}}"
+  terminal.ansiBrightBlue: "{{ANSI_BRIGHT_BLUE}}"
+  terminal.ansiBrightMagenta: "{{ANSI_BRIGHT_MAGENTA}}"
+  terminal.ansiBrightCyan: "{{ANSI_BRIGHT_CYAN}}"
+  terminal.ansiBrightWhite: "{{ANSI_BRIGHT_WHITE}}"
+  terminal.ansiBlack: "{{ANSI_BLACK}}"
+  terminal.ansiRed: "{{ANSI_RED}}"
+  terminal.ansiGreen: "{{ANSI_GREEN}}"
+  terminal.ansiYellow: "{{ANSI_YELLOW}}"
+  terminal.ansiBlue: "{{ANSI_BLUE}}"
+  terminal.ansiMagenta: "{{ANSI_MAGENTA}}"
+  terminal.ansiCyan: "{{ANSI_CYAN}}"
+  terminal.ansiWhite: "{{ANSI_WHITE}}"
 
   # Base Colors
   focusBorder: "{{COMMENT}}"
@@ -111,12 +111,13 @@ colors:
   editorLineNumber.foreground: "{{COMMENT}}"
   editorLineNumber.activeForeground: "{{FG}}"
   editor.selectionBackground: "{{SELECTION}}"
-  editor.selectionHighlightBackground: "{{BGLighter}}"
+  editor.selectionHighlightBackground: "{{CYAN}}26"
   editor.foldBackground: "{{BGDark}}"
-  editor.wordHighlightBackground: "{{BGLighter}}"
-  editor.wordHighlightStrongBackground: "{{BGLighter}}"
-  editor.findMatchBackground: "{{ORANGE}}"
-  editor.findMatchHighlightBackground: "{{BGLighter}}"
+  editor.wordHighlightBackground: "{{PURPLE}}30"
+  editor.wordHighlightStrongBackground: "{{PINK}}30"
+  editor.findMatchBackground: "{{ORANGE}}55"
+  editor.findMatchBorder: "{{ORANGE}}"
+  editor.findMatchHighlightBackground: "{{YELLOW}}30"
   editor.findRangeHighlightBackground: "{{LineHighlight}}"
   editor.hoverHighlightBackground: "{{BGLighter}}"
   editor.lineHighlightBorder: "{{SELECTION}}"
@@ -170,8 +171,8 @@ colors:
   gitDecoration.conflictingResourceForeground: "{{ORANGE}}"
 
   # Diff Editor
-  diffEditor.insertedTextBackground: '#98C37920'
-  diffEditor.removedTextBackground: '#E06C7550'
+  diffEditor.insertedTextBackground: "{{GREEN}}20"
+  diffEditor.removedTextBackground: "{{RED}}30"
 
   # Editor Widget
   editorWidget.background: "{{BGDark}}"
@@ -184,11 +185,11 @@ colors:
   # Peek View
   peekView.border: "{{SELECTION}}"
   peekViewEditor.background: "{{BG}}"
-  peekViewEditor.matchHighlightBackground: "{{YELLOW}}"
+  peekViewEditor.matchHighlightBackground: "{{YELLOW}}44"
   peekViewResult.background: "{{BGDark}}"
   peekViewResult.fileForeground: "{{FG}}"
   peekViewResult.lineForeground: "{{FG}}"
-  peekViewResult.matchHighlightBackground: "{{YELLOW}}"
+  peekViewResult.matchHighlightBackground: "{{YELLOW}}44"
   peekViewResult.selectionBackground: "{{SELECTION}}"
   peekViewResult.selectionForeground: "{{FG}}"
   peekViewTitle.background: "{{BGDarker}}"
@@ -196,8 +197,8 @@ colors:
   peekViewTitleLabel.foreground: "{{FG}}"
 
   # Merge Conflicts
-  merge.currentHeaderBackground: '#98C37990'
-  merge.incomingHeaderBackground: '#61AFEF90'
+  merge.currentHeaderBackground: "{{GREEN}}90"
+  merge.incomingHeaderBackground: "{{CYAN}}90"
   editorOverviewRuler.currentContentForeground: "{{GREEN}}"
   editorOverviewRuler.incomingContentForeground: "{{PURPLE}}"
 
@@ -228,8 +229,8 @@ colors:
 
   # Extensions
   extensionButton.prominentForeground: "{{FG}}"
-  extensionButton.prominentBackground: '#98C37990'
-  extensionButton.prominentHoverBackground: '#98C37960'
+  extensionButton.prominentBackground: "{{GREEN}}90"
+  extensionButton.prominentHoverBackground: "{{GREEN}}60"
 
   # Quick Picker
   pickerGroup.border: "{{PURPLE}}"

@@ -27,7 +27,7 @@ const THEME_PALETTES = {
       BG: '#0D1117',
       FG: '#F8F8F2',
       SELECTION: '#2A3C4A',
-      COMMENT: '#5C6370',
+      COMMENT: '#7A8495',
       CYAN: '#56B6C2',
       GREEN: '#98C379',
       ORANGE: '#D19A66',
@@ -44,8 +44,8 @@ const THEME_PALETTES = {
     base: {
       BG: '#1A1A2E',
       FG: '#EAEAEA',
-      SELECTION: '#2E2E4A',
-      COMMENT: '#6B5B95',
+      SELECTION: '#3D3D66',
+      COMMENT: '#8C77C3',
       CYAN: '#00CED1',
       GREEN: '#00FA9A',
       ORANGE: '#FFB347',
@@ -62,8 +62,8 @@ const THEME_PALETTES = {
     base: {
       BG: '#2C2218',
       FG: '#E8DCC8',
-      SELECTION: '#3C3228',
-      COMMENT: '#6B5B45',
+      SELECTION: '#4D4339',
+      COMMENT: '#9E8766',
       CYAN: '#88C0D0',
       GREEN: '#A3BE8C',
       ORANGE: '#D08770',
@@ -80,8 +80,8 @@ const THEME_PALETTES = {
     base: {
       BG: '#1A1D26',
       FG: '#E0E5EC',
-      SELECTION: '#2A2D36',
-      COMMENT: '#5D6D7E',
+      SELECTION: '#3C3F48',
+      COMMENT: '#73879C',
       CYAN: '#39CCCC',
       GREEN: '#2ECC40',
       ORANGE: '#FF851B',
@@ -98,8 +98,8 @@ const THEME_PALETTES = {
     base: {
       BG: '#181E18',
       FG: '#F5F5F5',
-      SELECTION: '#283228',
-      COMMENT: '#5C6C5C',
+      SELECTION: '#38463A',
+      COMMENT: '#758975',
       CYAN: '#81A2BE',
       GREEN: '#B5BD68',
       ORANGE: '#DE935F',
@@ -116,8 +116,8 @@ const THEME_PALETTES = {
     base: {
       BG: '#1E1A1A',
       FG: '#E8D5D5',
-      SELECTION: '#3E2A2A',
-      COMMENT: '#5C4A4A',
+      SELECTION: '#523535',
+      COMMENT: '#9A7C7C',
       CYAN: '#D19A66',
       GREEN: '#8B7355',
       ORANGE: '#FF6B6B',
@@ -164,7 +164,8 @@ function getDerivedColors(palette) {
     BGDark: adjustColor(palette.BG, -10),
     BGDarker: adjustColor(palette.BG, -20),
     // ANSI colors for terminal
-    ANSI_BLACK: palette.BG,
+    // BG + 40 so ANSI black text stays visible on the terminal background
+    ANSI_BLACK: adjustColor(palette.BG, 40),
     ANSI_RED: palette.RED,
     ANSI_GREEN: palette.GREEN,
     ANSI_YELLOW: palette.YELLOW,

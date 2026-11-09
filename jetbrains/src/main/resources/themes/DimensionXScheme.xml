@@ -9,7 +9,7 @@
   </metaInfo>
   <colors>
     <option name="ADDED_LINES_COLOR" value="8b7355"/>
-    <option name="ANNOTATIONS_COLOR" value="5c4a4a"/>
+    <option name="ANNOTATIONS_COLOR" value="9a7c7c"/>
     <option name="CARET_COLOR" value="e8d5d5"/>
     <option name="CARET_ROW_COLOR" value="322e2e"/>
     <option name="CONSOLE_BACKGROUND_KEY" value="1e1a1a"/>
@@ -27,19 +27,19 @@
     <option name="GUTTER_BACKGROUND" value="1e1a1a"/>
     <option name="INDENT_GUIDE" value="322e2e"/>
     <option name="INFORMATION_HINT" value="322e2e"/>
-    <option name="LINE_NUMBERS_COLOR" value="5c4a4a"/>
+    <option name="LINE_NUMBERS_COLOR" value="9a7c7c"/>
     <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="e8d5d5"/>
     <option name="LOOKUP_COLOR" value="322e2e"/>
     <option name="METHOD_SEPARATORS_COLOR" value="322e2e"/>
     <option name="MODIFIED_LINES_COLOR" value="d19a66"/>
     <option name="NOTIFICATION_BACKGROUND" value="322e2e"/>
-    <option name="RECENT_LOCATIONS_SELECTION" value="3e2a2a"/>
+    <option name="RECENT_LOCATIONS_SELECTION" value="523535"/>
     <option name="RIGHT_MARGIN_COLOR" value="322e2e"/>
-    <option name="SELECTED_INDENT_GUIDE" value="5c4a4a"/>
-    <option name="SELECTION_BACKGROUND" value="3e2a2a"/>
+    <option name="SELECTED_INDENT_GUIDE" value="9a7c7c"/>
+    <option name="SELECTION_BACKGROUND" value="523535"/>
     <option name="SELECTION_FOREGROUND" value="e8d5d5"/>
     <option name="TEARLINE_COLOR" value="322e2e"/>
-    <option name="WHITESPACES" value="5c4a4a"/>
+    <option name="WHITESPACES" value="9a7c7c"/>
   </colors>
   <attributes>
     <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
@@ -62,12 +62,12 @@
     <option name="BREADCRUMBS_CURRENT">
       <value>
         <option name="FOREGROUND" value="e8d5d5"/>
-        <option name="BACKGROUND" value="3e2a2a"/>
+        <option name="BACKGROUND" value="523535"/>
       </value>
     </option>
     <option name="BREADCRUMBS_DEFAULT">
       <value>
-        <option name="FOREGROUND" value="5c4a4a"/>
+        <option name="FOREGROUND" value="9a7c7c"/>
       </value>
     </option>
     <option name="CONSOLE_BLUE_OUTPUT">
@@ -112,7 +112,7 @@
     </option>
     <option name="DEFAULT_BLOCK_COMMENT">
       <value>
-        <option name="FOREGROUND" value="5c4a4a"/>
+        <option name="FOREGROUND" value="9a7c7c"/>
         <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
@@ -133,7 +133,7 @@
     </option>
     <option name="DEFAULT_DOC_COMMENT">
       <value>
-        <option name="FOREGROUND" value="5c4a4a"/>
+        <option name="FOREGROUND" value="9a7c7c"/>
         <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
@@ -203,7 +203,7 @@
     </option>
     <option name="DEFAULT_LINE_COMMENT">
       <value>
-        <option name="FOREGROUND" value="5c4a4a"/>
+        <option name="FOREGROUND" value="9a7c7c"/>
         <option name="FONT_TYPE" value="2"/>
       </value>
     </option>
@@ -282,8 +282,8 @@
     </option>
     <option name="DEPRECATED_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="5c4a4a"/>
-        <option name="EFFECT_COLOR" value="5c4a4a"/>
+        <option name="FOREGROUND" value="9a7c7c"/>
+        <option name="EFFECT_COLOR" value="9a7c7c"/>
         <option name="EFFECT_TYPE" value="3"/>
       </value>
     </option>
@@ -296,7 +296,7 @@
     </option>
     <option name="FOLDED_TEXT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="5c4a4a"/>
+        <option name="FOREGROUND" value="9a7c7c"/>
         <option name="BACKGROUND" value="322e2e"/>
       </value>
     </option>
@@ -330,7 +330,7 @@
     </option>
     <option name="IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="3e2a2a"/>
+        <option name="BACKGROUND" value="523535"/>
         <option name="ERROR_STRIPE_COLOR" value="c678dd"/>
       </value>
     </option>
@@ -349,18 +349,18 @@
     <option name="MATCHED_BRACE_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="e8d5d5"/>
-        <option name="BACKGROUND" value="3e2a2a"/>
+        <option name="BACKGROUND" value="523535"/>
         <option name="FONT_TYPE" value="1"/>
       </value>
     </option>
     <option name="NOT_USED_ELEMENT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="5c4a4a"/>
+        <option name="FOREGROUND" value="9a7c7c"/>
       </value>
     </option>
     <option name="SEARCH_RESULT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="3e2a2a"/>
+        <option name="BACKGROUND" value="523535"/>
         <option name="ERROR_STRIPE_COLOR" value="c678dd"/>
       </value>
     </option>
@@ -386,7 +386,7 @@
     </option>
     <option name="WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="3e2a2a"/>
+        <option name="BACKGROUND" value="523535"/>
         <option name="ERROR_STRIPE_COLOR" value="c678dd"/>
       </value>
     </option>
