@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="../assets/stranger-theme-logo.png" alt="Stranger Theme Logo" width="256" />
+<img src="../assets/stranger-theme-banner.png" alt="Stranger Theme: six dark variants for 12 editors and terminals" width="100%" />
 
 </div>
 

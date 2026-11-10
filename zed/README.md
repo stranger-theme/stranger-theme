@@ -1,3 +1,9 @@
+<div align="center">
+
+<img src="../assets/stranger-theme-banner.png" alt="Stranger Theme: six dark variants for 12 editors and terminals" width="100%" />
+
+</div>
+
 # Stranger Theme for Zed
 
 Six dark variants for Zed: Upside Down, Starcourt, Hawkins, The Lab, Tigers, and Dimension X. One theme family file includes editor colors, syntax highlighting, selections, and all 16 terminal ANSI colors from the existing shared palettes.
