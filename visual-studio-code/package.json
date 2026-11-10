@@ -79,6 +79,9 @@
   },
   "devDependencies": {
     "@vscode/vsce": "^4.1.0",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.3.2"
+  },
+  "overrides": {
+    "minimatch": "^11.0.1"
   }
 }
