@@ -1,5 +1,7 @@
 # https://github.com/stranger-theme/stranger-theme
 name: "Stranger Theme Dimension X"
+author: "Stranger Theme (https://github.com/stranger-theme/stranger-theme)"
+variant: "dark"
 color_01:       "#464242"
 color_02:       "#ff55aa"
 color_03:       "#8b7355"

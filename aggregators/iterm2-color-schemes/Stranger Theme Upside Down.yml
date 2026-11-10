@@ -1,5 +1,7 @@
 # https://github.com/stranger-theme/stranger-theme
 name: "Stranger Theme Upside Down"
+author: "Stranger Theme (https://github.com/stranger-theme/stranger-theme)"
+variant: "dark"
 color_01:       "#35393f"
 color_02:       "#e06c75"
 color_03:       "#98c379"

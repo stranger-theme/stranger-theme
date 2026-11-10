@@ -75,6 +75,8 @@ function generateItermSchemesYaml(palette) {
   ];
   return `# ${SOURCE}
 name: "Stranger Theme ${palette.displayName}"
+author: "Stranger Theme (${SOURCE})"
+variant: "dark"
 ${entries.map(([key, color]) => `${`${key}:`.padEnd(16)}"${color.toLowerCase()}"`).join('\n')}
 `;
 }

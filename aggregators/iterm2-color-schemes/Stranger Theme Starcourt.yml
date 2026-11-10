@@ -1,5 +1,7 @@
 # https://github.com/stranger-theme/stranger-theme
 name: "Stranger Theme Starcourt"
+author: "Stranger Theme (https://github.com/stranger-theme/stranger-theme)"
+variant: "dark"
 color_01:       "#424256"
 color_02:       "#ff6b6b"
 color_03:       "#00fa9a"

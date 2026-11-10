@@ -1,5 +1,7 @@
 # https://github.com/stranger-theme/stranger-theme
 name: "Stranger Theme Tigers"
+author: "Stranger Theme (https://github.com/stranger-theme/stranger-theme)"
+variant: "dark"
 color_01:       "#404640"
 color_02:       "#cc6666"
 color_03:       "#b5bd68"

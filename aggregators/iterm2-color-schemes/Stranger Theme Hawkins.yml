@@ -1,5 +1,7 @@
 # https://github.com/stranger-theme/stranger-theme
 name: "Stranger Theme Hawkins"
+author: "Stranger Theme (https://github.com/stranger-theme/stranger-theme)"
+variant: "dark"
 color_01:       "#544a40"
 color_02:       "#bf616a"
 color_03:       "#a3be8c"
