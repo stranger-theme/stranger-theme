@@ -19,7 +19,8 @@ const PLATFORMS = [
   { name: 'Sublime Text', dir: 'sublime-text' },
   { name: 'Terminal (Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, WezTerm)', dir: 'terminal' },
   { name: 'Hyper', dir: 'hyper' },
-  { name: 'Zed', dir: 'zed' }
+  { name: 'Zed', dir: 'zed' },
+  { name: 'Aggregators (tinted-theming base16/base24, iTerm2-Color-Schemes)', dir: 'aggregators' }
 ];
 
 /**
@@ -124,6 +125,7 @@ function build() {
   console.log(`   • Kitty:            ${countFiles(path.join(ROOT_DIR, 'terminal/kitty'), ['.conf'])} themes`);
   console.log(`   • WezTerm:          ${countFiles(path.join(ROOT_DIR, 'terminal/wezterm'), ['.toml'])} themes`);
   console.log(`   • Zed:              ${countFiles(path.join(ROOT_DIR, 'zed/themes'), ['.json'])} theme family`);
+  console.log(`   • Aggregators:      ${countFiles(path.join(ROOT_DIR, 'aggregators'), ['.yaml', '.yml'])} schemes`);
   console.log('');
   
   if (failCount > 0) {
