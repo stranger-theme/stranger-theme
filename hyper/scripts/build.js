@@ -103,11 +103,33 @@ function generatePackageJson(themeId, palette) {
     ],
     author: "Stranger Theme",
     license: "MIT",
+    homepage: "https://strangertheme.com",
     repository: {
       type: "git",
-      url: "https://github.com/stranger-theme/hyper"
+      url: "https://github.com/stranger-theme/stranger-theme.git",
+      directory: `hyper/themes/hyper-stranger-theme-${themeId}`
     }
   };
+}
+
+/**
+ * Generate README.md for each Hyper theme (shown on npm)
+ */
+function generateReadme(themeId, palette) {
+  return `<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/assets/stranger-theme-banner.png" alt="Stranger Theme: six dark variants for 12 editors and terminals" width="100%" />
+
+# Stranger Theme: ${palette.displayName} for Hyper
+
+Add the theme to the \`plugins\` list in \`~/.hyper.js\`:
+
+\`\`\`js
+plugins: ["hyper-stranger-theme-${themeId}"]
+\`\`\`
+
+Or install it with \`hyper i hyper-stranger-theme-${themeId}\`.
+
+Other variants, editors and terminals: https://github.com/stranger-theme/stranger-theme
+`;
 }
 
 /**
@@ -143,6 +165,10 @@ function build() {
     const packageFile = path.join(themeDir, 'package.json');
     fs.writeFileSync(packageFile, JSON.stringify(packageJson, null, 2));
     console.log(`  -> ${packageFile}`);
+
+    const readmeFile = path.join(themeDir, 'README.md');
+    fs.writeFileSync(readmeFile, generateReadme(themeId, palette));
+    console.log(`  -> ${readmeFile}`);
   }
 
   console.log('\nBuild complete!');
