@@ -2,6 +2,11 @@
 
 All notable changes to the Stranger Things Theme will be documented in this file.
 
+## [1.0.5] - 2026-11-10
+
+### Changed
+- New Stranger Theme banner on the README and marketplace pages.
+
 ## [1.0.4] - 2026-11-09
 
 ### Fixed

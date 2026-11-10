@@ -1,6 +1,6 @@
 {
   "name": "hyper-stranger-theme-the-lab",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Stranger Theme: The Lab for Hyper Terminal",
   "main": "index.js",
   "keywords": [
@@ -13,8 +13,10 @@
   ],
   "author": "Stranger Theme",
   "license": "MIT",
+  "homepage": "https://strangertheme.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stranger-theme/hyper"
+    "url": "https://github.com/stranger-theme/stranger-theme.git",
+    "directory": "hyper/themes/hyper-stranger-theme-the-lab"
   }
 }
