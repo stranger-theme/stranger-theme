@@ -33,9 +33,11 @@ Or add to `Preferences.sublime-settings`:
 
 ```json
 {
-  "color_scheme": "Packages/Stranger Theme/Stranger-Theme-Starcourt.tmTheme"
+  "color_scheme": "Packages/Stranger Theme Color Schemes/Stranger-Theme-Starcourt.tmTheme"
 }
 ```
+
+With a manual installation, use the folder you created: `Packages/Stranger Theme/...`.
 
 ## Theme Variants
 
