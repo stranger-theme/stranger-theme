@@ -2,6 +2,19 @@
 
 All notable changes to the Stranger Things Theme will be documented in this file.
 
+## [1.0.6] - 2026-11-11
+
+### Added
+- Sublime Text: `sublime-text/repository.json` lets Package Control install the release package, which now includes the LICENSE.
+- Scheme files for theme aggregators (tinted-theming base16/base24, iTerm2-Color-Schemes) are generated from the shared palettes under `aggregators/`, for submission to those collections.
+
+### Fixed
+- Sublime Text README shows the `color_scheme` path used by a Package Control install.
+
+### Changed
+- README previews for the six variants are rendered from the shipped theme files.
+- Every client is on the same version again. The VS Code extension has been on 1.0.6 since 2026-11-10 and is unchanged.
+
 ## [1.0.5] - 2026-11-10
 
 ### Changed
