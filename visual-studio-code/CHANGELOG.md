@@ -2,6 +2,11 @@
 
 All notable changes to the Stranger Things Theme will be documented in this file.
 
+## [1.0.6] - 2026-11-10
+
+### Changed
+- README previews for the six variants are now rendered from the shipped theme files, replacing screenshots taken before the 1.0.4 palette update.
+
 ## [1.0.5] - 2026-11-10
 
 ### Changed
