@@ -18,12 +18,40 @@
 
 Stranger Theme comes in 6 distinct variants, each capturing the essence of different locations and dimensions from the series:
 
-- **Upside Down** - Dark blue-black with desaturated tones
-- **Starcourt** - Vibrant 80s mall aesthetic with neon colors
-- **Hawkins** - Small-town America with warm, muted, autumnal colors
-- **The Lab** - Clinical, institutional aesthetic with sterile colors
-- **Tigers** - School colors with orange/black and vintage academic tones
-- **Dimension X** - Dark red dimension with moody, organic textures
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="./assets/screenshots/upside-down.png" alt="Upside Down variant: editor, file explorer and terminal on a blue-black background" />
+      <br /><strong>Upside Down</strong><br />Dark blue-black with desaturated tones
+    </td>
+    <td width="50%" valign="top">
+      <img src="./assets/screenshots/starcourt.png" alt="Starcourt variant: editor, file explorer and terminal in neon pink, cyan and yellow on deep navy" />
+      <br /><strong>Starcourt</strong><br />Vibrant 80s mall aesthetic with neon colors
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="./assets/screenshots/hawkins.png" alt="Hawkins variant: editor, file explorer and terminal in muted autumn tones on warm brown" />
+      <br /><strong>Hawkins</strong><br />Small-town America with warm, muted, autumnal colors
+    </td>
+    <td width="50%" valign="top">
+      <img src="./assets/screenshots/the-lab.png" alt="The Lab variant: editor, file explorer and terminal in saturated primary colors on slate" />
+      <br /><strong>The Lab</strong><br />Clinical, institutional aesthetic with sterile colors
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="./assets/screenshots/tigers.png" alt="Tigers variant: editor, file explorer and terminal with orange accents on green-black" />
+      <br /><strong>Tigers</strong><br />School colors with orange/black and vintage academic tones
+    </td>
+    <td width="50%" valign="top">
+      <img src="./assets/screenshots/dimension-x.png" alt="Dimension X variant: editor, file explorer and terminal in reds and browns on near-black" />
+      <br /><strong>Dimension X</strong><br />Dark red dimension with moody, organic textures
+    </td>
+  </tr>
+</table>
+
+<sub>Previews are rendered from the generated VS Code theme files with <code>npm run screenshots</code>.</sub>
 
 ## Install
 
@@ -49,7 +77,7 @@ All 6 theme variants are built from shared color definitions. The example below 
 | Current Line | `#2A3C4A` | 42 60 74 | 206° 28% 23% | <span style="background-color:#2A3C4A;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
 | Selection | `#2A3C4A` | 42 60 74 | 206° 28% 23% | <span style="background-color:#2A3C4A;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
 | Foreground | `#F8F8F2` | 248 248 242 | 60° 30% 96% | <span style="background-color:#F8F8F2;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Comment | `#5C6370` | 92 99 112 | 219° 10% 40% | <span style="background-color:#5C6370;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Comment | `#7A8495` | 122 132 149 | 218° 11% 53% | <span style="background-color:#7A8495;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
 | Cyan | `#56B6C2` | 86 182 194 | 187° 47% 55% | <span style="background-color:#56B6C2;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
 | Green | `#98C379` | 152 195 121 | 95° 38% 62% | <span style="background-color:#98C379;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
 | Orange | `#D19A66` | 209 154 102 | 29° 54% 61% | <span style="background-color:#D19A66;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
@@ -79,6 +107,9 @@ npm run build:zed
 
 # Validate the four new clients, all six variants, and unchanged legacy output
 npm test
+
+# Re-render the README previews after a palette change (macOS + Google Chrome; run `npm install` first)
+npm run screenshots
 ```
 
 ### Adding a New Variant
