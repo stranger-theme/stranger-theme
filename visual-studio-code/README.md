@@ -16,45 +16,45 @@
 
 ## Theme Variants
 
-Choose from 6 unique theme variants, each inspired by iconic elements from Stranger Things:
+Choose from 6 unique theme variants, each inspired by iconic elements from Stranger Things. The previews below are rendered from the theme files shipped in this extension.
 
 ### Upside Down
-<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/visual-studio-code/assets/upside-down.png" alt="Upside Down Theme" width="700" />
+<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/assets/screenshots/upside-down.png" alt="Upside Down Theme" width="700" />
 
 Dark blue-black with desaturated tones, capturing the eerie atmosphere of the alternate dimension.
 
 ---
 
 ### Starcourt
-<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/visual-studio-code/assets/starcourt.png" alt="Starcourt Theme" width="700" />
+<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/assets/screenshots/starcourt.png" alt="Starcourt Theme" width="700" />
 
 Vibrant 80s mall aesthetic with neon colors, bringing the retro energy of Starcourt Mall to your editor.
 
 ---
 
 ### Hawkins
-<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/visual-studio-code/assets/hawkins.png" alt="Hawkins Theme" width="700" />
+<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/assets/screenshots/hawkins.png" alt="Hawkins Theme" width="700" />
 
 Small-town America with warm, muted, autumnal colors that evoke the cozy familiarity of Hawkins, Indiana.
 
 ---
 
 ### The Lab
-<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/visual-studio-code/assets/the-lab.png" alt="The Lab Theme" width="700" />
+<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/assets/screenshots/the-lab.png" alt="The Lab Theme" width="700" />
 
 Clinical, institutional aesthetic with sterile colors, inspired by the mysterious Hawkins National Laboratory.
 
 ---
 
 ### Tigers
-<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/visual-studio-code/assets/tigers.png" alt="Tigers Theme" width="700" />
+<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/assets/screenshots/tigers.png" alt="Tigers Theme" width="700" />
 
 School colors with orange/black and vintage academic tones, paying homage to Hawkins High School.
 
 ---
 
 ### Dimension X
-<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/visual-studio-code/assets/dimension-x.png" alt="Dimension X Theme" width="700" />
+<img src="https://raw.githubusercontent.com/stranger-theme/stranger-theme/refs/heads/main/assets/screenshots/dimension-x.png" alt="Dimension X Theme" width="700" />
 
 Dark red dimension with moody, organic textures, bringing the otherworldly atmosphere to your workspace.
 
