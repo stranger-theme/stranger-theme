@@ -137,6 +137,14 @@ for (const [id, palette] of variants) {
   }
 }
 
+// Package Control reads sublime-text/repository.json from main, so it must point at the current release asset.
+const { version } = require('../package.json');
+const [sublimeRelease] = JSON.parse(read('sublime-text/repository.json')).packages[0].releases;
+assert.equal(sublimeRelease.version, version, 'sublime-text/repository.json must list the current release');
+assert.equal(sublimeRelease.url,
+  `https://github.com/stranger-theme/stranger-theme/releases/download/v${version}/StrangerTheme.sublime-package`);
+assert.match(sublimeRelease.date, /^\d{4}-\d\d-\d\d \d\d:\d\d:\d\d$/, 'Package Control date format is YYYY-MM-DD HH:MM:SS (UTC)');
+
 const newDirectories = ['terminal/ghostty', 'terminal/kitty', 'terminal/wezterm', 'zed/themes'];
 const firstBuild = snapshot(newDirectories);
 build();

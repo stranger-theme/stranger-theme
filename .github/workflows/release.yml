@@ -76,7 +76,8 @@ jobs:
           
           # Sublime Text themes
           cd sublime-text/themes && zip -r ../../stranger-theme-sublime.zip . && cd ../..
-          # Package Control installs this asset (see wbond/package_control_channel)
+          zip -j stranger-theme-sublime.zip LICENSE
+          # Package Control installs this asset through sublime-text/repository.json
           cp stranger-theme-sublime.zip StrangerTheme.sublime-package
           
           # Terminal themes
