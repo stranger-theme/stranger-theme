@@ -17,9 +17,11 @@ const PLATFORMS = [
   { name: 'JetBrains', dir: 'jetbrains' },
   { name: 'Vim/Neovim', dir: 'vim' },
   { name: 'Sublime Text', dir: 'sublime-text' },
-  { name: 'Terminal (Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, WezTerm)', dir: 'terminal' },
+  { name: 'Terminal (Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, WezTerm, Warp, Terminal.app)', dir: 'terminal' },
   { name: 'Hyper', dir: 'hyper' },
   { name: 'Zed', dir: 'zed' },
+  { name: 'Helix', dir: 'helix' },
+  { name: 'tmux', dir: 'tmux' },
   { name: 'Aggregators (tinted-theming base16/base24, iTerm2-Color-Schemes)', dir: 'aggregators' }
 ];
 
@@ -45,6 +47,21 @@ function buildPlatform(platform) {
     console.error(`  ❌ Error building ${platform.name}:`);
     console.error(error.message);
     return false;
+  }
+}
+
+/**
+ * Write the colour swatches shown in the README palette table.
+ * GitHub strips inline styles from Markdown, so each swatch is an SVG file.
+ */
+function buildSwatches() {
+  const { THEME_PALETTES, getDerivedColors } = require('../shared/palettes');
+  const base = THEME_PALETTES['upside-down'].base;
+  const dir = path.join(ROOT_DIR, 'assets', 'palette');
+  fs.mkdirSync(dir, { recursive: true });
+  for (const hex of new Set([...Object.values(base), getDerivedColors(base).LineHighlight])) {
+    fs.writeFileSync(path.join(dir, `${hex.slice(1)}.svg`),
+      `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><rect x=".5" y=".5" width="15" height="15" rx="3" fill="${hex}" stroke="#808080"/></svg>\n`);
   }
 }
 
@@ -98,6 +115,18 @@ function build() {
     }
   }
   
+  buildSwatches();
+
+  process.stdout.write('Generating docs/SPEC.md and docs/palettes.json...');
+  try {
+    execSync(`node ${path.join(__dirname, 'build-spec.js')}`, { stdio: 'pipe' });
+    successCount++;
+    console.log(' ✅');
+  } catch (error) {
+    failCount++;
+    console.error(`\n  ❌ Error generating spec:\n${error.message}`);
+  }
+
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
   
   console.log('');
@@ -119,12 +148,16 @@ function build() {
   console.log(`   • Sublime Text:     ${countFiles(path.join(ROOT_DIR, 'sublime-text/themes'), ['.tmTheme'])} themes`);
   console.log(`   • Alacritty:        ${countFiles(path.join(ROOT_DIR, 'terminal/alacritty'), ['.toml'])} themes`);
   console.log(`   • iTerm2:           ${countFiles(path.join(ROOT_DIR, 'terminal/iterm2'), ['.itermcolors'])} themes`);
-  console.log(`   • Windows Terminal: ${countFiles(path.join(ROOT_DIR, 'terminal/windows-terminal'), ['.json'])} themes`);
+  console.log(`   • Windows Terminal: ${fs.readdirSync(path.join(ROOT_DIR, 'terminal/windows-terminal')).filter(name => name.endsWith('.json')).length} themes + ${countFiles(path.join(ROOT_DIR, 'terminal/windows-terminal/fragment'), ['.json'])} fragment`);
   console.log(`   • Hyper:            ${countFiles(path.join(ROOT_DIR, 'hyper/themes'))} plugins`);
   console.log(`   • Ghostty:          ${countFiles(path.join(ROOT_DIR, 'terminal/ghostty'))} themes`);
   console.log(`   • Kitty:            ${countFiles(path.join(ROOT_DIR, 'terminal/kitty'), ['.conf'])} themes`);
   console.log(`   • WezTerm:          ${countFiles(path.join(ROOT_DIR, 'terminal/wezterm'), ['.toml'])} themes`);
+  console.log(`   • Warp:             ${countFiles(path.join(ROOT_DIR, 'terminal/warp'), ['.yaml'])} themes`);
+  console.log(`   • Terminal.app:     ${countFiles(path.join(ROOT_DIR, 'terminal/terminal-app'), ['.terminal'])} profiles`);
   console.log(`   • Zed:              ${countFiles(path.join(ROOT_DIR, 'zed/themes'), ['.json'])} theme family`);
+  console.log(`   • Helix:            ${countFiles(path.join(ROOT_DIR, 'helix/themes'), ['.toml'])} themes`);
+  console.log(`   • tmux:             ${countFiles(path.join(ROOT_DIR, 'tmux/themes'), ['.conf'])} themes`);
   console.log(`   • Aggregators:      ${countFiles(path.join(ROOT_DIR, 'aggregators'), ['.yaml', '.yml'])} schemes`);
   console.log('');
   

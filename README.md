@@ -61,30 +61,33 @@ Choose your platform:
 - [JetBrains IDEs](./jetbrains) (IntelliJ IDEA, PyCharm, WebStorm, etc.)
 - [Vim/Neovim](./vim)
 - [Sublime Text](./sublime-text)
-- [Terminal](./terminal) (Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, WezTerm)
+- [Terminal](./terminal) (Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, WezTerm, Warp, macOS Terminal)
 - [Hyper](./hyper)
 - [Zed](./zed)
+- [Helix](./helix)
+- [tmux](./tmux)
+- [bat and delta](./sublime-text#bat-and-delta)
 
 Each platform directory contains installation instructions specific to that environment.
 
 ## Color Palette
 
-All 6 theme variants are built from shared color definitions. The example below uses the Upside Down palette (see `shared/palettes.js` for all variants).
+All 6 theme variants are built from shared color definitions. The example below uses the Upside Down palette; the [specification](./docs/SPEC.md) lists every variant with its colour roles, ANSI mapping and contrast ratios.
 
-| Palette | Hex | RGB | HSL | Color Picker Boxes |
+| Palette | Hex | RGB | HSL | Swatch |
 | --- | --- | --- | --- | --- |
-| Background | `#0D1117` | 13 17 23 | 216° 28% 7% | <span style="background-color:#0D1117;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Current Line | `#2A3C4A` | 42 60 74 | 206° 28% 23% | <span style="background-color:#2A3C4A;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Selection | `#2A3C4A` | 42 60 74 | 206° 28% 23% | <span style="background-color:#2A3C4A;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Foreground | `#F8F8F2` | 248 248 242 | 60° 30% 96% | <span style="background-color:#F8F8F2;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Comment | `#7A8495` | 122 132 149 | 218° 11% 53% | <span style="background-color:#7A8495;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Cyan | `#56B6C2` | 86 182 194 | 187° 47% 55% | <span style="background-color:#56B6C2;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Green | `#98C379` | 152 195 121 | 95° 38% 62% | <span style="background-color:#98C379;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Orange | `#D19A66` | 209 154 102 | 29° 54% 61% | <span style="background-color:#D19A66;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Pink | `#C678DD` | 198 120 221 | 286° 60% 67% | <span style="background-color:#C678DD;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Purple | `#61AFEF` | 97 175 239 | 207° 82% 66% | <span style="background-color:#61AFEF;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Red | `#E06C75` | 224 108 117 | 355° 65% 65% | <span style="background-color:#E06C75;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
-| Yellow | `#E5C07B` | 229 192 123 | 39° 67% 69% | <span style="background-color:#E5C07B;display:inline-block;width:16px;height:16px;border:1px solid #000;"></span> |
+| Background | `#0D1117` | 13 17 23 | 216° 28% 7% | <img src="assets/palette/0D1117.svg" width="16" height="16" alt="#0D1117"> |
+| Current Line | `#21252B` | 33 37 43 | 216° 13% 15% | <img src="assets/palette/21252B.svg" width="16" height="16" alt="#21252B"> |
+| Selection | `#2A3C4A` | 42 60 74 | 206° 28% 23% | <img src="assets/palette/2A3C4A.svg" width="16" height="16" alt="#2A3C4A"> |
+| Foreground | `#F8F8F2` | 248 248 242 | 60° 30% 96% | <img src="assets/palette/F8F8F2.svg" width="16" height="16" alt="#F8F8F2"> |
+| Comment | `#7A8495` | 122 132 149 | 218° 11% 53% | <img src="assets/palette/7A8495.svg" width="16" height="16" alt="#7A8495"> |
+| Cyan | `#56B6C2` | 86 182 194 | 187° 47% 55% | <img src="assets/palette/56B6C2.svg" width="16" height="16" alt="#56B6C2"> |
+| Green | `#98C379` | 152 195 121 | 95° 38% 62% | <img src="assets/palette/98C379.svg" width="16" height="16" alt="#98C379"> |
+| Orange | `#D19A66` | 209 154 102 | 29° 54% 61% | <img src="assets/palette/D19A66.svg" width="16" height="16" alt="#D19A66"> |
+| Pink | `#C678DD` | 198 120 221 | 286° 60% 67% | <img src="assets/palette/C678DD.svg" width="16" height="16" alt="#C678DD"> |
+| Purple | `#61AFEF` | 97 175 239 | 207° 82% 66% | <img src="assets/palette/61AFEF.svg" width="16" height="16" alt="#61AFEF"> |
+| Red | `#E06C75` | 224 108 117 | 355° 65% 65% | <img src="assets/palette/E06C75.svg" width="16" height="16" alt="#E06C75"> |
+| Yellow | `#E5C07B` | 229 192 123 | 39° 67% 69% | <img src="assets/palette/E5C07B.svg" width="16" height="16" alt="#E5C07B"> |
 
 ## Development
 

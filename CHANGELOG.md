@@ -2,6 +2,23 @@
 
 All notable changes to the Stranger Things Theme will be documented in this file.
 
+## [Unreleased]
+
+### Added
+- Helix, tmux, Warp and macOS Terminal themes for all six variants, plus a Windows Terminal fragment that installs all six schemes from one file.
+- Neovim: the repository root ships `colors/` and `lua/`, so lazy.nvim, packer and vim-plug install the theme with no `rtp` setting. New `require('stranger-theme').setup()`, lualine themes, and highlight groups for gitsigns, nvim-tree, neo-tree, indent-blankline, which-key, Trouble, blink.cmp, lazy.nvim and nvim-dap.
+- Vim/Neovim options for a transparent background, no italics and dimmed inactive windows. The default look is unchanged.
+- VS Code: explicit semantic token colours, and themed minimap, inlay hints, Testing, debug, Source Control graph, merge editor, notebooks, symbol icons, charts and chat.
+- JetBrains: the console and built-in terminal use all 16 palette ANSI colours; themed inlay hints, breakpoints, debugger values and log levels.
+- A generated colour specification in `docs/SPEC.md`, with `docs/palettes.json` for tools.
+- Instructions for using the Sublime Text themes with bat and delta.
+- GitHub issue forms and a pull request checklist.
+
+### Fixed
+- VS Code: warnings are orange everywhere; the editor squiggle used cyan.
+- README palette table shows its colour swatches on GitHub.
+- CONTRIBUTING.md describes the real build workflow.
+
 ## [1.0.6] - 2026-11-11
 
 ### Added

@@ -1,0 +1,26 @@
+# Stranger Theme: The Lab for Warp
+name: 'Stranger Theme: The Lab'
+accent: '#7FDBFF'
+cursor: '#E0E5EC'
+background: '#1A1D26'
+foreground: '#E0E5EC'
+details: darker
+terminal_colors:
+  normal:
+    black: '#42454E'
+    red: '#FF4136'
+    green: '#2ECC40'
+    yellow: '#FFDC00'
+    blue: '#B10DC9'
+    magenta: '#7FDBFF'
+    cyan: '#39CCCC'
+    white: '#E0E5EC'
+  bright:
+    black: '#73879C'
+    red: '#FF5F54'
+    green: '#4CEA5E'
+    yellow: '#FFFA1E'
+    blue: '#CF2BE7'
+    magenta: '#9DF9FF'
+    cyan: '#57EAEA'
+    white: '#FFFFFF'

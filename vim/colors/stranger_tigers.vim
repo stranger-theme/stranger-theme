@@ -36,6 +36,7 @@ let s:yellow    = ['#F0C674', 228]
 
 let s:bglight   = ['#2C322C', 236]
 let s:bglighter = ['#404640', 237]
+let s:bgdark    = ['#0E140E', 234]
 let s:none      = ['NONE', 'NONE']
 
 " Subtle accent tints for diff / diagnostic backgrounds
@@ -48,6 +49,14 @@ let s:cyan_bg   = ['#283231', 23]
 let s:purple_bg = ['#2F3030', 54]
 
 " }}}
+" Options: {{{
+
+let s:transparent = get(g:, 'stranger_transparent_background', 0)
+let s:no_italic   = get(g:, 'stranger_disable_italic', 0)
+let s:dim         = get(g:, 'stranger_dim_inactive', 0)
+let s:bg_main     = s:transparent ? s:none : s:bg
+
+" }}}
 " Helper Function: {{{
 
 function! s:h(scope, fg, ...)
@@ -55,6 +64,9 @@ function! s:h(scope, fg, ...)
   let l:bg = get(a:, 1, s:none)
   let l:attr = get(a:, 2, '')
   let l:sp = get(a:, 3, [])
+  if s:no_italic
+    let l:attr = join(filter(split(l:attr, ','), 'v:val !=# "italic"'), ',')
+  endif
 
   let l:hl = 'highlight ' . a:scope
   let l:hl .= ' guifg=' . l:fg[0] . ' ctermfg=' . l:fg[1]
@@ -71,7 +83,12 @@ endfunction
 " Highlight Groups: {{{
 
 " Editor: {{{
-call s:h('Normal', s:fg, s:bg)
+call s:h('Normal', s:fg, s:bg_main)
+if s:dim
+  call s:h('NormalNC', s:fg, s:bgdark)
+elseif s:transparent
+  call s:h('NormalNC', s:fg, s:none)
+endif
 call s:h('ColorColumn', s:none, s:bglight)
 call s:h('Cursor', s:bg, s:fg)
 call s:h('CursorColumn', s:none, s:bglight)
@@ -87,8 +104,8 @@ call s:h('ErrorMsg', s:red, s:none, 'bold')
 call s:h('VertSplit', s:selection)
 call s:h('WinSeparator', s:selection)
 call s:h('Folded', s:comment, s:bglight)
-call s:h('FoldColumn', s:comment, s:bg)
-call s:h('SignColumn', s:none, s:bg)
+call s:h('FoldColumn', s:comment, s:bg_main)
+call s:h('SignColumn', s:none, s:bg_main)
 call s:h('IncSearch', s:bg, s:orange)
 call s:h('CurSearch', s:bg, s:orange, 'bold')
 call s:h('LineNr', s:comment)
@@ -179,11 +196,11 @@ if has('nvim')
   call s:h('DiagnosticVirtualTextInfo', s:cyan, s:cyan_bg)
   call s:h('DiagnosticVirtualTextHint', s:purple, s:purple_bg)
   call s:h('DiagnosticVirtualTextOk', s:green, s:green_bg)
-  call s:h('DiagnosticSignError', s:red, s:bg)
-  call s:h('DiagnosticSignWarn', s:yellow, s:bg)
-  call s:h('DiagnosticSignInfo', s:cyan, s:bg)
-  call s:h('DiagnosticSignHint', s:purple, s:bg)
-  call s:h('DiagnosticSignOk', s:green, s:bg)
+  call s:h('DiagnosticSignError', s:red, s:bg_main)
+  call s:h('DiagnosticSignWarn', s:yellow, s:bg_main)
+  call s:h('DiagnosticSignInfo', s:cyan, s:bg_main)
+  call s:h('DiagnosticSignHint', s:purple, s:bg_main)
+  call s:h('DiagnosticSignOk', s:green, s:bg_main)
 endif
 " }}}
 
@@ -283,7 +300,24 @@ if has('nvim')
   highlight! link @lsp.type.method Function
   highlight! link @lsp.type.macro Macro
   highlight! link @lsp.type.decorator @attribute
-  
+  highlight! link @lsp.type.enumMember @constant
+  highlight! link @lsp.type.struct Type
+  highlight! link @lsp.type.type Type
+  highlight! link @lsp.type.typeParameter Type
+  highlight! link @lsp.type.builtinType @type.builtin
+  highlight! link @lsp.type.variable @variable
+  highlight! link @lsp.type.keyword Keyword
+  highlight! link @lsp.type.modifier Keyword
+  highlight! link @lsp.type.operator Operator
+  highlight! link @lsp.type.string String
+  highlight! link @lsp.type.number Number
+  highlight! link @lsp.type.regexp @string.regexp
+  highlight! link @lsp.type.event Identifier
+  highlight! link @lsp.typemod.function.defaultLibrary @function.builtin
+  highlight! link @lsp.typemod.variable.defaultLibrary @variable.builtin
+  highlight! link @lsp.typemod.variable.readonly @constant
+  call s:h('@lsp.mod.deprecated', s:none, s:none, 'strikethrough')
+
   " HTML/JSX
   call s:h('@tag.html', s:pink)
   call s:h('@tag.attribute.html', s:green, s:none, 'italic')
@@ -330,6 +364,190 @@ if has('nvim')
   call s:h('CmpItemAbbrMatchFuzzy', s:cyan, s:none, 'bold')
   call s:h('CmpItemKind', s:pink)
   call s:h('CmpItemMenu', s:comment)
+  call s:h('CmpItemAbbrDeprecated', s:comment, s:none, 'strikethrough')
+  call s:h('CmpItemKindFunction', s:green)
+  call s:h('CmpItemKindMethod', s:green)
+  call s:h('CmpItemKindCopilot', s:green)
+  call s:h('CmpItemKindClass', s:cyan)
+  call s:h('CmpItemKindConstructor', s:cyan)
+  call s:h('CmpItemKindInterface', s:cyan)
+  call s:h('CmpItemKindStruct', s:cyan)
+  call s:h('CmpItemKindEnum', s:cyan)
+  call s:h('CmpItemKindTypeParameter', s:cyan)
+  call s:h('CmpItemKindModule', s:cyan)
+  call s:h('CmpItemKindFile', s:cyan)
+  call s:h('CmpItemKindFolder', s:cyan)
+  call s:h('CmpItemKindVariable', s:fg)
+  call s:h('CmpItemKindField', s:fg)
+  call s:h('CmpItemKindProperty', s:fg)
+  call s:h('CmpItemKindReference', s:fg)
+  call s:h('CmpItemKindConstant', s:purple)
+  call s:h('CmpItemKindEnumMember', s:purple)
+  call s:h('CmpItemKindValue', s:purple)
+  call s:h('CmpItemKindUnit', s:purple)
+  call s:h('CmpItemKindKeyword', s:pink)
+  call s:h('CmpItemKindOperator', s:pink)
+  call s:h('CmpItemKindEvent', s:pink)
+  call s:h('CmpItemKindSnippet', s:yellow)
+  call s:h('CmpItemKindText', s:yellow)
+  call s:h('CmpItemKindColor', s:orange)
+endif
+
+" GitSigns (Neovim)
+if has('nvim')
+  highlight! link GitSignsAdd GitGutterAdd
+  highlight! link GitSignsChange GitGutterChange
+  highlight! link GitSignsDelete GitGutterDelete
+  highlight! link GitSignsAddNr GitGutterAdd
+  highlight! link GitSignsChangeNr GitGutterChange
+  highlight! link GitSignsDeleteNr GitGutterDelete
+  highlight! link GitSignsAddLn DiffAdd
+  highlight! link GitSignsChangeLn DiffChange
+  highlight! link GitSignsDeleteLn DiffDelete
+  highlight! link GitSignsCurrentLineBlame Comment
+endif
+
+" nvim-tree and neo-tree (Neovim)
+if has('nvim')
+  highlight! link NvimTreeNormal Normal
+  highlight! link NvimTreeWinSeparator WinSeparator
+  highlight! link NvimTreeFolderName Directory
+  highlight! link NvimTreeEmptyFolderName Directory
+  call s:h('NvimTreeOpenedFolderName', s:cyan, s:none, 'bold')
+  call s:h('NvimTreeFolderIcon', s:cyan)
+  call s:h('NvimTreeRootFolder', s:pink, s:none, 'bold')
+  call s:h('NvimTreeIndentMarker', s:selection)
+  call s:h('NvimTreeExecFile', s:green)
+  call s:h('NvimTreeSpecialFile', s:yellow)
+  call s:h('NvimTreeSymlink', s:cyan)
+  call s:h('NvimTreeGitNew', s:green)
+  call s:h('NvimTreeGitDirty', s:orange)
+  call s:h('NvimTreeGitDeleted', s:red)
+  call s:h('NvimTreeGitMerge', s:red, s:none, 'bold')
+  highlight! link NeoTreeNormal Normal
+  highlight! link NeoTreeNormalNC Normal
+  highlight! link NeoTreeWinSeparator WinSeparator
+  highlight! link NeoTreeFloatBorder FloatBorder
+  highlight! link NeoTreeDirectoryName Directory
+  call s:h('NeoTreeDirectoryIcon', s:cyan)
+  call s:h('NeoTreeRootName', s:pink, s:none, 'bold')
+  call s:h('NeoTreeFileName', s:fg)
+  call s:h('NeoTreeIndentMarker', s:selection)
+  call s:h('NeoTreeDimText', s:comment)
+  call s:h('NeoTreeGitAdded', s:green)
+  call s:h('NeoTreeGitUntracked', s:green)
+  call s:h('NeoTreeGitModified', s:orange)
+  call s:h('NeoTreeGitDeleted', s:red)
+  call s:h('NeoTreeGitConflict', s:red, s:none, 'bold')
+endif
+
+" indent-blankline v3 (Ibl*) and v2 (IndentBlankline*)
+if has('nvim')
+  call s:h('IblIndent', s:selection)
+  call s:h('IblWhitespace', s:selection)
+  call s:h('IblScope', s:comment)
+  highlight! link IndentBlanklineChar IblIndent
+  highlight! link IndentBlanklineSpaceChar IblWhitespace
+  highlight! link IndentBlanklineContextChar IblScope
+endif
+
+" which-key (Neovim)
+if has('nvim')
+  call s:h('WhichKey', s:pink)
+  call s:h('WhichKeyGroup', s:cyan)
+  call s:h('WhichKeyDesc', s:fg)
+  call s:h('WhichKeySeparator', s:comment)
+  call s:h('WhichKeyValue', s:comment)
+  highlight! link WhichKeyNormal NormalFloat
+  highlight! link WhichKeyFloat NormalFloat
+  highlight! link WhichKeyBorder FloatBorder
+endif
+
+" Trouble (Neovim)
+if has('nvim')
+  highlight! link TroubleNormal Normal
+  highlight! link TroubleNormalNC Normal
+  call s:h('TroubleText', s:fg)
+  call s:h('TroubleCount', s:pink, s:bglight, 'bold')
+  call s:h('TroubleFile', s:cyan)
+  call s:h('TroubleIndent', s:selection)
+  call s:h('TroublePos', s:comment)
+  call s:h('TroubleSource', s:comment)
+  call s:h('TroubleCode', s:comment)
+endif
+
+" blink.cmp (Neovim)
+if has('nvim')
+  highlight! link BlinkCmpMenu Pmenu
+  highlight! link BlinkCmpMenuBorder FloatBorder
+  highlight! link BlinkCmpMenuSelection PmenuSel
+  highlight! link BlinkCmpLabel CmpItemAbbr
+  highlight! link BlinkCmpLabelMatch CmpItemAbbrMatch
+  highlight! link BlinkCmpLabelDeprecated CmpItemAbbrDeprecated
+  highlight! link BlinkCmpSource CmpItemMenu
+  highlight! link BlinkCmpKind CmpItemKind
+  highlight! link BlinkCmpKindFunction CmpItemKindFunction
+  highlight! link BlinkCmpKindMethod CmpItemKindMethod
+  highlight! link BlinkCmpKindCopilot CmpItemKindCopilot
+  highlight! link BlinkCmpKindClass CmpItemKindClass
+  highlight! link BlinkCmpKindConstructor CmpItemKindConstructor
+  highlight! link BlinkCmpKindInterface CmpItemKindInterface
+  highlight! link BlinkCmpKindStruct CmpItemKindStruct
+  highlight! link BlinkCmpKindEnum CmpItemKindEnum
+  highlight! link BlinkCmpKindTypeParameter CmpItemKindTypeParameter
+  highlight! link BlinkCmpKindModule CmpItemKindModule
+  highlight! link BlinkCmpKindFile CmpItemKindFile
+  highlight! link BlinkCmpKindFolder CmpItemKindFolder
+  highlight! link BlinkCmpKindVariable CmpItemKindVariable
+  highlight! link BlinkCmpKindField CmpItemKindField
+  highlight! link BlinkCmpKindProperty CmpItemKindProperty
+  highlight! link BlinkCmpKindReference CmpItemKindReference
+  highlight! link BlinkCmpKindConstant CmpItemKindConstant
+  highlight! link BlinkCmpKindEnumMember CmpItemKindEnumMember
+  highlight! link BlinkCmpKindValue CmpItemKindValue
+  highlight! link BlinkCmpKindUnit CmpItemKindUnit
+  highlight! link BlinkCmpKindKeyword CmpItemKindKeyword
+  highlight! link BlinkCmpKindOperator CmpItemKindOperator
+  highlight! link BlinkCmpKindEvent CmpItemKindEvent
+  highlight! link BlinkCmpKindSnippet CmpItemKindSnippet
+  highlight! link BlinkCmpKindText CmpItemKindText
+  highlight! link BlinkCmpKindColor CmpItemKindColor
+  highlight! link BlinkCmpDoc NormalFloat
+  highlight! link BlinkCmpDocBorder FloatBorder
+  highlight! link BlinkCmpSignatureHelp NormalFloat
+  highlight! link BlinkCmpSignatureHelpBorder FloatBorder
+  call s:h('BlinkCmpGhostText', s:comment)
+endif
+
+" lazy.nvim UI (Neovim)
+if has('nvim')
+  highlight! link LazyNormal NormalFloat
+  call s:h('LazyButton', s:fg, s:selection)
+  call s:h('LazyButtonActive', s:bg, s:pink, 'bold')
+  call s:h('LazyH1', s:bg, s:pink, 'bold')
+  call s:h('LazyH2', s:cyan, s:none, 'bold')
+  call s:h('LazySpecial', s:pink)
+  call s:h('LazyProgressDone', s:green)
+  call s:h('LazyProgressTodo', s:selection)
+  call s:h('LazyComment', s:comment)
+  call s:h('LazyDimmed', s:comment)
+  call s:h('LazyProp', s:comment)
+  call s:h('LazyValue', s:yellow)
+  call s:h('LazyReasonPlugin', s:green)
+  call s:h('LazyReasonEvent', s:orange)
+  call s:h('LazyReasonKeys', s:pink)
+  call s:h('LazyReasonCmd', s:cyan)
+  highlight! link LazyUrl Underlined
+endif
+
+" nvim-dap (Neovim)
+if has('nvim')
+  call s:h('DapBreakpoint', s:red)
+  call s:h('DapBreakpointCondition', s:orange)
+  call s:h('DapBreakpointRejected', s:comment)
+  call s:h('DapLogPoint', s:cyan)
+  call s:h('DapStopped', s:green)
+  call s:h('DapStoppedLine', s:none, s:green_bg)
 endif
 
 " }}}

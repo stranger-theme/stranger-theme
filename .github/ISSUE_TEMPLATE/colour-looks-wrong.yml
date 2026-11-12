@@ -1,0 +1,37 @@
+name: Colour looks wrong
+description: A colour is hard to read, off-brand or inconsistent in one app
+labels: ["colour"]
+body:
+  - type: dropdown
+    id: variant
+    attributes:
+      label: Variant
+      options:
+        - Upside Down
+        - Starcourt
+        - Hawkins
+        - The Lab
+        - Tigers
+        - Dimension X
+    validations:
+      required: true
+  - type: input
+    id: app
+    attributes:
+      label: App and version
+      placeholder: VS Code 1.95, IntelliJ IDEA 2024.3, Neovim 0.10 ...
+    validations:
+      required: true
+  - type: input
+    id: token
+    attributes:
+      label: Token or scope
+      description: The syntax scope, UI element or highlight group, if you know it.
+      placeholder: keyword.control, editor.selectionBackground, "@function" ...
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: Drag an image here. Say what looks wrong and what you expected.
+    validations:
+      required: true

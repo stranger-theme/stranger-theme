@@ -12,6 +12,7 @@
     <option name="ANNOTATIONS_COLOR" value="7a8495"/>
     <option name="CARET_COLOR" value="f8f8f2"/>
     <option name="CARET_ROW_COLOR" value="21252b"/>
+    <option name="CODE_LENS_BORDER_COLOR" value="35393f"/>
     <option name="CONSOLE_BACKGROUND_KEY" value="0d1117"/>
     <option name="DELETED_LINES_COLOR" value="e06c75"/>
     <option name="DIFF_SEPARATORS_BACKGROUND" value="21252b"/>
@@ -70,17 +71,12 @@
         <option name="FOREGROUND" value="7a8495"/>
       </value>
     </option>
-    <option name="CONSOLE_BLUE_OUTPUT">
+    <option name="CONSOLE_BLACK_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="61afef"/>
+        <option name="FOREGROUND" value="35393f"/>
       </value>
     </option>
-    <option name="CONSOLE_CYAN_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="56b6c2"/>
-      </value>
-    </option>
-    <option name="CONSOLE_ERROR_OUTPUT">
+    <option name="CONSOLE_RED_OUTPUT">
       <value>
         <option name="FOREGROUND" value="e06c75"/>
       </value>
@@ -90,9 +86,69 @@
         <option name="FOREGROUND" value="98c379"/>
       </value>
     </option>
+    <option name="CONSOLE_YELLOW_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="e5c07b"/>
+      </value>
+    </option>
+    <option name="CONSOLE_BLUE_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="61afef"/>
+      </value>
+    </option>
     <option name="CONSOLE_MAGENTA_OUTPUT">
       <value>
         <option name="FOREGROUND" value="c678dd"/>
+      </value>
+    </option>
+    <option name="CONSOLE_CYAN_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="56b6c2"/>
+      </value>
+    </option>
+    <option name="CONSOLE_GRAY_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="f8f8f2"/>
+      </value>
+    </option>
+    <option name="CONSOLE_DARKGRAY_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="7a8495"/>
+      </value>
+    </option>
+    <option name="CONSOLE_RED_BRIGHT_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="fe8a93"/>
+      </value>
+    </option>
+    <option name="CONSOLE_GREEN_BRIGHT_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="b6e197"/>
+      </value>
+    </option>
+    <option name="CONSOLE_YELLOW_BRIGHT_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="ffde99"/>
+      </value>
+    </option>
+    <option name="CONSOLE_BLUE_BRIGHT_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="7fcdff"/>
+      </value>
+    </option>
+    <option name="CONSOLE_MAGENTA_BRIGHT_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="e496fb"/>
+      </value>
+    </option>
+    <option name="CONSOLE_CYAN_BRIGHT_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="74d4e0"/>
+      </value>
+    </option>
+    <option name="CONSOLE_WHITE_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="ffffff"/>
       </value>
     </option>
     <option name="CONSOLE_NORMAL_OUTPUT">
@@ -100,14 +156,19 @@
         <option name="FOREGROUND" value="f8f8f2"/>
       </value>
     </option>
-    <option name="CONSOLE_RED_OUTPUT">
+    <option name="CONSOLE_ERROR_OUTPUT">
       <value>
         <option name="FOREGROUND" value="e06c75"/>
       </value>
     </option>
-    <option name="CONSOLE_YELLOW_OUTPUT">
+    <option name="CONSOLE_SYSTEM_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="e5c07b"/>
+        <option name="FOREGROUND" value="7a8495"/>
+      </value>
+    </option>
+    <option name="CONSOLE_USER_INPUT">
+      <value>
+        <option name="FOREGROUND" value="98c379"/>
       </value>
     </option>
     <option name="DEFAULT_BLOCK_COMMENT">
@@ -393,6 +454,95 @@
     <option name="WRONG_REFERENCES_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="e06c75"/>
+      </value>
+    </option>
+    <option name="BREAKPOINT_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="1c2026"/>
+        <option name="ERROR_STRIPE_COLOR" value="e06c75"/>
+      </value>
+    </option>
+    <option name="EXECUTIONPOINT_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="2a3c4a"/>
+        <option name="ERROR_STRIPE_COLOR" value="e5c07b"/>
+      </value>
+    </option>
+    <option name="DEBUGGER_INLINED_VALUES">
+      <value>
+        <option name="FOREGROUND" value="7a8495"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+    <option name="DEBUGGER_INLINED_VALUES_MODIFIED">
+      <value>
+        <option name="FOREGROUND" value="d19a66"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+    <option name="DEBUGGER_INLINED_VALUES_EXECUTION_LINE">
+      <value>
+        <option name="FOREGROUND" value="f8f8f2"/>
+        <option name="FONT_TYPE" value="2"/>
+      </value>
+    </option>
+    <option name="INLAY_DEFAULT">
+      <value>
+        <option name="FOREGROUND" value="7a8495"/>
+        <option name="BACKGROUND" value="21252b"/>
+      </value>
+    </option>
+    <option name="INLAY_TEXT_WITHOUT_BACKGROUND">
+      <value>
+        <option name="FOREGROUND" value="7a8495"/>
+      </value>
+    </option>
+    <option name="INLINE_PARAMETER_HINT">
+      <value>
+        <option name="FOREGROUND" value="7a8495"/>
+        <option name="BACKGROUND" value="21252b"/>
+      </value>
+    </option>
+    <option name="INLINE_PARAMETER_HINT_CURRENT">
+      <value>
+        <option name="FOREGROUND" value="f8f8f2"/>
+        <option name="BACKGROUND" value="2a3c4a"/>
+      </value>
+    </option>
+    <option name="INLINE_PARAMETER_HINT_HIGHLIGHTED">
+      <value>
+        <option name="FOREGROUND" value="f8f8f2"/>
+        <option name="BACKGROUND" value="35393f"/>
+      </value>
+    </option>
+    <option name="LOG_ERROR_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="e06c75"/>
+      </value>
+    </option>
+    <option name="LOG_WARNING_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="d19a66"/>
+      </value>
+    </option>
+    <option name="LOG_INFO_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="f8f8f2"/>
+      </value>
+    </option>
+    <option name="LOG_DEBUG_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="56b6c2"/>
+      </value>
+    </option>
+    <option name="LOG_VERBOSE_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="7a8495"/>
+      </value>
+    </option>
+    <option name="LOG_EXPIRED_ENTRY">
+      <value>
+        <option name="FOREGROUND" value="7a8495"/>
       </value>
     </option>
   </attributes>

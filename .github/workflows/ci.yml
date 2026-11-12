@@ -34,6 +34,9 @@ jobs:
             exit 1
           fi
 
+      - name: Install Neovim
+        run: sudo apt-get update && sudo apt-get install -y neovim
+
       - name: Validate all new client variants
         run: npm test
 

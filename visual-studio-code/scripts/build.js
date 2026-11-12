@@ -78,6 +78,10 @@ function buildTheme(sourceYaml, themeName, palette) {
     }
   }
 
+  if (sourceYaml.semanticTokenColors) {
+    theme.semanticTokenColors = replaceColors(sourceYaml.semanticTokenColors, palette.base);
+  }
+
   // Process tokenColors
   if (sourceYaml.tokenColors) {
     theme.tokenColors = sourceYaml.tokenColors.map(token => {
