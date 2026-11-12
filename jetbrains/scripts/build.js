@@ -10,7 +10,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 // Import shared palettes
-const { THEME_PALETTES, adjustColor } = require('../../shared/palettes');
+const { THEME_PALETTES, adjustColor, getDerivedColors } = require('../../shared/palettes');
 
 const THEMES_DIR = path.join(__dirname, '..', 'src', 'main', 'resources', 'themes');
 const META_INF_DIR = path.join(__dirname, '..', 'src', 'main', 'resources', 'META-INF');
@@ -21,6 +21,20 @@ const ROOT_ASSETS_DIR = path.join(__dirname, '..', '..', 'assets');
  */
 function toJBColor(hex) {
   return hex.replace('#', '').toLowerCase();
+}
+
+/**
+ * Render one <attributes> entry; props maps option names (FOREGROUND, FONT_TYPE, ...) to values.
+ */
+function attr(name, props) {
+  const lines = Object.entries(props)
+    .map(([key, value]) => `        <option name="${key}" value="${value}"/>`)
+    .join('\n');
+  return `    <option name="${name}">
+      <value>
+${lines}
+      </value>
+    </option>`;
 }
 
 /**
@@ -297,6 +311,52 @@ function generateSchemeXml(themeId, palette) {
     BGLight: toJBColor(bgLight),
     BGLighter: toJBColor(bgLighter)
   };
+  const d = getDerivedColors(colors);
+  const ansi = name => toJBColor(d[name]);
+
+  // ANSI colours for the console and the built-in terminal, same mapping as the other terminals.
+  const consoleAttrs = [
+    ['CONSOLE_BLACK_OUTPUT', ansi('ANSI_BLACK')],
+    ['CONSOLE_RED_OUTPUT', ansi('ANSI_RED')],
+    ['CONSOLE_GREEN_OUTPUT', ansi('ANSI_GREEN')],
+    ['CONSOLE_YELLOW_OUTPUT', ansi('ANSI_YELLOW')],
+    ['CONSOLE_BLUE_OUTPUT', ansi('ANSI_BLUE')],
+    ['CONSOLE_MAGENTA_OUTPUT', ansi('ANSI_MAGENTA')],
+    ['CONSOLE_CYAN_OUTPUT', ansi('ANSI_CYAN')],
+    ['CONSOLE_GRAY_OUTPUT', ansi('ANSI_WHITE')],
+    ['CONSOLE_DARKGRAY_OUTPUT', ansi('ANSI_BRIGHT_BLACK')],
+    ['CONSOLE_RED_BRIGHT_OUTPUT', ansi('ANSI_BRIGHT_RED')],
+    ['CONSOLE_GREEN_BRIGHT_OUTPUT', ansi('ANSI_BRIGHT_GREEN')],
+    ['CONSOLE_YELLOW_BRIGHT_OUTPUT', ansi('ANSI_BRIGHT_YELLOW')],
+    ['CONSOLE_BLUE_BRIGHT_OUTPUT', ansi('ANSI_BRIGHT_BLUE')],
+    ['CONSOLE_MAGENTA_BRIGHT_OUTPUT', ansi('ANSI_BRIGHT_MAGENTA')],
+    ['CONSOLE_CYAN_BRIGHT_OUTPUT', ansi('ANSI_BRIGHT_CYAN')],
+    ['CONSOLE_WHITE_OUTPUT', ansi('ANSI_BRIGHT_WHITE')],
+    ['CONSOLE_NORMAL_OUTPUT', c.FG],
+    ['CONSOLE_ERROR_OUTPUT', c.RED],
+    ['CONSOLE_SYSTEM_OUTPUT', c.COMMENT],
+    ['CONSOLE_USER_INPUT', c.GREEN]
+  ].map(([name, fg]) => attr(name, { FOREGROUND: fg })).join('\n');
+
+  // Debugger, inlay hints and log levels.
+  const extraAttrs = [
+    attr('BREAKPOINT_ATTRIBUTES', { BACKGROUND: toJBColor(adjustColor(colors.BG, 15)), ERROR_STRIPE_COLOR: c.RED }),
+    attr('EXECUTIONPOINT_ATTRIBUTES', { BACKGROUND: c.SELECTION, ERROR_STRIPE_COLOR: c.YELLOW }),
+    attr('DEBUGGER_INLINED_VALUES', { FOREGROUND: c.COMMENT, FONT_TYPE: 2 }),
+    attr('DEBUGGER_INLINED_VALUES_MODIFIED', { FOREGROUND: c.ORANGE, FONT_TYPE: 2 }),
+    attr('DEBUGGER_INLINED_VALUES_EXECUTION_LINE', { FOREGROUND: c.FG, FONT_TYPE: 2 }),
+    attr('INLAY_DEFAULT', { FOREGROUND: c.COMMENT, BACKGROUND: c.BGLight }),
+    attr('INLAY_TEXT_WITHOUT_BACKGROUND', { FOREGROUND: c.COMMENT }),
+    attr('INLINE_PARAMETER_HINT', { FOREGROUND: c.COMMENT, BACKGROUND: c.BGLight }),
+    attr('INLINE_PARAMETER_HINT_CURRENT', { FOREGROUND: c.FG, BACKGROUND: c.SELECTION }),
+    attr('INLINE_PARAMETER_HINT_HIGHLIGHTED', { FOREGROUND: c.FG, BACKGROUND: c.BGLighter }),
+    attr('LOG_ERROR_OUTPUT', { FOREGROUND: c.RED }),
+    attr('LOG_WARNING_OUTPUT', { FOREGROUND: c.ORANGE }),
+    attr('LOG_INFO_OUTPUT', { FOREGROUND: c.FG }),
+    attr('LOG_DEBUG_OUTPUT', { FOREGROUND: c.CYAN }),
+    attr('LOG_VERBOSE_OUTPUT', { FOREGROUND: c.COMMENT }),
+    attr('LOG_EXPIRED_ENTRY', { FOREGROUND: c.COMMENT })
+  ].join('\n');
 
 // Pinned (not new Date()) so `npm run build` is deterministic and doesn't dirty the tree.
 const BUILD_DATE = '2026-01-04';
@@ -315,6 +375,7 @@ const BUILD_DATE = '2026-01-04';
     <option name="ANNOTATIONS_COLOR" value="${c.COMMENT}"/>
     <option name="CARET_COLOR" value="${c.FG}"/>
     <option name="CARET_ROW_COLOR" value="${c.BGLight}"/>
+    <option name="CODE_LENS_BORDER_COLOR" value="${c.BGLighter}"/>
     <option name="CONSOLE_BACKGROUND_KEY" value="${c.BG}"/>
     <option name="DELETED_LINES_COLOR" value="${c.RED}"/>
     <option name="DIFF_SEPARATORS_BACKGROUND" value="${c.BGLight}"/>
@@ -373,46 +434,7 @@ const BUILD_DATE = '2026-01-04';
         <option name="FOREGROUND" value="${c.COMMENT}"/>
       </value>
     </option>
-    <option name="CONSOLE_BLUE_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="${c.PURPLE}"/>
-      </value>
-    </option>
-    <option name="CONSOLE_CYAN_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="${c.CYAN}"/>
-      </value>
-    </option>
-    <option name="CONSOLE_ERROR_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="${c.RED}"/>
-      </value>
-    </option>
-    <option name="CONSOLE_GREEN_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="${c.GREEN}"/>
-      </value>
-    </option>
-    <option name="CONSOLE_MAGENTA_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="${c.PINK}"/>
-      </value>
-    </option>
-    <option name="CONSOLE_NORMAL_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="${c.FG}"/>
-      </value>
-    </option>
-    <option name="CONSOLE_RED_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="${c.RED}"/>
-      </value>
-    </option>
-    <option name="CONSOLE_YELLOW_OUTPUT">
-      <value>
-        <option name="FOREGROUND" value="${c.YELLOW}"/>
-      </value>
-    </option>
+${consoleAttrs}
     <option name="DEFAULT_BLOCK_COMMENT">
       <value>
         <option name="FOREGROUND" value="${c.COMMENT}"/>
@@ -698,6 +720,7 @@ const BUILD_DATE = '2026-01-04';
         <option name="FOREGROUND" value="${c.RED}"/>
       </value>
     </option>
+${extraAttrs}
   </attributes>
 </scheme>
 `;
