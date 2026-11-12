@@ -145,6 +145,19 @@ assert.equal(sublimeRelease.url,
   `https://github.com/stranger-theme/stranger-theme/releases/download/v${version}/StrangerTheme.sublime-package`);
 assert.match(sublimeRelease.date, /^\d{4}-\d\d-\d\d \d\d:\d\d:\d\d$/, 'Package Control date format is YYYY-MM-DD HH:MM:SS (UTC)');
 
+// The README palette table is written by hand, so check it against the Upside Down palette and its swatch files.
+const readmeBase = THEME_PALETTES['upside-down'].base;
+const readmeColors = { Background: readmeBase.BG, 'Current Line': getDerivedColors(readmeBase).LineHighlight,
+  Selection: readmeBase.SELECTION, Foreground: readmeBase.FG, Comment: readmeBase.COMMENT, Cyan: readmeBase.CYAN,
+  Green: readmeBase.GREEN, Orange: readmeBase.ORANGE, Pink: readmeBase.PINK, Purple: readmeBase.PURPLE,
+  Red: readmeBase.RED, Yellow: readmeBase.YELLOW };
+const readmeRows = [...read('README.md').matchAll(/^\| ([A-Za-z ]+) \| `(#[0-9A-F]{6})` .*assets\/palette\/([0-9A-F]{6})\.svg/gm)];
+assert.equal(readmeRows.length, Object.keys(readmeColors).length, 'README palette table rows');
+for (const [, label, hex, swatch] of readmeRows) {
+  assert.equal(hex, readmeColors[label], `README palette: ${label}`);
+  assert.ok(read(`assets/palette/${swatch}.svg`).includes(`fill="${hex}"`), `README swatch: ${label}`);
+}
+
 const newDirectories = ['terminal/ghostty', 'terminal/kitty', 'terminal/wezterm', 'zed/themes'];
 const firstBuild = snapshot(newDirectories);
 build();
