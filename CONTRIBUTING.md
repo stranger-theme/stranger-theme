@@ -1,59 +1,51 @@
 # How to Contribute
 
-## Environment
+Every theme file is generated. `shared/palettes.js` is the single source of truth for colours, and each client has a `scripts/build.js` that turns those palettes into its own format.
 
-Before you get started, you should have already installed:
+## Setup
 
-* Node.js (for VSCode theme development)
-* JDK 11 (for JetBrains theme development)
-* Visual Studio Code
-* IntelliJ IDEA or another JetBrains IDE
+* Node.js and `npm install` in the repo root
+* `cd visual-studio-code && npm ci` once, so the VS Code build has its dependencies
+* JDK 11 only if you work on the JetBrains plugin packaging
 
-## Getting Started
+## Making a change
 
-### For VSCode Theme Development
+1. Fork the repository and create a branch.
+2. Edit the **source**, never a generated file:
+   * colours: `shared/palettes.js`
+   * how a client maps colours: that client's `scripts/build.js`
+   * VS Code token and UI rules: `visual-studio-code/src/stranger-theme.yaml`
+3. From the repo root run `npm run build`, then `npm test`.
+4. Commit the regenerated files together with your source change. CI fails if `npm run build` changes anything.
+5. Open a pull request with before/after screenshots of the affected app and variant.
 
-1. Clone the project
-2. Run `npm install` to install dependencies
-3. Make changes to the theme files in the `themes` directory
-4. Run `npm run build` to build the theme
-5. Press F5 to open a new window with your extension loaded
-6. Open `File > Preferences > Color Theme` and pick your theme
-7. Make adjustments and see the changes in real-time
+Generated output lives in `visual-studio-code/themes/`, `jetbrains/themes/`, `vim/colors/`, `sublime-text/themes/`, `terminal/*/`, `hyper/themes/`, `zed/themes/` and `aggregators/`. Edits there are overwritten by the next build.
 
-### For JetBrains Theme Development
+## Add support for a new app
 
-1. Clone the project
-2. Import this project into IntelliJ IDEA as a Gradle Project
-3. Make changes to the theme files in the `src/main/resources/themes` directory
-4. Build the project using Gradle
-5. Test the theme by installing it from the built JAR file
+1. Copy a small client as the template: `zed/`, or the Kitty writer in `terminal/scripts/build.js`.
+2. Add a build script that reads `shared/palettes.js` and writes one file per variant.
+3. Register the client in `scripts/build-all.js` (and a `build:<app>` script in the root `package.json` if it has its own directory).
+4. Add a README with install steps and a screenshot.
+5. Run `npm run build` and `npm test`.
 
 ## Theme Variants
 
-When contributing to the Stranger Things Theme, please ensure your changes maintain the distinctive look and feel of each variant:
+Keep the character of each variant:
 
-- **Upside Down**: Dark blue-black with desaturated tones and occasional glowing elements
-- **Starcourt Mall**: Vibrant 80s mall aesthetic with neon pinks, purples, and bright blues
-- **Hawkins**: Small-town America with warm, muted, autumnal colors
-- **The Lab**: Clinical, institutional aesthetic with sterile whites and cold blues
-- **Tigers (Hawkins School)**: School colors with orange/black and vintage academic tones
-- **Dimension X**: Dark red dimension with moody, organic textures
-
-## Pull Requests
-
-1. Fork the repository
-2. Create a new branch for your feature
-3. Make your changes
-4. Submit a pull request with a clear description of the changes
+- **Upside Down**: dark blue-black, desaturated, occasional glowing elements
+- **Starcourt Mall**: vibrant 80s mall, neon pinks, purples and bright blues
+- **Hawkins**: small-town America, warm, muted, autumnal
+- **The Lab**: clinical, sterile whites and cold blues
+- **Tigers (Hawkins School)**: orange and black with vintage academic tones
+- **Dimension X**: dark red dimension, moody, organic textures
 
 ## Style Guidelines
 
-- Follow the existing code style
-- Keep color values in the defined palette for each theme variant
-- Test your changes in both light and dark environments
-- Ensure good contrast ratios for accessibility
+- Keep colours inside the palette; derive extra shades with `getDerivedColors()` or `adjustColor()`
+- Keep text readable: `npm test` checks contrast ratios
+- Check your change in the real app, for every variant it touches
 
 ## License
 
-By contributing to Stranger Things Theme, you agree that your contributions will be licensed under the project's [MIT License](./LICENSE).
+By contributing to Stranger Theme, you agree that your contributions will be licensed under the project's [MIT License](./LICENSE).
