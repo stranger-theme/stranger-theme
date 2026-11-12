@@ -98,6 +98,16 @@ function build() {
     }
   }
   
+  process.stdout.write('Generating docs/SPEC.md and docs/palettes.json...');
+  try {
+    execSync(`node ${path.join(__dirname, 'build-spec.js')}`, { stdio: 'pipe' });
+    successCount++;
+    console.log(' ✅');
+  } catch (error) {
+    failCount++;
+    console.error(`\n  ❌ Error generating spec:\n${error.message}`);
+  }
+
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
   
   console.log('');
