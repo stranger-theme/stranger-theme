@@ -17,6 +17,7 @@ All notable changes to the Stranger Things Theme will be documented in this file
 - GitHub issue forms and a pull request checklist.
 
 ### Fixed
+- Alacritty, iTerm2 and Hyper theme files link to their real folder in the repository; the header pointed at pages that do not exist.
 - VS Code: warnings are orange everywhere; the editor squiggle used cyan.
 - README palette table shows its colour swatches on GitHub.
 - CONTRIBUTING.md describes the real build workflow.

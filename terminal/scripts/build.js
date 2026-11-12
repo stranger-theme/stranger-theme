@@ -154,7 +154,7 @@ function generateAlacrittyTheme(themeId, palette) {
   const displayName = palette.displayName;
   
   return `# Stranger Theme: ${displayName} for Alacritty
-# https://github.com/stranger-theme/alacritty
+# https://github.com/stranger-theme/stranger-theme/tree/main/terminal/alacritty
 
 [colors.primary]
 background = "${c.BG}"
@@ -243,7 +243,7 @@ function generateITermTheme(themeId, palette) {
 
 <!-- Stranger Theme: ${displayName} for iTerm2
 #
-# https://github.com/stranger-theme/iterm
+# https://github.com/stranger-theme/stranger-theme/tree/main/terminal/iterm2
 -->
 
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
