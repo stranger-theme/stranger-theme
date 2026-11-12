@@ -1,0 +1,26 @@
+name: Bug
+description: Something is broken, such as an install, a build or a missing theme
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what you got.
+    validations:
+      required: true
+  - type: input
+    id: app
+    attributes:
+      label: App and version
+    validations:
+      required: true
+  - type: input
+    id: variant
+    attributes:
+      label: Variant, if relevant
+  - type: textarea
+    id: logs
+    attributes:
+      label: Screenshots or logs
+      render: shell

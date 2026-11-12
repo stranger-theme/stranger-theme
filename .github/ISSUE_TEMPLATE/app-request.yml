@@ -1,0 +1,23 @@
+name: App request
+description: Ask for Stranger Theme support in another app
+labels: ["new-app"]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: App name
+    validations:
+      required: true
+  - type: input
+    id: docs
+    attributes:
+      label: Link to the app's theme format docs
+      description: A page describing how themes or colour schemes are written for this app.
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: Where users install themes, existing themes you like, how you would test it.
