@@ -88,7 +88,12 @@ jobs:
           zip -r ../stranger-theme-ghostty.zip ghostty/ README.md
           zip -r ../stranger-theme-kitty.zip kitty/ README.md
           zip -r ../stranger-theme-wezterm.zip wezterm/ README.md
+          zip -r ../stranger-theme-warp.zip warp/ README.md
+          zip -r ../stranger-theme-terminal-app.zip terminal-app/ README.md
           cd ..
+
+          cd helix && zip -r ../stranger-theme-helix.zip themes/ README.md && cd ..
+          cd tmux && zip -r ../stranger-theme-tmux.zip themes/ README.md && cd ..
 
           cd zed && zip -r ../stranger-theme-zed.zip themes/ README.md && cd ..
           
@@ -112,6 +117,10 @@ jobs:
             stranger-theme-kitty.zip
             stranger-theme-wezterm.zip
             stranger-theme-zed.zip
+            stranger-theme-warp.zip
+            stranger-theme-terminal-app.zip
+            stranger-theme-helix.zip
+            stranger-theme-tmux.zip
           fail_on_unmatched_files: true
           generate_release_notes: true
         env:

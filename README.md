@@ -61,15 +61,18 @@ Choose your platform:
 - [JetBrains IDEs](./jetbrains) (IntelliJ IDEA, PyCharm, WebStorm, etc.)
 - [Vim/Neovim](./vim)
 - [Sublime Text](./sublime-text)
-- [Terminal](./terminal) (Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, WezTerm)
+- [Terminal](./terminal) (Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, WezTerm, Warp, macOS Terminal)
 - [Hyper](./hyper)
 - [Zed](./zed)
+- [Helix](./helix)
+- [tmux](./tmux)
+- [bat and delta](./sublime-text#bat-and-delta)
 
 Each platform directory contains installation instructions specific to that environment.
 
 ## Color Palette
 
-All 6 theme variants are built from shared color definitions. The example below uses the Upside Down palette (see `shared/palettes.js` for all variants).
+All 6 theme variants are built from shared color definitions. The example below uses the Upside Down palette; the [specification](./docs/SPEC.md) lists every variant with its colour roles, ANSI mapping and contrast ratios.
 
 | Palette | Hex | RGB | HSL | Swatch |
 | --- | --- | --- | --- | --- |
