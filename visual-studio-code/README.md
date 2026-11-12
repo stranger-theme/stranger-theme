@@ -80,7 +80,7 @@ code --install-extension StrangerTheme.stranger-theme-vscode
 
 ## Features
 
-- 6 carefully crafted theme variants
+- 6 carefully crafted theme variants, each also available as a "No Italics" theme (for example "Stranger Theme: Upside Down (No Italics)")
 - Optimized for long coding sessions with comfortable contrast
 - Consistent syntax highlighting across languages
 - Support for popular VS Code extensions

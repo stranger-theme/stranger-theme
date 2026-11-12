@@ -5,6 +5,7 @@ All notable changes to the Stranger Things Theme will be documented in this file
 ## [Unreleased]
 
 ### Added
+- VS Code: "No Italics" variants of all six themes, generated from the same source with italic removed from every token and semantic rule.
 - Helix, tmux, Warp and macOS Terminal themes for all six variants, plus a Windows Terminal fragment that installs all six schemes from one file.
 - Neovim: the repository root ships `colors/` and `lua/`, so lazy.nvim, packer and vim-plug install the theme with no `rtp` setting. New `require('stranger-theme').setup()`, lualine themes, and highlight groups for gitsigns, nvim-tree, neo-tree, indent-blankline, which-key, Trouble, blink.cmp, lazy.nvim and nvim-dap.
 - Vim/Neovim options for a transparent background, no italics and dimmed inactive windows. The default look is unchanged.

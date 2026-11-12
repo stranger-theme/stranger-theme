@@ -117,6 +117,23 @@ function buildTheme(sourceYaml, themeName, palette) {
 }
 
 /**
+ * Copy of a theme with "italic" removed from every fontStyle. An emptied
+ * fontStyle stays "" so the rule still overrides an inherited italic.
+ */
+function withoutItalics(theme, name) {
+  const strip = obj => {
+    if (obj && typeof obj.fontStyle === 'string') {
+      obj.fontStyle = obj.fontStyle.split(/\s+/).filter(s => s && s !== 'italic').join(' ');
+    }
+  };
+  const copy = JSON.parse(JSON.stringify(theme));
+  copy.name = name;
+  copy.tokenColors.forEach(rule => strip(rule.settings));
+  Object.values(copy.semanticTokenColors || {}).forEach(strip);
+  return copy;
+}
+
+/**
  * Main build function
  */
 function build() {
@@ -145,6 +162,10 @@ function build() {
     
     fs.writeFileSync(outputFile, JSON.stringify(theme, null, 2));
     console.log(`  -> ${outputFile}`);
+
+    const plainFile = path.join(THEMES_DIR, `${themeId}-no-italics-color-theme.json`);
+    fs.writeFileSync(plainFile, JSON.stringify(withoutItalics(theme, `${palette.name} (No Italics)`), null, 2));
+    console.log(`  -> ${plainFile}`);
   }
 
   console.log('\nBuild complete!');
