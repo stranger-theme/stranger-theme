@@ -12,7 +12,8 @@
     "build:hyper": "cd hyper && npm run build",
     "build:zed": "cd zed && npm run build",
     "build:aggregators": "node aggregators/scripts/build.js",
-    "test": "node scripts/test-new-clients.js && node scripts/test-openvsx-workflow.js && node scripts/test-contrast.js && node scripts/test-neovim.js && node scripts/test-editor-coverage.js && node scripts/test-spec.js && node scripts/test-extra-ports.js",
+    "build:palette": "node palette/scripts/build.js",
+    "test": "node scripts/test-new-clients.js && node scripts/test-openvsx-workflow.js && node scripts/test-contrast.js && node scripts/test-neovim.js && node scripts/test-editor-coverage.js && node scripts/test-spec.js && node scripts/test-extra-ports.js && node scripts/test-palette-package.js",
     "screenshots": "node scripts/screenshots.mjs"
   },
   "keywords": [
