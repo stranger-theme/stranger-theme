@@ -49,6 +49,21 @@ function buildPlatform(platform) {
 }
 
 /**
+ * Write the colour swatches shown in the README palette table.
+ * GitHub strips inline styles from Markdown, so each swatch is an SVG file.
+ */
+function buildSwatches() {
+  const { THEME_PALETTES, getDerivedColors } = require('../shared/palettes');
+  const base = THEME_PALETTES['upside-down'].base;
+  const dir = path.join(ROOT_DIR, 'assets', 'palette');
+  fs.mkdirSync(dir, { recursive: true });
+  for (const hex of new Set([...Object.values(base), getDerivedColors(base).LineHighlight])) {
+    fs.writeFileSync(path.join(dir, `${hex.slice(1)}.svg`),
+      `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><rect x=".5" y=".5" width="15" height="15" rx="3" fill="${hex}" stroke="#808080"/></svg>\n`);
+  }
+}
+
+/**
  * Count generated files in a directory
  */
 function countFiles(dir, extensions = []) {
@@ -98,6 +113,8 @@ function build() {
     }
   }
   
+  buildSwatches();
+
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
   
   console.log('');
