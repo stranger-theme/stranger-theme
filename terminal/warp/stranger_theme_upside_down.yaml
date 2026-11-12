@@ -1,0 +1,26 @@
+# Stranger Theme: Upside Down for Warp
+name: 'Stranger Theme: Upside Down'
+accent: '#C678DD'
+cursor: '#F8F8F2'
+background: '#0D1117'
+foreground: '#F8F8F2'
+details: darker
+terminal_colors:
+  normal:
+    black: '#35393F'
+    red: '#E06C75'
+    green: '#98C379'
+    yellow: '#E5C07B'
+    blue: '#61AFEF'
+    magenta: '#C678DD'
+    cyan: '#56B6C2'
+    white: '#F8F8F2'
+  bright:
+    black: '#7A8495'
+    red: '#FE8A93'
+    green: '#B6E197'
+    yellow: '#FFDE99'
+    blue: '#7FCDFF'
+    magenta: '#E496FB'
+    cyan: '#74D4E0'
+    white: '#FFFFFF'

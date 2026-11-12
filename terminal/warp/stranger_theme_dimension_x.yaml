@@ -1,0 +1,26 @@
+# Stranger Theme: Dimension X for Warp
+name: 'Stranger Theme: Dimension X'
+accent: '#E06C75'
+cursor: '#E8D5D5'
+background: '#1E1A1A'
+foreground: '#E8D5D5'
+details: darker
+terminal_colors:
+  normal:
+    black: '#464242'
+    red: '#FF55AA'
+    green: '#8B7355'
+    yellow: '#BCA89F'
+    blue: '#C678DD'
+    magenta: '#E06C75'
+    cyan: '#D19A66'
+    white: '#E8D5D5'
+  bright:
+    black: '#9A7C7C'
+    red: '#FF73C8'
+    green: '#A99173'
+    yellow: '#DAC6BD'
+    blue: '#E496FB'
+    magenta: '#FE8A93'
+    cyan: '#EFB884'
+    white: '#FFFFFF'

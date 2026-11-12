@@ -17,9 +17,11 @@ const PLATFORMS = [
   { name: 'JetBrains', dir: 'jetbrains' },
   { name: 'Vim/Neovim', dir: 'vim' },
   { name: 'Sublime Text', dir: 'sublime-text' },
-  { name: 'Terminal (Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, WezTerm)', dir: 'terminal' },
+  { name: 'Terminal (Alacritty, iTerm2, Windows Terminal, Ghostty, Kitty, WezTerm, Warp, Terminal.app)', dir: 'terminal' },
   { name: 'Hyper', dir: 'hyper' },
   { name: 'Zed', dir: 'zed' },
+  { name: 'Helix', dir: 'helix' },
+  { name: 'tmux', dir: 'tmux' },
   { name: 'Aggregators (tinted-theming base16/base24, iTerm2-Color-Schemes)', dir: 'aggregators' }
 ];
 
@@ -146,12 +148,16 @@ function build() {
   console.log(`   • Sublime Text:     ${countFiles(path.join(ROOT_DIR, 'sublime-text/themes'), ['.tmTheme'])} themes`);
   console.log(`   • Alacritty:        ${countFiles(path.join(ROOT_DIR, 'terminal/alacritty'), ['.toml'])} themes`);
   console.log(`   • iTerm2:           ${countFiles(path.join(ROOT_DIR, 'terminal/iterm2'), ['.itermcolors'])} themes`);
-  console.log(`   • Windows Terminal: ${countFiles(path.join(ROOT_DIR, 'terminal/windows-terminal'), ['.json'])} themes`);
+  console.log(`   • Windows Terminal: ${fs.readdirSync(path.join(ROOT_DIR, 'terminal/windows-terminal')).filter(name => name.endsWith('.json')).length} themes + ${countFiles(path.join(ROOT_DIR, 'terminal/windows-terminal/fragment'), ['.json'])} fragment`);
   console.log(`   • Hyper:            ${countFiles(path.join(ROOT_DIR, 'hyper/themes'))} plugins`);
   console.log(`   • Ghostty:          ${countFiles(path.join(ROOT_DIR, 'terminal/ghostty'))} themes`);
   console.log(`   • Kitty:            ${countFiles(path.join(ROOT_DIR, 'terminal/kitty'), ['.conf'])} themes`);
   console.log(`   • WezTerm:          ${countFiles(path.join(ROOT_DIR, 'terminal/wezterm'), ['.toml'])} themes`);
+  console.log(`   • Warp:             ${countFiles(path.join(ROOT_DIR, 'terminal/warp'), ['.yaml'])} themes`);
+  console.log(`   • Terminal.app:     ${countFiles(path.join(ROOT_DIR, 'terminal/terminal-app'), ['.terminal'])} profiles`);
   console.log(`   • Zed:              ${countFiles(path.join(ROOT_DIR, 'zed/themes'), ['.json'])} theme family`);
+  console.log(`   • Helix:            ${countFiles(path.join(ROOT_DIR, 'helix/themes'), ['.toml'])} themes`);
+  console.log(`   • tmux:             ${countFiles(path.join(ROOT_DIR, 'tmux/themes'), ['.conf'])} themes`);
   console.log(`   • Aggregators:      ${countFiles(path.join(ROOT_DIR, 'aggregators'), ['.yaml', '.yml'])} schemes`);
   console.log('');
   

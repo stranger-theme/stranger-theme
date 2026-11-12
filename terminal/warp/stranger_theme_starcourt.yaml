@@ -1,0 +1,26 @@
+# Stranger Theme: Starcourt for Warp
+name: 'Stranger Theme: Starcourt'
+accent: '#FF1493'
+cursor: '#EAEAEA'
+background: '#1A1A2E'
+foreground: '#EAEAEA'
+details: darker
+terminal_colors:
+  normal:
+    black: '#424256'
+    red: '#FF6B6B'
+    green: '#00FA9A'
+    yellow: '#FFD700'
+    blue: '#BA55D3'
+    magenta: '#FF1493'
+    cyan: '#00CED1'
+    white: '#EAEAEA'
+  bright:
+    black: '#8C77C3'
+    red: '#FF8989'
+    green: '#1EFFB8'
+    yellow: '#FFF51E'
+    blue: '#D873F1'
+    magenta: '#FF32B1'
+    cyan: '#1EECEF'
+    white: '#FFFFFF'

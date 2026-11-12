@@ -1,0 +1,85 @@
+# Stranger Theme: Dimension X for Helix
+"attribute" = "green"
+"type" = "cyan"
+"type.builtin" = "cyan"
+"constructor" = "cyan"
+"constant" = "orange"
+"constant.numeric" = "orange"
+"constant.builtin.boolean" = "purple"
+"constant.character.escape" = "pink"
+"string" = "yellow"
+"string.regexp" = "red"
+"string.special" = "pink"
+"comment" = { fg = "comment", modifiers = ["italic"] }
+"variable" = "fg"
+"variable.builtin" = "purple"
+"variable.parameter" = "orange"
+"variable.other.member" = "cyan"
+"label" = "purple"
+"punctuation" = "fg"
+"keyword" = "pink"
+"operator" = "pink"
+"function" = "green"
+"function.macro" = "purple"
+"tag" = "pink"
+"namespace" = "cyan"
+"special" = "purple"
+"markup.heading" = { fg = "purple", modifiers = ["bold"] }
+"markup.list" = "orange"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "cyan", underline = { style = "line" } }
+"markup.link.text" = "pink"
+"markup.quote" = { fg = "comment", modifiers = ["italic"] }
+"markup.raw" = "green"
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "cyan"
+"ui.background" = { bg = "bg" }
+"ui.text" = "fg"
+"ui.text.focus" = { fg = "fg", bg = "bg_light" }
+"ui.text.inactive" = "comment"
+"ui.selection" = { bg = "selection" }
+"ui.cursor" = { fg = "bg", bg = "fg" }
+"ui.cursor.match" = { fg = "yellow", modifiers = ["bold"] }
+"ui.cursorline.primary" = { bg = "bg_light" }
+"ui.linenr" = "comment"
+"ui.linenr.selected" = "fg"
+"ui.statusline" = { fg = "fg", bg = "bg_dark" }
+"ui.statusline.inactive" = { fg = "comment", bg = "bg_dark" }
+"ui.statusline.normal" = { fg = "bg", bg = "purple", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg", bg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg", bg = "pink", modifiers = ["bold"] }
+"ui.popup" = { fg = "fg", bg = "bg_light" }
+"ui.window" = "selection"
+"ui.help" = { fg = "fg", bg = "bg_light" }
+"ui.menu" = { fg = "fg", bg = "bg_light" }
+"ui.menu.selected" = { fg = "fg", bg = "selection" }
+"ui.virtual.whitespace" = "selection"
+"ui.virtual.indent-guide" = "selection"
+"ui.virtual.ruler" = { bg = "bg_light" }
+"ui.virtual.inlay-hint" = "comment"
+"error" = "red"
+"warning" = "yellow"
+"info" = "cyan"
+"hint" = "comment"
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
+"diagnostic.info" = { underline = { color = "cyan", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "comment", style = "curl" } }
+
+[palette]
+bg = "#1E1A1A"
+bg_dark = "#141010"
+bg_light = "#322E2E"
+fg = "#E8D5D5"
+selection = "#523535"
+comment = "#9A7C7C"
+cyan = "#D19A66"
+green = "#8B7355"
+orange = "#FF6B6B"
+pink = "#E06C75"
+purple = "#C678DD"
+red = "#FF55AA"
+yellow = "#BCA89F"

@@ -1,0 +1,26 @@
+# Stranger Theme: Tigers for Warp
+name: 'Stranger Theme: Tigers'
+accent: '#FF7F2A'
+cursor: '#F5F5F5'
+background: '#181E18'
+foreground: '#F5F5F5'
+details: darker
+terminal_colors:
+  normal:
+    black: '#404640'
+    red: '#CC6666'
+    green: '#B5BD68'
+    yellow: '#F0C674'
+    blue: '#B294BB'
+    magenta: '#FF7F2A'
+    cyan: '#81A2BE'
+    white: '#F5F5F5'
+  bright:
+    black: '#758975'
+    red: '#EA8484'
+    green: '#D3DB86'
+    yellow: '#FFE492'
+    blue: '#D0B2D9'
+    magenta: '#FF9D48'
+    cyan: '#9FC0DC'
+    white: '#FFFFFF'
