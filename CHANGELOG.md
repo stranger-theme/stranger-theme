@@ -2,7 +2,7 @@
 
 All notable changes to the Stranger Things Theme will be documented in this file.
 
-## [Unreleased]
+## [1.1.0] - 2026-11-12
 
 ### Added
 - VS Code: "No Italics" variants of all six themes, generated from the same source with italic removed from every token and semantic rule.

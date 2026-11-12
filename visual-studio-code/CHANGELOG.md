@@ -2,6 +2,16 @@
 
 All notable changes to the Stranger Things Theme will be documented in this file.
 
+## [1.1.0] - 2026-11-12
+
+### Added
+- "No Italics" variants of all six themes, with italics removed from every token and semantic rule.
+- Explicit semantic token colours, and themed minimap, inlay hints, Testing, debug, Source Control graph, merge editor, notebooks, symbol icons, charts and chat.
+
+### Fixed
+- Warnings are orange everywhere; the editor squiggle used cyan.
+- Terminal ANSI colours in Hawkins, The Lab, Tigers and Dimension X now match their names (for example Dimension X green was brown); editor syntax and UI colours are unchanged.
+
 ## [1.0.6] - 2026-11-10
 
 ### Changed
