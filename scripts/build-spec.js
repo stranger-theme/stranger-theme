@@ -71,7 +71,17 @@ function hueName(h) {
   return Object.entries(NOMINAL_HUE).sort((a, b) => hueDist(h, a[1]) - hueDist(h, b[1]))[0][0];
 }
 
-function variantData({ id, name, displayName, base }) {
+// Override hex for an ANSI entry (BRIGHT_BLUE reads the BLUE override), if the variant has one.
+const ansiOverride = (overrides, n) => (overrides || {})[n.replace('BRIGHT_', '')];
+
+// Source column of the ANSI table for one entry of one variant.
+function ansiSource(overrides, [n, slot, delta]) {
+  const plus = delta ? ` + ${delta}` : '';
+  if (ansiOverride(overrides, n)) return `override${plus}`;
+  return slot ? `${slot}${plus}` : 'fixed white';
+}
+
+function variantData({ id, name, displayName, base, ansi: overrides }) {
   const all = getDerivedColors(base);
   const derived = {};
   for (const key of Object.keys(all)) {
@@ -80,10 +90,12 @@ function variantData({ id, name, displayName, base }) {
     derived[key] = all[key];
   }
   const ansi = {};
-  for (const [n, slot, delta] of ANSI) {
-    const expected = slot ? adjustColor(base[slot], delta) : '#FFFFFF';
+  for (const entry of ANSI) {
+    const [n, slot, delta] = entry;
+    const source = ansiOverride(overrides, n) || (slot && base[slot]);
+    const expected = source ? adjustColor(source, delta) : '#FFFFFF';
     if (all[`ANSI_${n}`].toUpperCase() !== expected.toUpperCase()) {
-      throw new Error(`build-spec: ANSI_${n} no longer derives from ${slot}${delta ? ` + ${delta}` : ''}`);
+      throw new Error(`build-spec: ANSI_${n} of ${id} no longer derives from ${ansiSource(overrides, entry)}`);
     }
     ansi[n] = all[`ANSI_${n}`];
   }
@@ -132,10 +144,12 @@ function variantSection(v) {
     '',
     '### ANSI',
     '',
-    table(['Index', 'ANSI colour', 'Hex', 'Source'], ANSI.map(([n, slot, delta], i) => [
-      i, n.toLowerCase().replace('_', ' '), `\`${v.ansi[n]}\``,
-      slot ? `${slot}${delta ? ` + ${delta}` : ''}` : 'fixed white'
+    table(['Index', 'ANSI colour', 'Hex', 'Source'], ANSI.map((entry, i) => [
+      i, entry[0].toLowerCase().replace('_', ' '), `\`${v.ansi[entry[0]]}\``,
+      ansiSource(THEME_PALETTES[v.id].ansi, entry)
     ])),
+    '',
+    'An override is a terminal-only colour from the variant\'s `ansi` entry in `shared/palettes.js`, used where the syntax slot\'s hue does not read as that ANSI colour. Syntax and UI colours still use the base slot.',
     '',
     '### Contrast against BG',
     '',
@@ -178,7 +192,7 @@ function renderSpec(data) {
     '- Never hard-code hex values. Read them from `shared/palettes.js` (or `docs/palettes.json`) and regenerate.',
     '- Map by role: keywords use PINK, functions GREEN, types CYAN, strings YELLOW, numbers and constants PURPLE, parameters ORANGE, errors RED, comments COMMENT, plain text FG.',
     '- Editors: BG is the editor background, BGLight and BGLighter are raised surfaces, LineHighlight is the current line, SELECTION is the selection background, NonText is whitespace and rulers.',
-    '- Terminals: foreground is FG, background is BG, selection is SELECTION. ANSI blue comes from PURPLE and ANSI magenta from PINK. ANSI black is BG + 40 so it stays visible, ANSI bright black is COMMENT, bright colours are the normal colour + 30, bright white is fixed white.',
+    '- Terminals: foreground is FG, background is BG, selection is SELECTION. Take the 16 colours from the ANSI table (or `ANSI_*` from `getDerivedColors()`), never from syntax slots: a variant may override red, green, yellow, blue, magenta or cyan for the terminal. Without an override ANSI blue comes from PURPLE, ANSI magenta from PINK and the others from the slot of the same name. ANSI black is BG + 40 so it stays visible, ANSI bright black is COMMENT, bright colours are the normal colour + 30, bright white is fixed white.',
     '- Italic: comments, function parameters, inherited classes and language built-ins, HTML attribute names in Vim, prose emphasis and blockquotes.',
     '- Bold: errors, markup headings and strong text, the `new` keyword, to-do markers, matched characters in completion menus.',
     '- Underline: links and underlined text only.',
@@ -193,7 +207,7 @@ function build() {
   fs.writeFileSync(path.join(DOCS, 'SPEC.md'), renderSpec(data));
 }
 
-module.exports = { allData, renderSpec };
+module.exports = { allData, renderSpec, hsl };
 
 if (require.main === module) {
   build();

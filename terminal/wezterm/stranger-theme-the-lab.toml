@@ -7,8 +7,8 @@ cursor_fg = "#1A1D26"
 cursor_border = "#E0E5EC"
 selection_bg = "#3C3F48"
 selection_fg = "#E0E5EC"
-ansi = ["#42454E","#FF4136","#2ECC40","#FFDC00","#B10DC9","#7FDBFF","#39CCCC","#E0E5EC"]
-brights = ["#73879C","#FF5F54","#4CEA5E","#FFFA1E","#CF2BE7","#9DF9FF","#57EAEA","#FFFFFF"]
+ansi = ["#42454E","#FF4136","#2ECC40","#FFDC00","#7FDBFF","#B10DC9","#39CCCC","#E0E5EC"]
+brights = ["#73879C","#FF5F54","#4CEA5E","#FFFA1E","#9DF9FF","#CF2BE7","#57EAEA","#FFFFFF"]
 
 [metadata]
 name = "Stranger Theme: The Lab"

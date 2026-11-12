@@ -7,8 +7,8 @@ cursor_fg = "#2C2218"
 cursor_border = "#E8DCC8"
 selection_bg = "#4D4339"
 selection_fg = "#E8DCC8"
-ansi = ["#544A40","#BF616A","#A3BE8C","#EBCB8B","#B48EAD","#D4A574","#88C0D0","#E8DCC8"]
-brights = ["#9E8766","#DD7F88","#C1DCAA","#FFE9A9","#D2ACCB","#F2C392","#A6DEEE","#FFFFFF"]
+ansi = ["#544A40","#BF616A","#A3BE8C","#EBCB8B","#81A1C1","#B48EAD","#88C0D0","#E8DCC8"]
+brights = ["#9E8766","#DD7F88","#C1DCAA","#FFE9A9","#9FBFDF","#D2ACCB","#A6DEEE","#FFFFFF"]
 
 [metadata]
 name = "Stranger Theme: Hawkins"

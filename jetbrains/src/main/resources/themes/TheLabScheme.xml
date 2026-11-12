@@ -93,12 +93,12 @@
     </option>
     <option name="CONSOLE_BLUE_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="b10dc9"/>
+        <option name="FOREGROUND" value="7fdbff"/>
       </value>
     </option>
     <option name="CONSOLE_MAGENTA_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="7fdbff"/>
+        <option name="FOREGROUND" value="b10dc9"/>
       </value>
     </option>
     <option name="CONSOLE_CYAN_OUTPUT">
@@ -133,12 +133,12 @@
     </option>
     <option name="CONSOLE_BLUE_BRIGHT_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="cf2be7"/>
+        <option name="FOREGROUND" value="9df9ff"/>
       </value>
     </option>
     <option name="CONSOLE_MAGENTA_BRIGHT_OUTPUT">
       <value>
-        <option name="FOREGROUND" value="9df9ff"/>
+        <option name="FOREGROUND" value="cf2be7"/>
       </value>
     </option>
     <option name="CONSOLE_CYAN_BRIGHT_OUTPUT">

@@ -20,6 +20,7 @@ All notable changes to the Stranger Things Theme will be documented in this file
 - VS Code: warnings are orange everywhere; the editor squiggle used cyan.
 - README palette table shows its colour swatches on GitHub.
 - CONTRIBUTING.md describes the real build workflow.
+- Terminal ANSI colours in The Lab, Hawkins, Tigers and Dimension X now match their names (for example Dimension X green was brown), in every terminal, Vim/Neovim, VS Code, JetBrains, Zed and the aggregator schemes; editor syntax and UI colours are unchanged.
 
 ## [1.0.6] - 2026-11-11
 

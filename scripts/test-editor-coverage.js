@@ -4,7 +4,16 @@
 const assert = require('node:assert/strict');
 const fs = require('fs');
 const path = require('path');
-const { THEME_PALETTES } = require('../shared/palettes');
+const { THEME_PALETTES, getDerivedColors } = require('../shared/palettes');
+
+const ANSI = ['BLACK', 'RED', 'GREEN', 'YELLOW', 'BLUE', 'MAGENTA', 'CYAN', 'WHITE'];
+const pascalWord = w => w[0] + w.slice(1).toLowerCase();
+// JetBrains console attribute for each ANSI_* key (normal, then bright).
+const JB_ANSI = {
+  BLACK: ['BLACK', 'DARKGRAY'], RED: ['RED', 'RED_BRIGHT'], GREEN: ['GREEN', 'GREEN_BRIGHT'],
+  YELLOW: ['YELLOW', 'YELLOW_BRIGHT'], BLUE: ['BLUE', 'BLUE_BRIGHT'], MAGENTA: ['MAGENTA', 'MAGENTA_BRIGHT'],
+  CYAN: ['CYAN', 'CYAN_BRIGHT'], WHITE: ['GRAY', 'WHITE']
+};
 
 const ROOT = path.join(__dirname, '..');
 const HEX = /^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$/;
@@ -105,6 +114,22 @@ for (const id of Object.keys(THEME_PALETTES)) {
   assertWellFormedXml(xml, scheme);
   for (const name of JB_OPTIONS) {
     assert.ok(xml.includes(`<option name="${name}"`), `${scheme}: ${name} missing`);
+  }
+
+  // Terminal colours come from ANSI_*, chart (UI) colours from the base slots.
+  const base = THEME_PALETTES[id].base;
+  const c = getDerivedColors(base);
+  for (const name of ANSI) {
+    assert.equal(theme.colors[`terminal.ansi${pascalWord(name)}`], c[`ANSI_${name}`], `${file}: terminal.ansi${pascalWord(name)}`);
+    assert.equal(theme.colors[`terminal.ansiBright${pascalWord(name)}`], c[`ANSI_BRIGHT_${name}`], `${file}: terminal.ansiBright${pascalWord(name)}`);
+    JB_ANSI[name].forEach((option, bright) => {
+      const hex = c[`ANSI_${bright ? 'BRIGHT_' : ''}${name}`].slice(1).toLowerCase();
+      assert.ok(xml.includes(`<option name="CONSOLE_${option}_OUTPUT">\n      <value>\n        <option name="FOREGROUND" value="${hex}"/>`),
+        `${scheme}: CONSOLE_${option}_OUTPUT is not ${hex}`);
+    });
+  }
+  for (const [chart, slot] of Object.entries({ red: 'RED', blue: 'PURPLE', yellow: 'YELLOW', orange: 'ORANGE', green: 'GREEN', purple: 'PINK' })) {
+    assert.equal(theme.colors[`charts.${chart}`], base[slot], `${file}: charts.${chart}`);
   }
   checked++;
 }

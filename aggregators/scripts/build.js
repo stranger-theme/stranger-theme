@@ -24,12 +24,14 @@ const luminance = hex => {
 
 /**
  * base00-base07 are the shade ramp, base08-base0F the accents (base16 styling guide).
+ * Terminal templates take ANSI red/yellow/green/cyan/blue/magenta from base08/0A/0B/0C/0D/0E,
+ * so those six use the terminal ANSI colours; base09 and base0F are not ANSI colours.
  * base24 adds two darker backgrounds and the six bright ANSI accents.
  */
 function tintedColors(c, system) {
   const colors = [
     c.BG, c.BGLight, c.SELECTION, c.COMMENT, adjustColor(c.FG, -48), c.FG, adjustColor(c.FG, 12), '#FFFFFF',
-    c.RED, c.ORANGE, c.YELLOW, c.GREEN, c.CYAN, c.PURPLE, c.PINK,
+    c.ANSI_RED, c.ORANGE, c.ANSI_YELLOW, c.ANSI_GREEN, c.ANSI_CYAN, c.ANSI_BLUE, c.ANSI_MAGENTA,
     // base0F is used as text (delimiters, deprecated): ORANGE-40 stays >= 3:1 on BG in every variant.
     adjustColor(c.ORANGE, -40)
   ];

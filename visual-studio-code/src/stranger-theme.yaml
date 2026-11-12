@@ -403,12 +403,12 @@ colors:
   # Charts
   charts.foreground: "{{FG}}"
   charts.lines: "{{COMMENT}}"
-  charts.red: "{{ANSI_RED}}"
-  charts.blue: "{{ANSI_BLUE}}"
-  charts.yellow: "{{ANSI_YELLOW}}"
+  charts.red: "{{RED}}"
+  charts.blue: "{{PURPLE}}"
+  charts.yellow: "{{YELLOW}}"
   charts.orange: "{{ORANGE}}"
-  charts.green: "{{ANSI_GREEN}}"
-  charts.purple: "{{ANSI_MAGENTA}}"
+  charts.green: "{{GREEN}}"
+  charts.purple: "{{PINK}}"
 
   # Chat and Inline Chat
   chat.requestBackground: "{{BGDark}}"

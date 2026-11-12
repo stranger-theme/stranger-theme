@@ -56,9 +56,8 @@ assert.deepEqual(family.themes.map(theme => theme.name), variants.map(([, palett
 
 for (const [id, palette] of variants) {
   const c = getDerivedColors(palette.base);
-  const expectedAnsi = [c.ANSI_BLACK, c.RED, c.GREEN, c.YELLOW, c.PURPLE, c.PINK, c.CYAN, c.FG,
-    c.COMMENT, c.ANSI_BRIGHT_RED, c.ANSI_BRIGHT_GREEN, c.ANSI_BRIGHT_YELLOW,
-    c.ANSI_BRIGHT_BLUE, c.ANSI_BRIGHT_MAGENTA, c.ANSI_BRIGHT_CYAN, '#FFFFFF'];
+  const upper = ansiNames.map(name => name.toUpperCase());
+  const expectedAnsi = [...upper.map(name => c[`ANSI_${name}`]), ...upper.map(name => c[`ANSI_BRIGHT_${name}`])];
 
   const ghostty = read(`terminal/ghostty/stranger-theme-${id}`).split('\n')
     .filter(line => line && !line.startsWith('#'));
