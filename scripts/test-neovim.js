@@ -55,7 +55,7 @@ if (which.error) {
     ...variants.map((v) => `vim.cmd.colorscheme('stranger_${v}')`),
     "require('stranger-theme').setup({ variant = 'the-lab', transparent = true, italic = false, dim_inactive = true })",
     "assert(vim.g.colors_name == 'stranger_the_lab', 'setup did not apply the variant')",
-    "assert(vim.api.nvim_get_hl(0, { name = 'Normal' }).bg == nil, 'transparent Normal still has a bg')",
+    "assert(vim.fn.synIDattr(vim.fn.hlID('Normal'), 'bg#') == '', 'transparent Normal still has a bg')",
     "require('stranger-theme').load('hawkins')",
     ...variants.map((v) => `assert(type(require('lualine.themes.stranger_${v}').normal.a.bg) == 'string')`),
   ].join('\n');
