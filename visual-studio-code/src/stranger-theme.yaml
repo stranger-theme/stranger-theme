@@ -156,7 +156,9 @@ colors:
 
   # Errors and Warnings
   editorError.foreground: "{{RED}}"
-  editorWarning.foreground: "{{CYAN}}"
+  editorWarning.foreground: "{{ORANGE}}"
+  problemsErrorIcon.foreground: "{{RED}}"
+  problemsWarningIcon.foreground: "{{ORANGE}}"
 
   # Gutter
   editorGutter.modifiedBackground: "{{CYAN}}"
@@ -164,7 +166,10 @@ colors:
   editorGutter.deletedBackground: "{{RED}}"
 
   # Git Decorations
+  gitDecoration.addedResourceForeground: "{{GREEN}}"
   gitDecoration.modifiedResourceForeground: "{{CYAN}}"
+  gitDecoration.stageModifiedResourceForeground: "{{CYAN}}"
+  gitDecoration.stageDeletedResourceForeground: "{{RED}}"
   gitDecoration.deletedResourceForeground: "{{RED}}"
   gitDecoration.untrackedResourceForeground: "{{GREEN}}"
   gitDecoration.ignoredResourceForeground: "{{COMMENT}}"
@@ -238,6 +243,27 @@ colors:
 
   # Debug
   debugToolBar.background: "{{BGDark}}"
+  debugToolBar.border: "{{BGDarker}}"
+  debugIcon.breakpointForeground: "{{RED}}"
+  debugIcon.breakpointDisabledForeground: "{{COMMENT}}"
+  debugIcon.breakpointUnverifiedForeground: "{{ORANGE}}"
+  debugIcon.breakpointCurrentStackframeForeground: "{{YELLOW}}"
+  debugIcon.breakpointStackframeForeground: "{{GREEN}}"
+  debugIcon.startForeground: "{{GREEN}}"
+  debugIcon.continueForeground: "{{GREEN}}"
+  debugIcon.restartForeground: "{{GREEN}}"
+  debugIcon.pauseForeground: "{{CYAN}}"
+  debugIcon.stepOverForeground: "{{CYAN}}"
+  debugIcon.stepIntoForeground: "{{CYAN}}"
+  debugIcon.stepOutForeground: "{{CYAN}}"
+  debugIcon.stepBackForeground: "{{CYAN}}"
+  debugIcon.stopForeground: "{{RED}}"
+  debugIcon.disconnectForeground: "{{RED}}"
+  debugConsole.infoForeground: "{{CYAN}}"
+  debugConsole.warningForeground: "{{ORANGE}}"
+  debugConsole.errorForeground: "{{RED}}"
+  debugConsole.sourceForeground: "{{COMMENT}}"
+  debugConsoleInputIcon.foreground: "{{PINK}}"
 
   # Welcome Page
   walkThrough.embeddedEditorBackground: "{{BGDark}}"
@@ -269,6 +295,189 @@ colors:
   listFilterWidget.background: "{{BGLight}}"
   listFilterWidget.outline: "{{BGLighter}}"
   listFilterWidget.noMatchesOutline: "{{RED}}"
+  sash.hoverBorder: "{{PINK}}"
+  terminalCursor.foreground: "{{FG}}"
+  terminalCursor.background: "{{BG}}"
+
+  # Minimap
+  minimap.findMatchHighlight: "{{ORANGE}}"
+  minimap.selectionHighlight: "{{SELECTION}}"
+  minimap.errorHighlight: "{{RED}}"
+  minimap.warningHighlight: "{{ORANGE}}"
+  minimapGutter.addedBackground: "{{GREEN}}"
+  minimapGutter.modifiedBackground: "{{CYAN}}"
+  minimapGutter.deletedBackground: "{{RED}}"
+  minimapSlider.background: "{{COMMENT}}33"
+  minimapSlider.hoverBackground: "{{COMMENT}}55"
+  minimapSlider.activeBackground: "{{PURPLE}}55"
+
+  # Inlay Hints, Ghost Text, Sticky Scroll
+  editorInlayHint.foreground: "{{COMMENT}}"
+  editorInlayHint.background: "{{BGLight}}"
+  editorInlayHint.typeForeground: "{{COMMENT}}"
+  editorInlayHint.typeBackground: "{{BGLight}}"
+  editorInlayHint.parameterForeground: "{{COMMENT}}"
+  editorInlayHint.parameterBackground: "{{BGLight}}"
+  editorGhostText.foreground: "{{COMMENT}}"
+  editorStickyScroll.background: "{{BG}}"
+  editorStickyScroll.border: "{{BGDarker}}"
+  editorStickyScroll.shadow: "{{BGDarker}}"
+  editorStickyScrollHover.background: "{{LineHighlight}}"
+
+  # Testing
+  testing.iconPassed: "{{GREEN}}"
+  testing.iconFailed: "{{RED}}"
+  testing.iconErrored: "{{RED}}"
+  testing.iconQueued: "{{YELLOW}}"
+  testing.iconSkipped: "{{COMMENT}}"
+  testing.iconUnset: "{{COMMENT}}"
+  testing.runAction: "{{GREEN}}"
+  testing.peekBorder: "{{RED}}"
+  testing.peekHeaderBackground: "{{BGDark}}"
+
+  # Source Control Graph
+  scmGraph.foreground1: "{{PINK}}"
+  scmGraph.foreground2: "{{CYAN}}"
+  scmGraph.foreground3: "{{GREEN}}"
+  scmGraph.foreground4: "{{PURPLE}}"
+  scmGraph.foreground5: "{{ORANGE}}"
+  scmGraph.historyItemRefColor: "{{CYAN}}"
+  scmGraph.historyItemRemoteRefColor: "{{PURPLE}}"
+  scmGraph.historyItemBaseRefColor: "{{ORANGE}}"
+
+  # Merge Editor
+  mergeEditor.change.background: "{{CYAN}}20"
+  mergeEditor.change.word.background: "{{CYAN}}40"
+  mergeEditor.conflict.unhandledUnfocused.border: "{{ORANGE}}80"
+  mergeEditor.conflict.unhandledFocused.border: "{{ORANGE}}"
+  mergeEditor.conflict.handledUnfocused.border: "{{GREEN}}80"
+  mergeEditor.conflict.handledFocused.border: "{{GREEN}}"
+
+  # Notebook
+  notebook.editorBackground: "{{BG}}"
+  notebook.cellEditorBackground: "{{BGDark}}"
+  notebook.cellBorderColor: "{{BGLight}}"
+  notebook.focusedCellBorder: "{{PINK}}"
+  notebook.focusedEditorBorder: "{{COMMENT}}"
+  notebook.selectedCellBackground: "{{LineHighlight}}"
+  notebook.outputContainerBackgroundColor: "{{BGDark}}"
+  notebookStatusSuccessIcon.foreground: "{{GREEN}}"
+  notebookStatusErrorIcon.foreground: "{{RED}}"
+  notebookStatusRunningIcon.foreground: "{{CYAN}}"
+
+  # Symbol Icons (same roles as the syntax colours)
+  symbolIcon.arrayForeground: "{{CYAN}}"
+  symbolIcon.booleanForeground: "{{PURPLE}}"
+  symbolIcon.classForeground: "{{CYAN}}"
+  symbolIcon.colorForeground: "{{PINK}}"
+  symbolIcon.constantForeground: "{{PURPLE}}"
+  symbolIcon.constructorForeground: "{{GREEN}}"
+  symbolIcon.enumeratorForeground: "{{CYAN}}"
+  symbolIcon.enumeratorMemberForeground: "{{PURPLE}}"
+  symbolIcon.eventForeground: "{{ORANGE}}"
+  symbolIcon.fieldForeground: "{{FG}}"
+  symbolIcon.fileForeground: "{{FG}}"
+  symbolIcon.folderForeground: "{{FG}}"
+  symbolIcon.functionForeground: "{{GREEN}}"
+  symbolIcon.interfaceForeground: "{{CYAN}}"
+  symbolIcon.keyForeground: "{{CYAN}}"
+  symbolIcon.keywordForeground: "{{PINK}}"
+  symbolIcon.methodForeground: "{{GREEN}}"
+  symbolIcon.moduleForeground: "{{CYAN}}"
+  symbolIcon.namespaceForeground: "{{CYAN}}"
+  symbolIcon.nullForeground: "{{PURPLE}}"
+  symbolIcon.numberForeground: "{{PURPLE}}"
+  symbolIcon.objectForeground: "{{CYAN}}"
+  symbolIcon.operatorForeground: "{{PINK}}"
+  symbolIcon.packageForeground: "{{CYAN}}"
+  symbolIcon.propertyForeground: "{{FG}}"
+  symbolIcon.referenceForeground: "{{FG}}"
+  symbolIcon.snippetForeground: "{{FG}}"
+  symbolIcon.stringForeground: "{{YELLOW}}"
+  symbolIcon.structForeground: "{{CYAN}}"
+  symbolIcon.textForeground: "{{FG}}"
+  symbolIcon.typeParameterForeground: "{{ORANGE}}"
+  symbolIcon.unitForeground: "{{PURPLE}}"
+  symbolIcon.variableForeground: "{{FG}}"
+
+  # Charts
+  charts.foreground: "{{FG}}"
+  charts.lines: "{{COMMENT}}"
+  charts.red: "{{ANSI_RED}}"
+  charts.blue: "{{ANSI_BLUE}}"
+  charts.yellow: "{{ANSI_YELLOW}}"
+  charts.orange: "{{ORANGE}}"
+  charts.green: "{{ANSI_GREEN}}"
+  charts.purple: "{{ANSI_MAGENTA}}"
+
+  # Chat and Inline Chat
+  chat.requestBackground: "{{BGDark}}"
+  chat.requestBorder: "{{BGLight}}"
+  chat.slashCommandBackground: "{{SELECTION}}"
+  chat.slashCommandForeground: "{{FG}}"
+  chat.avatarBackground: "{{BGLight}}"
+  chat.avatarForeground: "{{FG}}"
+  inlineChat.background: "{{BGDark}}"
+  inlineChat.border: "{{BGDarker}}"
+  inlineChat.foreground: "{{FG}}"
+  inlineChatInput.background: "{{BG}}"
+  inlineChatInput.border: "{{BGDarker}}"
+  inlineChatInput.focusBorder: "{{COMMENT}}"
+  inlineChatInput.placeholderForeground: "{{COMMENT}}"
+
+# =============================================================================
+# Semantic Token Colors (same roles as the tokenColors below)
+# =============================================================================
+semanticTokenColors:
+  parameter:
+    foreground: "{{ORANGE}}"
+    italic: true
+  property: "{{FG}}"
+  enumMember: "{{PURPLE}}"
+  namespace: "{{CYAN}}"
+  class:
+    foreground: "{{CYAN}}"
+    italic: false
+  interface:
+    foreground: "{{CYAN}}"
+    italic: true
+  enum:
+    foreground: "{{CYAN}}"
+    italic: true
+  struct:
+    foreground: "{{CYAN}}"
+    italic: true
+  type:
+    foreground: "{{CYAN}}"
+    italic: true
+  typeParameter:
+    foreground: "{{ORANGE}}"
+    italic: true
+  function: "{{GREEN}}"
+  method: "{{GREEN}}"
+  macro: "{{GREEN}}"
+  decorator:
+    foreground: "{{GREEN}}"
+    italic: true
+  variable.readonly: "{{PURPLE}}"
+  "*.defaultLibrary":
+    foreground: "{{CYAN}}"
+    italic: true
+  class.defaultLibrary:
+    foreground: "{{CYAN}}"
+    italic: true
+  function.defaultLibrary:
+    foreground: "{{CYAN}}"
+    italic: false
+  method.defaultLibrary:
+    foreground: "{{CYAN}}"
+    italic: false
+  variable.defaultLibrary:
+    foreground: "{{PURPLE}}"
+    italic: false
+  variable.readonly.defaultLibrary:
+    foreground: "{{PURPLE}}"
+    italic: false
 
 # =============================================================================
 # Token Colors (Syntax Highlighting)
