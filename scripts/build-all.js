@@ -22,7 +22,8 @@ const PLATFORMS = [
   { name: 'Zed', dir: 'zed' },
   { name: 'Helix', dir: 'helix' },
   { name: 'tmux', dir: 'tmux' },
-  { name: 'Aggregators (tinted-theming base16/base24, iTerm2-Color-Schemes)', dir: 'aggregators' }
+  { name: 'Aggregators (tinted-theming base16/base24, iTerm2-Color-Schemes)', dir: 'aggregators' },
+  { name: 'Palette npm package (JS, CSS variables, Tailwind, Shiki)', dir: 'palette' }
 ];
 
 /**
@@ -159,6 +160,7 @@ function build() {
   console.log(`   • Helix:            ${countFiles(path.join(ROOT_DIR, 'helix/themes'), ['.toml'])} themes`);
   console.log(`   • tmux:             ${countFiles(path.join(ROOT_DIR, 'tmux/themes'), ['.conf'])} themes`);
   console.log(`   • Aggregators:      ${countFiles(path.join(ROOT_DIR, 'aggregators'), ['.yaml', '.yml'])} schemes`);
+  console.log(`   • Palette package:  ${countFiles(path.join(ROOT_DIR, 'palette/dist'))} files`);
   console.log('');
   
   if (failCount > 0) {

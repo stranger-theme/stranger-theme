@@ -32,7 +32,7 @@ jobs:
           const assert = require('node:assert/strict');
           const version = require('./package.json').version;
           assert.equal(process.env.RELEASE_TAG, `v${version}`, 'Tag must match package version');
-          for (const dir of ['visual-studio-code', 'jetbrains', 'hyper']) {
+          for (const dir of ['visual-studio-code', 'jetbrains', 'hyper', 'palette']) {
             assert.equal(require(`./${dir}/package.json`).version, version, `${dir} version mismatch`);
           }
           const zed = require('node:fs').readFileSync('zed/extension.toml', 'utf8');
@@ -142,4 +142,9 @@ jobs:
   publish-hyper:
     needs: release
     uses: ./.github/workflows/publish-hyper.yml
+    secrets: inherit
+
+  publish-palette:
+    needs: release
+    uses: ./.github/workflows/publish-palette.yml
     secrets: inherit
