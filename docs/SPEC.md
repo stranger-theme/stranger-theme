@@ -88,6 +88,8 @@ Theme name: `Stranger Theme: Upside Down`. Variant id: `upside-down`.
 | 14 | bright cyan | `#74D4E0` | CYAN + 30 |
 | 15 | bright white | `#FFFFFF` | fixed white |
 
+An override is a terminal-only colour from the variant's `ansi` entry in `shared/palettes.js`, used where the syntax slot's hue does not read as that ANSI colour. Syntax and UI colours still use the base slot.
+
 ### Contrast against BG
 
 | Slot | Hex | Ratio | WCAG |
@@ -163,6 +165,8 @@ Theme name: `Stranger Theme: Starcourt`. Variant id: `starcourt`.
 | 14 | bright cyan | `#1EECEF` | CYAN + 30 |
 | 15 | bright white | `#FFFFFF` | fixed white |
 
+An override is a terminal-only colour from the variant's `ansi` entry in `shared/palettes.js`, used where the syntax slot's hue does not read as that ANSI colour. Syntax and UI colours still use the base slot.
+
 ### Contrast against BG
 
 | Slot | Hex | Ratio | WCAG |
@@ -224,18 +228,20 @@ Theme name: `Stranger Theme: Hawkins`. Variant id: `hawkins`.
 | 1 | red | `#BF616A` | RED |
 | 2 | green | `#A3BE8C` | GREEN |
 | 3 | yellow | `#EBCB8B` | YELLOW |
-| 4 | blue | `#B48EAD` | PURPLE |
-| 5 | magenta | `#D4A574` | PINK |
+| 4 | blue | `#81A1C1` | override |
+| 5 | magenta | `#B48EAD` | override |
 | 6 | cyan | `#88C0D0` | CYAN |
 | 7 | white | `#E8DCC8` | FG |
 | 8 | bright black | `#9E8766` | COMMENT |
 | 9 | bright red | `#DD7F88` | RED + 30 |
 | 10 | bright green | `#C1DCAA` | GREEN + 30 |
 | 11 | bright yellow | `#FFE9A9` | YELLOW + 30 |
-| 12 | bright blue | `#D2ACCB` | PURPLE + 30 |
-| 13 | bright magenta | `#F2C392` | PINK + 30 |
+| 12 | bright blue | `#9FBFDF` | override + 30 |
+| 13 | bright magenta | `#D2ACCB` | override + 30 |
 | 14 | bright cyan | `#A6DEEE` | CYAN + 30 |
 | 15 | bright white | `#FFFFFF` | fixed white |
+
+An override is a terminal-only colour from the variant's `ansi` entry in `shared/palettes.js`, used where the syntax slot's hue does not read as that ANSI colour. Syntax and UI colours still use the base slot.
 
 ### Contrast against BG
 
@@ -299,18 +305,20 @@ Theme name: `Stranger Theme: The Lab`. Variant id: `the-lab`.
 | 1 | red | `#FF4136` | RED |
 | 2 | green | `#2ECC40` | GREEN |
 | 3 | yellow | `#FFDC00` | YELLOW |
-| 4 | blue | `#B10DC9` | PURPLE |
-| 5 | magenta | `#7FDBFF` | PINK |
+| 4 | blue | `#7FDBFF` | override |
+| 5 | magenta | `#B10DC9` | override |
 | 6 | cyan | `#39CCCC` | CYAN |
 | 7 | white | `#E0E5EC` | FG |
 | 8 | bright black | `#73879C` | COMMENT |
 | 9 | bright red | `#FF5F54` | RED + 30 |
 | 10 | bright green | `#4CEA5E` | GREEN + 30 |
 | 11 | bright yellow | `#FFFA1E` | YELLOW + 30 |
-| 12 | bright blue | `#CF2BE7` | PURPLE + 30 |
-| 13 | bright magenta | `#9DF9FF` | PINK + 30 |
+| 12 | bright blue | `#9DF9FF` | override + 30 |
+| 13 | bright magenta | `#CF2BE7` | override + 30 |
 | 14 | bright cyan | `#57EAEA` | CYAN + 30 |
 | 15 | bright white | `#FFFFFF` | fixed white |
+
+An override is a terminal-only colour from the variant's `ansi` entry in `shared/palettes.js`, used where the syntax slot's hue does not read as that ANSI colour. Syntax and UI colours still use the base slot.
 
 ### Contrast against BG
 
@@ -373,18 +381,20 @@ Theme name: `Stranger Theme: Tigers`. Variant id: `tigers`.
 | 1 | red | `#CC6666` | RED |
 | 2 | green | `#B5BD68` | GREEN |
 | 3 | yellow | `#F0C674` | YELLOW |
-| 4 | blue | `#B294BB` | PURPLE |
-| 5 | magenta | `#FF7F2A` | PINK |
-| 6 | cyan | `#81A2BE` | CYAN |
+| 4 | blue | `#81A2BE` | override |
+| 5 | magenta | `#B294BB` | override |
+| 6 | cyan | `#8ABEB7` | override |
 | 7 | white | `#F5F5F5` | FG |
 | 8 | bright black | `#758975` | COMMENT |
 | 9 | bright red | `#EA8484` | RED + 30 |
 | 10 | bright green | `#D3DB86` | GREEN + 30 |
 | 11 | bright yellow | `#FFE492` | YELLOW + 30 |
-| 12 | bright blue | `#D0B2D9` | PURPLE + 30 |
-| 13 | bright magenta | `#FF9D48` | PINK + 30 |
-| 14 | bright cyan | `#9FC0DC` | CYAN + 30 |
+| 12 | bright blue | `#9FC0DC` | override + 30 |
+| 13 | bright magenta | `#D0B2D9` | override + 30 |
+| 14 | bright cyan | `#A8DCD5` | override + 30 |
 | 15 | bright white | `#FFFFFF` | fixed white |
+
+An override is a terminal-only colour from the variant's `ansi` entry in `shared/palettes.js`, used where the syntax slot's hue does not read as that ANSI colour. Syntax and UI colours still use the base slot.
 
 ### Contrast against BG
 
@@ -445,21 +455,23 @@ Theme name: `Stranger Theme: Dimension X`. Variant id: `dimension-x`.
 | Index | ANSI colour | Hex | Source |
 | --- | --- | --- | --- |
 | 0 | black | `#464242` | BG + 40 |
-| 1 | red | `#FF55AA` | RED |
-| 2 | green | `#8B7355` | GREEN |
-| 3 | yellow | `#BCA89F` | YELLOW |
+| 1 | red | `#FF6B6B` | override |
+| 2 | green | `#8FAE7E` | override |
+| 3 | yellow | `#D19A66` | override |
 | 4 | blue | `#C678DD` | PURPLE |
-| 5 | magenta | `#E06C75` | PINK |
-| 6 | cyan | `#D19A66` | CYAN |
+| 5 | magenta | `#FF55AA` | override |
+| 6 | cyan | `#7FB5B0` | override |
 | 7 | white | `#E8D5D5` | FG |
 | 8 | bright black | `#9A7C7C` | COMMENT |
-| 9 | bright red | `#FF73C8` | RED + 30 |
-| 10 | bright green | `#A99173` | GREEN + 30 |
-| 11 | bright yellow | `#DAC6BD` | YELLOW + 30 |
+| 9 | bright red | `#FF8989` | override + 30 |
+| 10 | bright green | `#ADCC9C` | override + 30 |
+| 11 | bright yellow | `#EFB884` | override + 30 |
 | 12 | bright blue | `#E496FB` | PURPLE + 30 |
-| 13 | bright magenta | `#FE8A93` | PINK + 30 |
-| 14 | bright cyan | `#EFB884` | CYAN + 30 |
+| 13 | bright magenta | `#FF73C8` | override + 30 |
+| 14 | bright cyan | `#9DD3CE` | override + 30 |
 | 15 | bright white | `#FFFFFF` | fixed white |
+
+An override is a terminal-only colour from the variant's `ansi` entry in `shared/palettes.js`, used where the syntax slot's hue does not read as that ANSI colour. Syntax and UI colours still use the base slot.
 
 ### Contrast against BG
 
@@ -489,7 +501,7 @@ Accents are held to the 3:1 non-text and large-text threshold by `scripts/test-c
 - Never hard-code hex values. Read them from `shared/palettes.js` (or `docs/palettes.json`) and regenerate.
 - Map by role: keywords use PINK, functions GREEN, types CYAN, strings YELLOW, numbers and constants PURPLE, parameters ORANGE, errors RED, comments COMMENT, plain text FG.
 - Editors: BG is the editor background, BGLight and BGLighter are raised surfaces, LineHighlight is the current line, SELECTION is the selection background, NonText is whitespace and rulers.
-- Terminals: foreground is FG, background is BG, selection is SELECTION. ANSI blue comes from PURPLE and ANSI magenta from PINK. ANSI black is BG + 40 so it stays visible, ANSI bright black is COMMENT, bright colours are the normal colour + 30, bright white is fixed white.
+- Terminals: foreground is FG, background is BG, selection is SELECTION. Take the 16 colours from the ANSI table (or `ANSI_*` from `getDerivedColors()`), never from syntax slots: a variant may override red, green, yellow, blue, magenta or cyan for the terminal. Without an override ANSI blue comes from PURPLE, ANSI magenta from PINK and the others from the slot of the same name. ANSI black is BG + 40 so it stays visible, ANSI bright black is COMMENT, bright colours are the normal colour + 30, bright white is fixed white.
 - Italic: comments, function parameters, inherited classes and language built-ins, HTML attribute names in Vim, prose emphasis and blockquotes.
 - Bold: errors, markup headings and strong text, the `new` keyword, to-do markers, matched characters in completion menus.
 - Underline: links and underlined text only.

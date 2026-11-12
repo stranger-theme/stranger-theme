@@ -560,20 +560,20 @@ if has('nvim')
   let g:terminal_color_1 = '#CC6666'
   let g:terminal_color_2 = '#B5BD68'
   let g:terminal_color_3 = '#F0C674'
-  let g:terminal_color_4 = '#B294BB'
-  let g:terminal_color_5 = '#FF7F2A'
-  let g:terminal_color_6 = '#81A2BE'
+  let g:terminal_color_4 = '#81A2BE'
+  let g:terminal_color_5 = '#B294BB'
+  let g:terminal_color_6 = '#8ABEB7'
   let g:terminal_color_7 = '#F5F5F5'
   let g:terminal_color_8 = '#758975'
   let g:terminal_color_9 = '#EA8484'
   let g:terminal_color_10 = '#D3DB86'
   let g:terminal_color_11 = '#FFE492'
-  let g:terminal_color_12 = '#D0B2D9'
-  let g:terminal_color_13 = '#FF9D48'
-  let g:terminal_color_14 = '#9FC0DC'
+  let g:terminal_color_12 = '#9FC0DC'
+  let g:terminal_color_13 = '#D0B2D9'
+  let g:terminal_color_14 = '#A8DCD5'
   let g:terminal_color_15 = '#FFFFFF'
 elseif has('terminal')
-  let g:terminal_ansi_colors = ['#404640', '#CC6666', '#B5BD68', '#F0C674', '#B294BB', '#FF7F2A', '#81A2BE', '#F5F5F5', '#758975', '#EA8484', '#D3DB86', '#FFE492', '#D0B2D9', '#FF9D48', '#9FC0DC', '#FFFFFF']
+  let g:terminal_ansi_colors = ['#404640', '#CC6666', '#B5BD68', '#F0C674', '#81A2BE', '#B294BB', '#8ABEB7', '#F5F5F5', '#758975', '#EA8484', '#D3DB86', '#FFE492', '#9FC0DC', '#D0B2D9', '#A8DCD5', '#FFFFFF']
 endif
 " }}}
 

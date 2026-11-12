@@ -557,23 +557,23 @@ endif
 " Terminal Colors: {{{
 if has('nvim')
   let g:terminal_color_0 = '#464242'
-  let g:terminal_color_1 = '#FF55AA'
-  let g:terminal_color_2 = '#8B7355'
-  let g:terminal_color_3 = '#BCA89F'
+  let g:terminal_color_1 = '#FF6B6B'
+  let g:terminal_color_2 = '#8FAE7E'
+  let g:terminal_color_3 = '#D19A66'
   let g:terminal_color_4 = '#C678DD'
-  let g:terminal_color_5 = '#E06C75'
-  let g:terminal_color_6 = '#D19A66'
+  let g:terminal_color_5 = '#FF55AA'
+  let g:terminal_color_6 = '#7FB5B0'
   let g:terminal_color_7 = '#E8D5D5'
   let g:terminal_color_8 = '#9A7C7C'
-  let g:terminal_color_9 = '#FF73C8'
-  let g:terminal_color_10 = '#A99173'
-  let g:terminal_color_11 = '#DAC6BD'
+  let g:terminal_color_9 = '#FF8989'
+  let g:terminal_color_10 = '#ADCC9C'
+  let g:terminal_color_11 = '#EFB884'
   let g:terminal_color_12 = '#E496FB'
-  let g:terminal_color_13 = '#FE8A93'
-  let g:terminal_color_14 = '#EFB884'
+  let g:terminal_color_13 = '#FF73C8'
+  let g:terminal_color_14 = '#9DD3CE'
   let g:terminal_color_15 = '#FFFFFF'
 elseif has('terminal')
-  let g:terminal_ansi_colors = ['#464242', '#FF55AA', '#8B7355', '#BCA89F', '#C678DD', '#E06C75', '#D19A66', '#E8D5D5', '#9A7C7C', '#FF73C8', '#A99173', '#DAC6BD', '#E496FB', '#FE8A93', '#EFB884', '#FFFFFF']
+  let g:terminal_ansi_colors = ['#464242', '#FF6B6B', '#8FAE7E', '#D19A66', '#C678DD', '#FF55AA', '#7FB5B0', '#E8D5D5', '#9A7C7C', '#FF8989', '#ADCC9C', '#EFB884', '#E496FB', '#FF73C8', '#9DD3CE', '#FFFFFF']
 endif
 " }}}
 

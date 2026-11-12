@@ -16,6 +16,13 @@
  * - PURPLE: Purple accent (special keywords)
  * - RED: Red accent (errors, deletions)
  * - YELLOW: Yellow accent (strings, warnings)
+ *
+ * Slots are syntax roles, so in some variants a slot's hue does not match its name
+ * (Dimension X GREEN is brown). A variant can therefore carry an optional `ansi` object
+ * next to `base` that replaces normal terminal colours: RED, GREEN, YELLOW, BLUE,
+ * MAGENTA, CYAN. Without an override, ANSI blue is PURPLE, ANSI magenta is PINK and the
+ * rest use the slot of the same name. Overrides affect only the 16-colour terminal palette
+ * (ANSI_* from getDerivedColors), never syntax or UI colours.
  */
 
 const THEME_PALETTES = {
@@ -71,7 +78,8 @@ const THEME_PALETTES = {
       PURPLE: '#B48EAD',
       RED: '#BF616A',
       YELLOW: '#EBCB8B'
-    }
+    },
+    ansi: { BLUE: '#81A1C1', MAGENTA: '#B48EAD' }
   },
   'the-lab': {
     id: 'the-lab',
@@ -89,7 +97,8 @@ const THEME_PALETTES = {
       PURPLE: '#B10DC9',
       RED: '#FF4136',
       YELLOW: '#FFDC00'
-    }
+    },
+    ansi: { BLUE: '#7FDBFF', MAGENTA: '#B10DC9' }
   },
   'tigers': {
     id: 'tigers',
@@ -107,7 +116,8 @@ const THEME_PALETTES = {
       PURPLE: '#B294BB',
       RED: '#CC6666',
       YELLOW: '#F0C674'
-    }
+    },
+    ansi: { BLUE: '#81A2BE', MAGENTA: '#B294BB', CYAN: '#8ABEB7' }
   },
   'dimension-x': {
     id: 'dimension-x',
@@ -125,9 +135,16 @@ const THEME_PALETTES = {
       PURPLE: '#C678DD',
       RED: '#FF55AA',
       YELLOW: '#BCA89F'
-    }
+    },
+    ansi: { RED: '#FF6B6B', GREEN: '#8FAE7E', YELLOW: '#D19A66', MAGENTA: '#FF55AA', CYAN: '#7FB5B0' }
   }
 };
+
+// Base slot each normal ANSI colour takes when the variant has no `ansi` override for it.
+const ANSI_SLOTS = { RED: 'RED', GREEN: 'GREEN', YELLOW: 'YELLOW', BLUE: 'PURPLE', MAGENTA: 'PINK', CYAN: 'CYAN' };
+
+// Overrides keyed by the variant's `base` object, so getDerivedColors(palette.base) finds them.
+const ANSI_OVERRIDES = new Map(Object.values(THEME_PALETTES).map(p => [p.base, p.ansi || {}]));
 
 /**
  * Adjust color brightness
@@ -149,10 +166,17 @@ function adjustColor(hex, amount) {
 
 /**
  * Get derived colors from a palette
- * @param {object} palette - Base palette colors
+ * @param {object} palette - A variant's base colours: THEME_PALETTES[id].base itself, not a copy,
+ *   so the variant's ANSI overrides always apply. Anything else throws.
  * @returns {object} Extended palette with derived colors
  */
 function getDerivedColors(palette) {
+  const overrides = ANSI_OVERRIDES.get(palette);
+  if (!overrides) {
+    throw new Error('getDerivedColors() takes THEME_PALETTES[id].base (not a copy), so ANSI overrides apply');
+  }
+  // Normal ANSI colour: the variant's override, else its base slot.
+  const ansi = name => overrides[name] || palette[ANSI_SLOTS[name]];
   return {
     ...palette,
     WHITE: '#FFFFFF',
@@ -166,20 +190,20 @@ function getDerivedColors(palette) {
     // ANSI colors for terminal
     // BG + 40 so ANSI black text stays visible on the terminal background
     ANSI_BLACK: adjustColor(palette.BG, 40),
-    ANSI_RED: palette.RED,
-    ANSI_GREEN: palette.GREEN,
-    ANSI_YELLOW: palette.YELLOW,
-    ANSI_BLUE: palette.PURPLE,
-    ANSI_MAGENTA: palette.PINK,
-    ANSI_CYAN: palette.CYAN,
+    ANSI_RED: ansi('RED'),
+    ANSI_GREEN: ansi('GREEN'),
+    ANSI_YELLOW: ansi('YELLOW'),
+    ANSI_BLUE: ansi('BLUE'),
+    ANSI_MAGENTA: ansi('MAGENTA'),
+    ANSI_CYAN: ansi('CYAN'),
     ANSI_WHITE: palette.FG,
     ANSI_BRIGHT_BLACK: palette.COMMENT,
-    ANSI_BRIGHT_RED: adjustColor(palette.RED, 30),
-    ANSI_BRIGHT_GREEN: adjustColor(palette.GREEN, 30),
-    ANSI_BRIGHT_YELLOW: adjustColor(palette.YELLOW, 30),
-    ANSI_BRIGHT_BLUE: adjustColor(palette.PURPLE, 30),
-    ANSI_BRIGHT_MAGENTA: adjustColor(palette.PINK, 30),
-    ANSI_BRIGHT_CYAN: adjustColor(palette.CYAN, 30),
+    ANSI_BRIGHT_RED: adjustColor(ansi('RED'), 30),
+    ANSI_BRIGHT_GREEN: adjustColor(ansi('GREEN'), 30),
+    ANSI_BRIGHT_YELLOW: adjustColor(ansi('YELLOW'), 30),
+    ANSI_BRIGHT_BLUE: adjustColor(ansi('BLUE'), 30),
+    ANSI_BRIGHT_MAGENTA: adjustColor(ansi('MAGENTA'), 30),
+    ANSI_BRIGHT_CYAN: adjustColor(ansi('CYAN'), 30),
     ANSI_BRIGHT_WHITE: '#FFFFFF'
   };
 }
@@ -225,6 +249,7 @@ function hexToNormalizedRgb(hex) {
 
 module.exports = {
   THEME_PALETTES,
+  ANSI_SLOTS,
   adjustColor,
   getDerivedColors,
   hexToRgb,

@@ -20,22 +20,22 @@ background = "#523535"
 
 [colors.normal]
 black = "#464242"
-red = "#FF55AA"
-green = "#8B7355"
-yellow = "#BCA89F"
+red = "#FF6B6B"
+green = "#8FAE7E"
+yellow = "#D19A66"
 blue = "#C678DD"
-magenta = "#E06C75"
-cyan = "#D19A66"
+magenta = "#FF55AA"
+cyan = "#7FB5B0"
 white = "#E8D5D5"
 
 [colors.bright]
 black = "#9A7C7C"
-red = "#FF73C8"
-green = "#A99173"
-yellow = "#DAC6BD"
+red = "#FF8989"
+green = "#ADCC9C"
+yellow = "#EFB884"
 blue = "#E496FB"
-magenta = "#FE8A93"
-cyan = "#EFB884"
+magenta = "#FF73C8"
+cyan = "#9DD3CE"
 white = "#FFFFFF"
 
 [colors.search.matches]
