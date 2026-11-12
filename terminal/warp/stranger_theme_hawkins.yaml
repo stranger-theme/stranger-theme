@@ -1,0 +1,26 @@
+# Stranger Theme: Hawkins for Warp
+name: 'Stranger Theme: Hawkins'
+accent: '#D4A574'
+cursor: '#E8DCC8'
+background: '#2C2218'
+foreground: '#E8DCC8'
+details: darker
+terminal_colors:
+  normal:
+    black: '#544A40'
+    red: '#BF616A'
+    green: '#A3BE8C'
+    yellow: '#EBCB8B'
+    blue: '#B48EAD'
+    magenta: '#D4A574'
+    cyan: '#88C0D0'
+    white: '#E8DCC8'
+  bright:
+    black: '#9E8766'
+    red: '#DD7F88'
+    green: '#C1DCAA'
+    yellow: '#FFE9A9'
+    blue: '#D2ACCB'
+    magenta: '#F2C392'
+    cyan: '#A6DEEE'
+    white: '#FFFFFF'

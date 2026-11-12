@@ -39,6 +39,28 @@ Or add to `Preferences.sublime-settings`:
 
 With a manual installation, use the folder you created: `Packages/Stranger Theme/...`.
 
+## bat and delta
+
+[bat](https://github.com/sharkdp/bat) reads `.tmTheme` files, and [delta](https://github.com/dandavison/delta) uses bat's theme set, so the files in `themes/` work in both.
+
+```bash
+mkdir -p "$(bat --config-dir)/themes"
+cp themes/Stranger-Theme-*.tmTheme "$(bat --config-dir)/themes/"
+bat cache --build
+bat --list-themes | grep Stranger
+```
+
+Use a theme for one call with `bat --theme=Stranger-Theme-Starcourt file.js`, or make it the default with `export BAT_THEME="Stranger-Theme-Starcourt"` in your shell profile (or `--theme="Stranger-Theme-Starcourt"` in `$(bat --config-file)`).
+
+For delta, set the syntax theme in `~/.gitconfig`:
+
+```ini
+[delta]
+    syntax-theme = Stranger-Theme-Starcourt
+```
+
+Run `bat cache --build` again after updating the `.tmTheme` files.
+
 ## Theme Variants
 
 - **Upside Down** - Dark blue-black with desaturated tones

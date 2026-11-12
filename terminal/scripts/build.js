@@ -17,10 +17,86 @@ const OUTPUT_DIRS = {
   windowsTerminal: path.join(__dirname, '..', 'windows-terminal'),
   ghostty: path.join(__dirname, '..', 'ghostty'),
   kitty: path.join(__dirname, '..', 'kitty'),
-  wezterm: path.join(__dirname, '..', 'wezterm')
+  wezterm: path.join(__dirname, '..', 'wezterm'),
+  warp: path.join(__dirname, '..', 'warp'),
+  terminalApp: path.join(__dirname, '..', 'terminal-app'),
+  windowsTerminalFragment: path.join(__dirname, '..', 'windows-terminal', 'fragment')
 };
 
 const ANSI_NAMES = ['BLACK', 'RED', 'GREEN', 'YELLOW', 'BLUE', 'MAGENTA', 'CYAN', 'WHITE'];
+
+function generateWarpTheme(palette) {
+  const c = getDerivedColors(palette.base);
+  const block = prefix => ANSI_NAMES.map(name =>
+    `    ${name.toLowerCase()}: '${c[`${prefix}${name}`]}'`).join('\n');
+  return `# ${palette.name} for Warp
+name: '${palette.name}'
+accent: '${c.PINK}'
+cursor: '${c.FG}'
+background: '${c.BG}'
+foreground: '${c.FG}'
+details: darker
+terminal_colors:
+  normal:
+${block('ANSI_')}
+  bright:
+${block('ANSI_BRIGHT_')}
+`;
+}
+
+/**
+ * NSColor in sRGB as an NSKeyedArchiver archive (XML plist form), base64 encoded
+ * for a <data> value in a Terminal.app profile. NSID 7 is the sRGB colour space.
+ */
+function terminalAppColor(hex) {
+  const { r, g, b } = hexToNormalizedRgb(hex);
+  const components = Buffer.from(`${r} ${g} ${b}\0`).toString('base64');
+  const uid = n => `<dict><key>CF$UID</key><integer>${n}</integer></dict>`;
+  const classDict = name => `<dict><key>$classes</key><array><string>${name}</string><string>NSObject</string></array><key>$classname</key><string>${name}</string></dict>`;
+  const archive = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n' +
+    '<plist version="1.0"><dict><key>$archiver</key><string>NSKeyedArchiver</string>' +
+    '<key>$objects</key><array><string>$null</string>' +
+    `<dict><key>$class</key>${uid(4)}<key>NSColorSpace</key><integer>1</integer>` +
+    `<key>NSCustomColorSpace</key>${uid(2)}<key>NSRGB</key><data>${components}</data></dict>` +
+    `<dict><key>$class</key>${uid(3)}<key>NSID</key><integer>7</integer></dict>` +
+    `${classDict('NSColorSpace')}${classDict('NSColor')}</array>` +
+    `<key>$top</key><dict><key>root</key>${uid(1)}</dict>` +
+    '<key>$version</key><integer>100000</integer></dict></plist>\n';
+  return Buffer.from(archive).toString('base64');
+}
+
+function generateTerminalAppProfile(palette) {
+  const c = getDerivedColors(palette.base);
+  const colors = {
+    BackgroundColor: c.BG,
+    TextColor: c.FG,
+    TextBoldColor: c.FG,
+    CursorColor: c.FG,
+    SelectionColor: c.SELECTION
+  };
+  for (const name of ANSI_NAMES) {
+    const title = name[0] + name.slice(1).toLowerCase();
+    colors[`ANSI${title}Color`] = c[`ANSI_${name}`];
+    colors[`ANSIBright${title}Color`] = c[`ANSI_BRIGHT_${name}`];
+  }
+  const entries = Object.keys(colors).sort().map(key =>
+    `\t<key>${key}</key>\n\t<data>${terminalAppColor(colors[key])}</data>`).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+${entries}
+\t<key>ProfileCurrentVersion</key>
+\t<real>2.07</real>
+\t<key>name</key>
+\t<string>${palette.name}</string>
+\t<key>type</key>
+\t<string>Window Settings</string>
+</dict>
+</plist>
+`;
+}
 
 function generateGhosttyTheme(palette) {
   const c = getDerivedColors(palette.base);
@@ -309,7 +385,21 @@ function build() {
     const weztermFile = path.join(OUTPUT_DIRS.wezterm, `${fileBase}.toml`);
     fs.writeFileSync(weztermFile, generateWezTermTheme(palette));
     console.log(`  -> ${weztermFile}`);
+
+    const warpFile = path.join(OUTPUT_DIRS.warp, `stranger_theme_${themeId.replace(/-/g, '_')}.yaml`);
+    fs.writeFileSync(warpFile, generateWarpTheme(palette));
+    console.log(`  -> ${warpFile}`);
+
+    const terminalAppFile = path.join(OUTPUT_DIRS.terminalApp, `Stranger-Theme-${displayName}.terminal`);
+    fs.writeFileSync(terminalAppFile, generateTerminalAppProfile(palette));
+    console.log(`  -> ${terminalAppFile}`);
   }
+
+  // Windows Terminal fragment extension: all six schemes in one file
+  const fragmentFile = path.join(OUTPUT_DIRS.windowsTerminalFragment, 'stranger-theme.json');
+  const schemes = Object.entries(THEME_PALETTES).map(([id, palette]) => generateWindowsTerminalTheme(id, palette));
+  fs.writeFileSync(fragmentFile, JSON.stringify({ schemes }, null, 2) + '\n');
+  console.log(`  -> ${fragmentFile}`);
 
   console.log('\nBuild complete!');
 }
