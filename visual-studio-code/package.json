@@ -50,6 +50,36 @@
         "label": "Stranger Theme: Dimension X",
         "uiTheme": "vs-dark",
         "path": "./themes/dimension-x-color-theme.json"
+      },
+      {
+        "label": "Stranger Theme: Upside Down (No Italics)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/upside-down-no-italics-color-theme.json"
+      },
+      {
+        "label": "Stranger Theme: Starcourt (No Italics)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/starcourt-no-italics-color-theme.json"
+      },
+      {
+        "label": "Stranger Theme: Hawkins (No Italics)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hawkins-no-italics-color-theme.json"
+      },
+      {
+        "label": "Stranger Theme: The Lab (No Italics)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/the-lab-no-italics-color-theme.json"
+      },
+      {
+        "label": "Stranger Theme: Tigers (No Italics)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tigers-no-italics-color-theme.json"
+      },
+      {
+        "label": "Stranger Theme: Dimension X (No Italics)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dimension-x-no-italics-color-theme.json"
       }
     ]
   },

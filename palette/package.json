@@ -1,0 +1,46 @@
+{
+  "name": "stranger-theme-palette",
+  "version": "1.0.6",
+  "description": "Stranger Theme colour palettes as JS, CSS custom properties, a Tailwind colour map and Shiki themes",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./palettes.json": "./dist/palettes.json",
+    "./tailwind": "./dist/tailwind.js",
+    "./css/*": "./dist/css/*",
+    "./shiki/*": "./dist/shiki/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "keywords": [
+    "stranger-theme",
+    "stranger-things",
+    "palette",
+    "colors",
+    "css-variables",
+    "tailwind",
+    "shiki",
+    "dark-theme"
+  ],
+  "author": "Stranger Theme",
+  "license": "MIT",
+  "homepage": "https://strangertheme.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stranger-theme/stranger-theme.git",
+    "directory": "palette"
+  }
+}
