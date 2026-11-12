@@ -15,8 +15,25 @@ const ANSI_HUES = {
   RED: [325, 20], GREEN: [66, 170], YELLOW: [], BLUE: [190, 300], MAGENTA: [270, 345], CYAN: [150, 215]
 };
 
+// The normal ANSI colours as approved, in the order red, green, yellow, blue, magenta, cyan.
+// Written out on purpose: a typo in an override can stay inside its hue window.
+const ANSI_APPROVED = {
+  'upside-down': ['#E06C75', '#98C379', '#E5C07B', '#61AFEF', '#C678DD', '#56B6C2'],
+  'starcourt': ['#FF6B6B', '#00FA9A', '#FFD700', '#BA55D3', '#FF1493', '#00CED1'],
+  'hawkins': ['#BF616A', '#A3BE8C', '#EBCB8B', '#81A1C1', '#B48EAD', '#88C0D0'],
+  'the-lab': ['#FF4136', '#2ECC40', '#FFDC00', '#7FDBFF', '#B10DC9', '#39CCCC'],
+  'tigers': ['#CC6666', '#B5BD68', '#F0C674', '#81A2BE', '#B294BB', '#8ABEB7'],
+  'dimension-x': ['#FF6B6B', '#8FAE7E', '#D19A66', '#C678DD', '#FF55AA', '#7FB5B0']
+};
+
 const failures = [];
 const rows = [];
+
+for (const { id, base } of Object.values(THEME_PALETTES)) {
+  const derived = getDerivedColors(base);
+  assert.deepEqual(Object.keys(ANSI_HUES).map(name => derived[`ANSI_${name}`]), ANSI_APPROVED[id],
+    `${id}: normal ANSI colours differ from the approved table`);
+}
 
 for (const { id, base } of Object.values(THEME_PALETTES)) {
   const derived = getDerivedColors(base);
