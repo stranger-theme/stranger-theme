@@ -1,6 +1,6 @@
 /**
  * Stranger Theme: Upside Down for Hyper Terminal
- * https://github.com/stranger-theme/hyper
+ * https://github.com/stranger-theme/stranger-theme/tree/main/hyper
  * 
  * Install: Add "hyper-stranger-theme-upside-down" to your plugins in ~/.hyper.js
  */

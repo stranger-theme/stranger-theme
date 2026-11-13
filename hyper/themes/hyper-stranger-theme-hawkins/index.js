@@ -1,6 +1,6 @@
 /**
  * Stranger Theme: Hawkins for Hyper Terminal
- * https://github.com/stranger-theme/hyper
+ * https://github.com/stranger-theme/stranger-theme/tree/main/hyper
  * 
  * Install: Add "hyper-stranger-theme-hawkins" to your plugins in ~/.hyper.js
  */

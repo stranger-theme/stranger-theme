@@ -2,7 +2,7 @@
 <idea-plugin>
   <id>com.strangertheme.theme</id>
   <name>Stranger Theme</name>
-  <version>1.0.6</version>
+  <version>1.1.0</version>
   <vendor email="contact@strangertheme.com" url="https://github.com/stranger-theme">Stranger Theme</vendor>
 
   <description><![CDATA[
@@ -22,6 +22,7 @@
 
   <change-notes><![CDATA[
     <ul>
+      <li>1.1.0 - The console and built-in terminal use the palette's 16 ANSI colours; inlay hints, breakpoints, debugger values and log levels are themed</li>
       <li>1.0.6 - Version aligned with the other Stranger Theme clients, no theme changes</li>
       <li>1.0.5 - Banner image on the plugin page</li>
       <li>1.0.4 - Readable comments in all variants (WCAG 4.5:1)</li>
