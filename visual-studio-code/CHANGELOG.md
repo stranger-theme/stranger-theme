@@ -2,7 +2,7 @@
 
 All notable changes to the Stranger Things Theme will be documented in this file.
 
-## [1.1.0] - 2026-11-12
+## [1.1.0] - 2026-11-13
 
 ### Added
 - "No Italics" variants of all six themes, with italics removed from every token and semantic rule.
