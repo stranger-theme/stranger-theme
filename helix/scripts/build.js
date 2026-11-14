@@ -8,6 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 const { THEME_PALETTES, getDerivedColors } = require('../../shared/palettes');
+const { contrast } = require('../../scripts/contrast');
 
 const OUTPUT_DIR = path.join(__dirname, '..', 'themes');
 
@@ -26,6 +27,7 @@ const SCOPES = {
   'string.regexp': 'red',
   'string.special': 'pink',
   comment: { fg: 'comment', modifiers: ['italic'] },
+  'comment.unused': 'comment',
   variable: 'fg',
   'variable.builtin': 'purple',
   'variable.parameter': 'orange',
@@ -55,32 +57,60 @@ const SCOPES = {
   'diff.plus': 'green',
   'diff.minus': 'red',
   'diff.delta': 'cyan',
+  'diff.delta.moved': 'purple',
+  'diff.delta.conflict': 'orange',
 
   // Interface
   'ui.background': { bg: 'bg' },
+  'ui.background.separator': 'selection',
   'ui.text': 'fg',
   'ui.text.focus': { fg: 'fg', bg: 'bg_light' },
   'ui.text.inactive': 'comment',
+  'ui.text.info': 'fg',
+  'ui.text.directory': 'cyan',
+  // Primary cursor and selection are the bright ones; the fallbacks style the secondary ones.
+  // One selection colour, as in most bundled themes: the cursor tells primary from secondary.
   'ui.selection': { bg: 'selection' },
-  'ui.cursor': { fg: 'bg', bg: 'fg' },
+  'ui.cursor': { fg: 'bg', bg: 'comment' },
+  'ui.cursor.primary': { fg: 'bg', bg: 'fg' },
   'ui.cursor.match': { fg: 'yellow', modifiers: ['bold'] },
   'ui.cursorline.primary': { bg: 'bg_light' },
+  'ui.cursorline.secondary': { bg: 'bg_dark' },
+  'ui.gutter': { bg: 'bg' },
+  'ui.gutter.selected': { bg: 'bg_light' },
   'ui.linenr': 'comment',
   'ui.linenr.selected': 'fg',
+  'ui.debug.breakpoint': 'red',
+  'ui.debug.active': 'yellow',
+  'ui.highlight': { bg: 'selection' },
+  'ui.highlight.frameline': { bg: 'bg_lighter' },
   'ui.statusline': { fg: 'fg', bg: 'bg_dark' },
+  'ui.statusline.separator': { fg: 'comment', bg: 'bg_dark' },
   'ui.statusline.inactive': { fg: 'comment', bg: 'bg_dark' },
-  'ui.statusline.normal': { fg: 'bg', bg: 'purple', modifiers: ['bold'] },
-  'ui.statusline.insert': { fg: 'bg', bg: 'green', modifiers: ['bold'] },
-  'ui.statusline.select': { fg: 'bg', bg: 'pink', modifiers: ['bold'] },
+  // Mode labels and the jump label are filled in per palette by label() below.
+  'ui.statusline.normal': null,
+  'ui.statusline.insert': null,
+  'ui.statusline.select': null,
+  'ui.bufferline': { fg: 'comment', bg: 'bg_dark' },
+  'ui.bufferline.active': { fg: 'fg', bg: 'bg', underline: { color: 'purple', style: 'line' } },
+  'ui.bufferline.background': { bg: 'bg_dark' },
   'ui.popup': { fg: 'fg', bg: 'bg_light' },
+  'ui.popup.info': { fg: 'fg', bg: 'bg_light' },
+  'ui.picker.header': { fg: 'fg', bg: 'bg_dark', modifiers: ['bold'] },
+  'ui.picker.header.column': { fg: 'comment', bg: 'bg_dark' },
+  'ui.picker.header.column.active': { fg: 'fg', bg: 'bg_dark', modifiers: ['bold'], underline: { color: 'purple', style: 'line' } },
   'ui.window': 'selection',
   'ui.help': { fg: 'fg', bg: 'bg_light' },
   'ui.menu': { fg: 'fg', bg: 'bg_light' },
   'ui.menu.selected': { fg: 'fg', bg: 'selection' },
+  'ui.menu.scroll': { fg: 'comment', bg: 'bg_light' },
   'ui.virtual.whitespace': 'selection',
   'ui.virtual.indent-guide': 'selection',
   'ui.virtual.ruler': { bg: 'bg_light' },
   'ui.virtual.inlay-hint': 'comment',
+  'ui.virtual.wrap': 'comment',
+  'ui.virtual.jump-label': null,
+  tabstop: { modifiers: ['italic'], underline: { color: 'orange', style: 'line' } },
 
   // Diagnostics (gutter, then editing area)
   error: 'red',
@@ -90,7 +120,9 @@ const SCOPES = {
   'diagnostic.error': { underline: { color: 'red', style: 'curl' } },
   'diagnostic.warning': { underline: { color: 'yellow', style: 'curl' } },
   'diagnostic.info': { underline: { color: 'cyan', style: 'curl' } },
-  'diagnostic.hint': { underline: { color: 'comment', style: 'curl' } }
+  'diagnostic.hint': { underline: { color: 'comment', style: 'curl' } },
+  'diagnostic.unnecessary': { modifiers: ['dim'] },
+  'diagnostic.deprecated': { modifiers: ['crossed_out'] }
 };
 
 function toml(value) {
@@ -102,13 +134,34 @@ function toml(value) {
 function generateHelixTheme(palette) {
   const c = getDerivedColors(palette.base);
   const colors = {
-    bg: c.BG, bg_dark: c.BGDark, bg_light: c.BGLight, fg: c.FG, selection: c.SELECTION,
+    bg: c.BG, bg_dark: c.BGDark, bg_light: c.BGLight, bg_lighter: c.BGLighter, fg: c.FG, selection: c.SELECTION,
     comment: c.COMMENT, cyan: c.CYAN, green: c.GREEN, orange: c.ORANGE, pink: c.PINK,
     purple: c.PURPLE, red: c.RED, yellow: c.YELLOW
   };
-  const scopes = Object.entries(SCOPES).map(([scope, style]) => `"${scope}" = ${toml(style)}`);
+  // Bold text on an accent: the first accent/ink pair that reaches WCAG AA (4.5:1). Inks other than bg join [palette].
+  const inks = { bg: c.BG, bg_darker: c.BGDarker, white: c.ANSI_BRIGHT_WHITE };
+  const label = (...accents) => {
+    for (const accent of accents) {
+      const ink = Object.keys(inks).find(name => contrast(inks[name], colors[accent]) >= 4.5);
+      if (ink) {
+        colors[ink] = inks[ink];
+        return { fg: ink, bg: accent, modifiers: ['bold'] };
+      }
+    }
+    throw new Error(`${palette.name}: no readable label colour on ${accents.join(', ')}`);
+  };
+  const styles = {
+    ...SCOPES,
+    'ui.statusline.normal': label('purple', 'cyan'),
+    'ui.statusline.insert': label('green', 'yellow'),
+    'ui.statusline.select': label('pink', 'orange'),
+    'ui.virtual.jump-label': label('pink', 'orange')
+  };
+  const scopes = Object.entries(styles).map(([scope, style]) => `"${scope}" = ${toml(style)}`);
   // [palette] must come last: it captures every key after its header.
-  return `# ${palette.name} for Helix
+  return `# Author : Stranger Theme <contact@strangertheme.com>
+# License: MIT
+# ${palette.name} for Helix
 ${scopes.join('\n')}
 
 [palette]

@@ -1,0 +1,29 @@
+---
+name: 'Stranger Theme Tigers'
+author: 'Stranger Theme (https://strangertheme.com)'
+author_name: 'Stranger Theme'
+author_url: 'https://strangertheme.com'
+variant: 'dark'            # dark or light
+
+color_01: '#404640'    # Black (Host)
+color_02: '#CC6666'    # Red (Syntax string)
+color_03: '#B5BD68'    # Green (Command)
+color_04: '#F0C674'    # Yellow (Command second)
+color_05: '#81A2BE'    # Blue (Path)
+color_06: '#B294BB'    # Magenta (Syntax var)
+color_07: '#8ABEB7'    # Cyan (Prompt)
+color_08: '#F5F5F5'    # White
+
+color_09: '#758975'    # Bright Black
+color_10: '#EA8484'    # Bright Red (Command error)
+color_11: '#D3DB86'    # Bright Green (Exec)
+color_12: '#FFE492'    # Bright Yellow
+color_13: '#9FC0DC'    # Bright Blue (Folder)
+color_14: '#D0B2D9'    # Bright Magenta
+color_15: '#A8DCD5'    # Bright Cyan
+color_16: '#FFFFFF'    # Bright White
+
+background: '#181E18'  # Background
+foreground: '#F5F5F5'  # Foreground (Text)
+
+cursor: '#F5F5F5'      # Cursor

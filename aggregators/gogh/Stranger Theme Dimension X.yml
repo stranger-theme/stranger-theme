@@ -1,0 +1,29 @@
+---
+name: 'Stranger Theme Dimension X'
+author: 'Stranger Theme (https://strangertheme.com)'
+author_name: 'Stranger Theme'
+author_url: 'https://strangertheme.com'
+variant: 'dark'            # dark or light
+
+color_01: '#464242'    # Black (Host)
+color_02: '#FF6B6B'    # Red (Syntax string)
+color_03: '#8FAE7E'    # Green (Command)
+color_04: '#D19A66'    # Yellow (Command second)
+color_05: '#C678DD'    # Blue (Path)
+color_06: '#FF55AA'    # Magenta (Syntax var)
+color_07: '#7FB5B0'    # Cyan (Prompt)
+color_08: '#E8D5D5'    # White
+
+color_09: '#9A7C7C'    # Bright Black
+color_10: '#FF8989'    # Bright Red (Command error)
+color_11: '#ADCC9C'    # Bright Green (Exec)
+color_12: '#EFB884'    # Bright Yellow
+color_13: '#E496FB'    # Bright Blue (Folder)
+color_14: '#FF73C8'    # Bright Magenta
+color_15: '#9DD3CE'    # Bright Cyan
+color_16: '#FFFFFF'    # Bright White
+
+background: '#1E1A1A'  # Background
+foreground: '#E8D5D5'  # Foreground (Text)
+
+cursor: '#E8D5D5'      # Cursor

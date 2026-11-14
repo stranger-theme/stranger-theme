@@ -1,0 +1,29 @@
+---
+name: 'Stranger Theme Hawkins'
+author: 'Stranger Theme (https://strangertheme.com)'
+author_name: 'Stranger Theme'
+author_url: 'https://strangertheme.com'
+variant: 'dark'            # dark or light
+
+color_01: '#544A40'    # Black (Host)
+color_02: '#BF616A'    # Red (Syntax string)
+color_03: '#A3BE8C'    # Green (Command)
+color_04: '#EBCB8B'    # Yellow (Command second)
+color_05: '#81A1C1'    # Blue (Path)
+color_06: '#B48EAD'    # Magenta (Syntax var)
+color_07: '#88C0D0'    # Cyan (Prompt)
+color_08: '#E8DCC8'    # White
+
+color_09: '#9E8766'    # Bright Black
+color_10: '#DD7F88'    # Bright Red (Command error)
+color_11: '#C1DCAA'    # Bright Green (Exec)
+color_12: '#FFE9A9'    # Bright Yellow
+color_13: '#9FBFDF'    # Bright Blue (Folder)
+color_14: '#D2ACCB'    # Bright Magenta
+color_15: '#A6DEEE'    # Bright Cyan
+color_16: '#FFFFFF'    # Bright White
+
+background: '#2C2218'  # Background
+foreground: '#E8DCC8'  # Foreground (Text)
+
+cursor: '#E8DCC8'      # Cursor

@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-// Checks the Helix, tmux, Warp, macOS Terminal and Windows Terminal fragment outputs.
+// Checks the Gogh scheme files and the Helix, tmux, Warp, macOS Terminal and Windows Terminal fragment outputs.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { THEME_PALETTES, getDerivedColors, hexToNormalizedRgb } = require('../shared/palettes');
+const { contrast } = require('./contrast');
 
 const root = path.join(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
@@ -60,6 +61,20 @@ for (const [id, palette] of variants) {
     assert.ok(scopes[scope], `${id}: Helix scope ${scope} missing`);
   }
   assert.equal(scopes['ui.background'], '{ bg = "bg" }');
+  for (const scope of ['ui.cursor']) {
+    assert.ok(scopes[`${scope}.primary`], `${id}: Helix ${scope}.primary missing`);
+    const bg = style => helixPalette[/bg = "([^"]+)"/.exec(style)[1]];
+    assert.notEqual(bg(scopes[`${scope}.primary`]), bg(scopes[scope]), `${id}: Helix ${scope}.primary must differ from ${scope}`);
+  }
+  // Every Helix style with both colours is readable: 4.5:1 for text, 3:1 for the scrollbar thumb.
+  for (const [scope, style] of Object.entries(scopes)) {
+    const fg = /\bfg = "([^"]+)"/.exec(style), bg = /\bbg = "([^"]+)"/.exec(style);
+    if (!fg || !bg) continue;
+    const ratio = contrast(helixPalette[fg[1]], helixPalette[bg[1]]);
+    assert.ok(ratio >= (scope === 'ui.menu.scroll' ? 3 : 4.5), `${id}: Helix ${scope} contrast ${ratio.toFixed(2)}`);
+  }
+  assert.ok(scopeText.startsWith('# Author : Stranger Theme <contact@strangertheme.com>\n# License: MIT\n'),
+    `${id}: Helix author/licence header`);
 
   // tmux: only `set -g option "value"` lines with palette colours.
   const tmux = {};
@@ -140,4 +155,24 @@ for (const [id, palette] of variants) {
   }
 }
 
-console.log('Validated Helix, tmux, Warp, macOS Terminal and the Windows Terminal fragment for six variants.');
+// Gogh: filename equals name, no underscore, dark, 19 uppercase colours from the derived ANSI palette.
+assert.deepEqual(list('aggregators/gogh'), variants.map(([, p]) => `Stranger Theme ${p.displayName}.yml`).sort());
+for (const [id, palette] of variants) {
+  const c = getDerivedColors(palette.base);
+  const ansi = [...ANSI.map(n => c[`ANSI_${n.toUpperCase()}`]), ...ANSI.map(n => c[`ANSI_BRIGHT_${n.toUpperCase()}`])];
+  const file = `Stranger Theme ${palette.displayName}.yml`;
+  const gogh = Object.fromEntries([...read(`aggregators/gogh/${file}`).matchAll(/^(\w+): '([^']*)'/gm)].map(m => m.slice(1)));
+  assert.equal(`${gogh.name}.yml`, file, `${id}: Gogh filename must equal name`);
+  assert.ok(!gogh.name.includes('_'), `${id}: Gogh name has an underscore`);
+  assert.equal(gogh.variant, 'dark');
+  assert.equal(gogh.author_name, 'Stranger Theme');
+  assert.equal(gogh.author_url, 'https://strangertheme.com');
+  const expected = Object.fromEntries([...ansi.map((hex, i) => [`color_${String(i + 1).padStart(2, '0')}`, hex]),
+    ['background', c.BG], ['foreground', c.FG], ['cursor', c.FG]]);
+  for (const [key, hex] of Object.entries(expected)) {
+    assert.match(gogh[key] || '', HEX, `${id}: Gogh ${key} must be uppercase #RRGGBB`);
+    assert.equal(gogh[key], hex.toUpperCase(), `${id}: Gogh ${key}`);
+  }
+}
+
+console.log('Validated Gogh, Helix, tmux, Warp, macOS Terminal and the Windows Terminal fragment for six variants.');

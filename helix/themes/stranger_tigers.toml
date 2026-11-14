@@ -1,3 +1,5 @@
+# Author : Stranger Theme <contact@strangertheme.com>
+# License: MIT
 # Stranger Theme: Tigers for Helix
 "attribute" = "green"
 "type" = "cyan"
@@ -11,6 +13,7 @@
 "string.regexp" = "red"
 "string.special" = "pink"
 "comment" = { fg = "comment", modifiers = ["italic"] }
+"comment.unused" = "comment"
 "variable" = "fg"
 "variable.builtin" = "purple"
 "variable.parameter" = "orange"
@@ -36,30 +39,55 @@
 "diff.plus" = "green"
 "diff.minus" = "red"
 "diff.delta" = "cyan"
+"diff.delta.moved" = "purple"
+"diff.delta.conflict" = "orange"
 "ui.background" = { bg = "bg" }
+"ui.background.separator" = "selection"
 "ui.text" = "fg"
 "ui.text.focus" = { fg = "fg", bg = "bg_light" }
 "ui.text.inactive" = "comment"
+"ui.text.info" = "fg"
+"ui.text.directory" = "cyan"
 "ui.selection" = { bg = "selection" }
-"ui.cursor" = { fg = "bg", bg = "fg" }
+"ui.cursor" = { fg = "bg", bg = "comment" }
+"ui.cursor.primary" = { fg = "bg", bg = "fg" }
 "ui.cursor.match" = { fg = "yellow", modifiers = ["bold"] }
 "ui.cursorline.primary" = { bg = "bg_light" }
+"ui.cursorline.secondary" = { bg = "bg_dark" }
+"ui.gutter" = { bg = "bg" }
+"ui.gutter.selected" = { bg = "bg_light" }
 "ui.linenr" = "comment"
 "ui.linenr.selected" = "fg"
+"ui.debug.breakpoint" = "red"
+"ui.debug.active" = "yellow"
+"ui.highlight" = { bg = "selection" }
+"ui.highlight.frameline" = { bg = "bg_lighter" }
 "ui.statusline" = { fg = "fg", bg = "bg_dark" }
+"ui.statusline.separator" = { fg = "comment", bg = "bg_dark" }
 "ui.statusline.inactive" = { fg = "comment", bg = "bg_dark" }
 "ui.statusline.normal" = { fg = "bg", bg = "purple", modifiers = ["bold"] }
 "ui.statusline.insert" = { fg = "bg", bg = "green", modifiers = ["bold"] }
 "ui.statusline.select" = { fg = "bg", bg = "pink", modifiers = ["bold"] }
+"ui.bufferline" = { fg = "comment", bg = "bg_dark" }
+"ui.bufferline.active" = { fg = "fg", bg = "bg", underline = { color = "purple", style = "line" } }
+"ui.bufferline.background" = { bg = "bg_dark" }
 "ui.popup" = { fg = "fg", bg = "bg_light" }
+"ui.popup.info" = { fg = "fg", bg = "bg_light" }
+"ui.picker.header" = { fg = "fg", bg = "bg_dark", modifiers = ["bold"] }
+"ui.picker.header.column" = { fg = "comment", bg = "bg_dark" }
+"ui.picker.header.column.active" = { fg = "fg", bg = "bg_dark", modifiers = ["bold"], underline = { color = "purple", style = "line" } }
 "ui.window" = "selection"
 "ui.help" = { fg = "fg", bg = "bg_light" }
 "ui.menu" = { fg = "fg", bg = "bg_light" }
 "ui.menu.selected" = { fg = "fg", bg = "selection" }
+"ui.menu.scroll" = { fg = "comment", bg = "bg_light" }
 "ui.virtual.whitespace" = "selection"
 "ui.virtual.indent-guide" = "selection"
 "ui.virtual.ruler" = { bg = "bg_light" }
 "ui.virtual.inlay-hint" = "comment"
+"ui.virtual.wrap" = "comment"
+"ui.virtual.jump-label" = { fg = "bg", bg = "pink", modifiers = ["bold"] }
+"tabstop" = { modifiers = ["italic"], underline = { color = "orange", style = "line" } }
 "error" = "red"
 "warning" = "yellow"
 "info" = "cyan"
@@ -68,11 +96,14 @@
 "diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
 "diagnostic.info" = { underline = { color = "cyan", style = "curl" } }
 "diagnostic.hint" = { underline = { color = "comment", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
 
 [palette]
 bg = "#181E18"
 bg_dark = "#0E140E"
 bg_light = "#2C322C"
+bg_lighter = "#404640"
 fg = "#F5F5F5"
 selection = "#38463A"
 comment = "#758975"
