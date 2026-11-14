@@ -5,6 +5,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { THEME_PALETTES, getDerivedColors, hexToNormalizedRgb } = require('../shared/palettes');
+const { contrast } = require('./contrast');
 
 const root = path.join(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
@@ -64,6 +65,13 @@ for (const [id, palette] of variants) {
     assert.ok(scopes[`${scope}.primary`], `${id}: Helix ${scope}.primary missing`);
     const bg = style => helixPalette[/bg = "([^"]+)"/.exec(style)[1]];
     assert.notEqual(bg(scopes[`${scope}.primary`]), bg(scopes[scope]), `${id}: Helix ${scope}.primary must differ from ${scope}`);
+  }
+  // Every Helix style with both colours is readable: 4.5:1 for text, 3:1 for the scrollbar thumb.
+  for (const [scope, style] of Object.entries(scopes)) {
+    const fg = /\bfg = "([^"]+)"/.exec(style), bg = /\bbg = "([^"]+)"/.exec(style);
+    if (!fg || !bg) continue;
+    const ratio = contrast(helixPalette[fg[1]], helixPalette[bg[1]]);
+    assert.ok(ratio >= (scope === 'ui.menu.scroll' ? 3 : 4.5), `${id}: Helix ${scope} contrast ${ratio.toFixed(2)}`);
   }
   assert.ok(scopeText.startsWith('# Author : Stranger Theme <contact@strangertheme.com>\n# License: MIT\n'),
     `${id}: Helix author/licence header`);

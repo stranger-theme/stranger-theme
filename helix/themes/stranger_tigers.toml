@@ -48,12 +48,9 @@
 "ui.text.inactive" = "comment"
 "ui.text.info" = "fg"
 "ui.text.directory" = "cyan"
-"ui.selection" = { bg = "bg_lighter" }
+"ui.selection" = { bg = "bg_light" }
 "ui.selection.primary" = { bg = "selection" }
 "ui.cursor" = { fg = "bg", bg = "comment" }
-"ui.cursor.normal" = { fg = "bg", bg = "comment" }
-"ui.cursor.insert" = { fg = "bg", bg = "comment" }
-"ui.cursor.select" = { fg = "bg", bg = "comment" }
 "ui.cursor.primary" = { fg = "bg", bg = "fg" }
 "ui.cursor.match" = { fg = "yellow", modifiers = ["bold"] }
 "ui.cursorline.primary" = { bg = "bg_light" }
@@ -77,9 +74,9 @@
 "ui.bufferline.background" = { bg = "bg_dark" }
 "ui.popup" = { fg = "fg", bg = "bg_light" }
 "ui.popup.info" = { fg = "fg", bg = "bg_light" }
-"ui.picker.header" = { modifiers = ["bold"] }
-"ui.picker.header.column" = "comment"
-"ui.picker.header.column.active" = { fg = "purple", modifiers = ["bold"], underline = { style = "line" } }
+"ui.picker.header" = { fg = "fg", bg = "bg_dark", modifiers = ["bold"] }
+"ui.picker.header.column" = { fg = "comment", bg = "bg_dark" }
+"ui.picker.header.column.active" = { fg = "fg", bg = "bg_dark", modifiers = ["bold"], underline = { color = "purple", style = "line" } }
 "ui.window" = "selection"
 "ui.help" = { fg = "fg", bg = "bg_light" }
 "ui.menu" = { fg = "fg", bg = "bg_light" }
@@ -90,7 +87,7 @@
 "ui.virtual.ruler" = { bg = "bg_light" }
 "ui.virtual.inlay-hint" = "comment"
 "ui.virtual.wrap" = "comment"
-"ui.virtual.jump-label" = { fg = "pink", modifiers = ["bold"] }
+"ui.virtual.jump-label" = { fg = "bg", bg = "pink", modifiers = ["bold"] }
 "tabstop" = { modifiers = ["italic"], underline = { color = "orange", style = "line" } }
 "error" = "red"
 "warning" = "yellow"
