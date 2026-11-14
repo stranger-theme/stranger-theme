@@ -6,7 +6,10 @@ All notable changes to the Stranger Things Theme will be documented in this file
 
 ### Added
 - Gogh scheme files for all six variants are generated under `aggregators/gogh/`, with `author_name` and `author_url`, for submission to the Gogh collection.
-- Helix themes start with `# Author` and `# License: MIT` header comments, following the rules in Helix's runtime/themes/README, and cover the full interface: distinct primary and secondary cursors and selections, bufferline, gutter, picker headers, debug markers, jump labels, scrollbars, snippet tabstops and unnecessary/deprecated diagnostics.
+- Helix themes start with `# Author` and `# License: MIT` header comments, following the rules in Helix's runtime/themes/README, and cover the full interface: distinct primary and secondary cursors, bufferline, gutter, picker headers, debug markers, jump labels, scrollbars, snippet tabstops and unnecessary/deprecated diagnostics.
+
+### Fixed
+- Helix: statusline mode labels and the jump label reach 4.5:1 contrast in every variant. Starcourt and The Lab use a different label text colour in normal mode, and Dimension X shows insert mode in yellow.
 
 ## [1.1.0] - 2026-11-13
 
