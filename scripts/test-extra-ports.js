@@ -60,6 +60,11 @@ for (const [id, palette] of variants) {
     assert.ok(scopes[scope], `${id}: Helix scope ${scope} missing`);
   }
   assert.equal(scopes['ui.background'], '{ bg = "bg" }');
+  for (const scope of ['ui.cursor', 'ui.selection']) {
+    assert.ok(scopes[`${scope}.primary`], `${id}: Helix ${scope}.primary missing`);
+    const bg = style => helixPalette[/bg = "([^"]+)"/.exec(style)[1]];
+    assert.notEqual(bg(scopes[`${scope}.primary`]), bg(scopes[scope]), `${id}: Helix ${scope}.primary must differ from ${scope}`);
+  }
   assert.ok(scopeText.startsWith('# Author : Stranger Theme <contact@strangertheme.com>\n# License: MIT\n'),
     `${id}: Helix author/licence header`);
 
@@ -152,6 +157,8 @@ for (const [id, palette] of variants) {
   assert.equal(`${gogh.name}.yml`, file, `${id}: Gogh filename must equal name`);
   assert.ok(!gogh.name.includes('_'), `${id}: Gogh name has an underscore`);
   assert.equal(gogh.variant, 'dark');
+  assert.equal(gogh.author_name, 'Stranger Theme');
+  assert.equal(gogh.author_url, 'https://strangertheme.com');
   const expected = Object.fromEntries([...ansi.map((hex, i) => [`color_${String(i + 1).padStart(2, '0')}`, hex]),
     ['background', c.BG], ['foreground', c.FG], ['cursor', c.FG]]);
   for (const [key, hex] of Object.entries(expected)) {

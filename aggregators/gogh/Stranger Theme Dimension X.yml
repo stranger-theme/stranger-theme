@@ -1,6 +1,8 @@
 ---
 name: 'Stranger Theme Dimension X'
 author: 'Stranger Theme (https://strangertheme.com)'
+author_name: 'Stranger Theme'
+author_url: 'https://strangertheme.com'
 variant: 'dark'            # dark or light
 
 color_01: '#464242'    # Black (Host)

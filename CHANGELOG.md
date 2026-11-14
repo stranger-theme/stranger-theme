@@ -5,8 +5,8 @@ All notable changes to the Stranger Things Theme will be documented in this file
 ## [Unreleased]
 
 ### Added
-- Gogh scheme files for all six variants are generated under `aggregators/gogh/`, for submission to the Gogh collection.
-- Helix themes start with `# Author` and `# License: MIT` header comments, as the Helix theme collection requires.
+- Gogh scheme files for all six variants are generated under `aggregators/gogh/`, with `author_name` and `author_url`, for submission to the Gogh collection.
+- Helix themes start with `# Author` and `# License: MIT` header comments, following the rules in Helix's runtime/themes/README, and cover the full interface: distinct primary and secondary cursors and selections, bufferline, gutter, picker headers, debug markers, jump labels, scrollbars, snippet tabstops and unnecessary/deprecated diagnostics.
 
 ## [1.1.0] - 2026-11-13
 

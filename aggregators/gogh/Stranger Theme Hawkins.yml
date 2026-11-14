@@ -1,6 +1,8 @@
 ---
 name: 'Stranger Theme Hawkins'
 author: 'Stranger Theme (https://strangertheme.com)'
+author_name: 'Stranger Theme'
+author_url: 'https://strangertheme.com'
 variant: 'dark'            # dark or light
 
 color_01: '#544A40'    # Black (Host)

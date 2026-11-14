@@ -26,6 +26,7 @@ const SCOPES = {
   'string.regexp': 'red',
   'string.special': 'pink',
   comment: { fg: 'comment', modifiers: ['italic'] },
+  'comment.unused': 'comment',
   variable: 'fg',
   'variable.builtin': 'purple',
   'variable.parameter': 'orange',
@@ -55,32 +56,62 @@ const SCOPES = {
   'diff.plus': 'green',
   'diff.minus': 'red',
   'diff.delta': 'cyan',
+  'diff.delta.moved': 'purple',
+  'diff.delta.conflict': 'orange',
 
   // Interface
   'ui.background': { bg: 'bg' },
+  'ui.background.separator': 'selection',
   'ui.text': 'fg',
   'ui.text.focus': { fg: 'fg', bg: 'bg_light' },
   'ui.text.inactive': 'comment',
-  'ui.selection': { bg: 'selection' },
-  'ui.cursor': { fg: 'bg', bg: 'fg' },
+  'ui.text.info': 'fg',
+  'ui.text.directory': 'cyan',
+  // Primary cursor and selection are the bright ones; the fallbacks style the secondary ones.
+  'ui.selection': { bg: 'bg_lighter' },
+  'ui.selection.primary': { bg: 'selection' },
+  'ui.cursor': { fg: 'bg', bg: 'comment' },
+  'ui.cursor.normal': { fg: 'bg', bg: 'comment' },
+  'ui.cursor.insert': { fg: 'bg', bg: 'comment' },
+  'ui.cursor.select': { fg: 'bg', bg: 'comment' },
+  'ui.cursor.primary': { fg: 'bg', bg: 'fg' },
   'ui.cursor.match': { fg: 'yellow', modifiers: ['bold'] },
   'ui.cursorline.primary': { bg: 'bg_light' },
+  'ui.cursorline.secondary': { bg: 'bg_dark' },
+  'ui.gutter': { bg: 'bg' },
+  'ui.gutter.selected': { bg: 'bg_light' },
   'ui.linenr': 'comment',
   'ui.linenr.selected': 'fg',
+  'ui.debug.breakpoint': 'red',
+  'ui.debug.active': 'yellow',
+  'ui.highlight': { bg: 'selection' },
+  'ui.highlight.frameline': { bg: 'bg_lighter' },
   'ui.statusline': { fg: 'fg', bg: 'bg_dark' },
+  'ui.statusline.separator': { fg: 'comment', bg: 'bg_dark' },
   'ui.statusline.inactive': { fg: 'comment', bg: 'bg_dark' },
   'ui.statusline.normal': { fg: 'bg', bg: 'purple', modifiers: ['bold'] },
   'ui.statusline.insert': { fg: 'bg', bg: 'green', modifiers: ['bold'] },
   'ui.statusline.select': { fg: 'bg', bg: 'pink', modifiers: ['bold'] },
+  'ui.bufferline': { fg: 'comment', bg: 'bg_dark' },
+  'ui.bufferline.active': { fg: 'fg', bg: 'bg', underline: { color: 'purple', style: 'line' } },
+  'ui.bufferline.background': { bg: 'bg_dark' },
   'ui.popup': { fg: 'fg', bg: 'bg_light' },
+  'ui.popup.info': { fg: 'fg', bg: 'bg_light' },
+  'ui.picker.header': { modifiers: ['bold'] },
+  'ui.picker.header.column': 'comment',
+  'ui.picker.header.column.active': { fg: 'purple', modifiers: ['bold'], underline: { style: 'line' } },
   'ui.window': 'selection',
   'ui.help': { fg: 'fg', bg: 'bg_light' },
   'ui.menu': { fg: 'fg', bg: 'bg_light' },
   'ui.menu.selected': { fg: 'fg', bg: 'selection' },
+  'ui.menu.scroll': { fg: 'comment', bg: 'bg_light' },
   'ui.virtual.whitespace': 'selection',
   'ui.virtual.indent-guide': 'selection',
   'ui.virtual.ruler': { bg: 'bg_light' },
   'ui.virtual.inlay-hint': 'comment',
+  'ui.virtual.wrap': 'comment',
+  'ui.virtual.jump-label': { fg: 'pink', modifiers: ['bold'] },
+  tabstop: { modifiers: ['italic'], underline: { color: 'orange', style: 'line' } },
 
   // Diagnostics (gutter, then editing area)
   error: 'red',
@@ -90,7 +121,9 @@ const SCOPES = {
   'diagnostic.error': { underline: { color: 'red', style: 'curl' } },
   'diagnostic.warning': { underline: { color: 'yellow', style: 'curl' } },
   'diagnostic.info': { underline: { color: 'cyan', style: 'curl' } },
-  'diagnostic.hint': { underline: { color: 'comment', style: 'curl' } }
+  'diagnostic.hint': { underline: { color: 'comment', style: 'curl' } },
+  'diagnostic.unnecessary': { modifiers: ['dim'] },
+  'diagnostic.deprecated': { modifiers: ['crossed_out'] }
 };
 
 function toml(value) {
@@ -102,7 +135,7 @@ function toml(value) {
 function generateHelixTheme(palette) {
   const c = getDerivedColors(palette.base);
   const colors = {
-    bg: c.BG, bg_dark: c.BGDark, bg_light: c.BGLight, fg: c.FG, selection: c.SELECTION,
+    bg: c.BG, bg_dark: c.BGDark, bg_light: c.BGLight, bg_lighter: c.BGLighter, fg: c.FG, selection: c.SELECTION,
     comment: c.COMMENT, cyan: c.CYAN, green: c.GREEN, orange: c.ORANGE, pink: c.PINK,
     purple: c.PURPLE, red: c.RED, yellow: c.YELLOW
   };

@@ -97,6 +97,8 @@ function generateGoghYaml(palette) {
   return `---
 name: 'Stranger Theme ${palette.displayName}'
 author: 'Stranger Theme (https://strangertheme.com)'
+author_name: 'Stranger Theme'
+author_url: 'https://strangertheme.com'
 variant: 'dark'            # dark or light
 
 ${colors.slice(0, 8).join('\n')}
