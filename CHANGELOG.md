@@ -2,6 +2,12 @@
 
 All notable changes to the Stranger Things Theme will be documented in this file.
 
+## [Unreleased]
+
+### Added
+- Gogh scheme files for all six variants are generated under `aggregators/gogh/`, for submission to the Gogh collection.
+- Helix themes start with `# Author` and `# License: MIT` header comments, as the Helix theme collection requires.
+
 ## [1.1.0] - 2026-11-13
 
 ### Added

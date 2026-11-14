@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Checks the Helix, tmux, Warp, macOS Terminal and Windows Terminal fragment outputs.
+// Checks the Gogh scheme files and the Helix, tmux, Warp, macOS Terminal and Windows Terminal fragment outputs.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -60,6 +60,8 @@ for (const [id, palette] of variants) {
     assert.ok(scopes[scope], `${id}: Helix scope ${scope} missing`);
   }
   assert.equal(scopes['ui.background'], '{ bg = "bg" }');
+  assert.ok(scopeText.startsWith('# Author : Stranger Theme <contact@strangertheme.com>\n# License: MIT\n'),
+    `${id}: Helix author/licence header`);
 
   // tmux: only `set -g option "value"` lines with palette colours.
   const tmux = {};
@@ -140,4 +142,22 @@ for (const [id, palette] of variants) {
   }
 }
 
-console.log('Validated Helix, tmux, Warp, macOS Terminal and the Windows Terminal fragment for six variants.');
+// Gogh: filename equals name, no underscore, dark, 19 uppercase colours from the derived ANSI palette.
+assert.deepEqual(list('aggregators/gogh'), variants.map(([, p]) => `Stranger Theme ${p.displayName}.yml`).sort());
+for (const [id, palette] of variants) {
+  const c = getDerivedColors(palette.base);
+  const ansi = [...ANSI.map(n => c[`ANSI_${n.toUpperCase()}`]), ...ANSI.map(n => c[`ANSI_BRIGHT_${n.toUpperCase()}`])];
+  const file = `Stranger Theme ${palette.displayName}.yml`;
+  const gogh = Object.fromEntries([...read(`aggregators/gogh/${file}`).matchAll(/^(\w+): '([^']*)'/gm)].map(m => m.slice(1)));
+  assert.equal(`${gogh.name}.yml`, file, `${id}: Gogh filename must equal name`);
+  assert.ok(!gogh.name.includes('_'), `${id}: Gogh name has an underscore`);
+  assert.equal(gogh.variant, 'dark');
+  const expected = Object.fromEntries([...ansi.map((hex, i) => [`color_${String(i + 1).padStart(2, '0')}`, hex]),
+    ['background', c.BG], ['foreground', c.FG], ['cursor', c.FG]]);
+  for (const [key, hex] of Object.entries(expected)) {
+    assert.match(gogh[key] || '', HEX, `${id}: Gogh ${key} must be uppercase #RRGGBB`);
+    assert.equal(gogh[key], hex.toUpperCase(), `${id}: Gogh ${key}`);
+  }
+}
+
+console.log('Validated Gogh, Helix, tmux, Warp, macOS Terminal and the Windows Terminal fragment for six variants.');

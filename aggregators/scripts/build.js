@@ -5,6 +5,7 @@
  * Generates the source files upstream scheme collections expect:
  *   - tinted-theming/schemes        -> tinted/base16/*.yaml, tinted/base24/*.yaml
  *   - mbadolato/iTerm2-Color-Schemes -> iterm2-color-schemes/*.yml
+ *   - Gogh-Co/Gogh                   -> gogh/*.yml
  */
 
 const assert = require('assert');
@@ -83,6 +84,32 @@ ${entries.map(([key, color]) => `${`${key}:`.padEnd(16)}"${color.toLowerCase()}"
 `;
 }
 
+const GOGH_COMMENTS = ['Black (Host)', 'Red (Syntax string)', 'Green (Command)', 'Yellow (Command second)',
+  'Blue (Path)', 'Magenta (Syntax var)', 'Cyan (Prompt)', 'White', 'Bright Black', 'Bright Red (Command error)',
+  'Bright Green (Exec)', 'Bright Yellow', 'Bright Blue (Folder)', 'Bright Magenta', 'Bright Cyan', 'Bright White'];
+
+/** Gogh theme file, in the field order and comments of Gogh's contribution template. */
+function generateGoghYaml(palette) {
+  const c = getDerivedColors(palette.base);
+  const ansi = [...ANSI_NAMES.map(n => c[`ANSI_${n}`]), ...ANSI_NAMES.map(n => c[`ANSI_BRIGHT_${n}`])];
+  const line = (key, color, comment) => `${`${key}: '${color.toUpperCase()}'`.padEnd(22)} # ${comment}`;
+  const colors = ansi.map((color, i) => line(`color_${String(i + 1).padStart(2, '0')}`, color, GOGH_COMMENTS[i]));
+  return `---
+name: 'Stranger Theme ${palette.displayName}'
+author: 'Stranger Theme (https://strangertheme.com)'
+variant: 'dark'            # dark or light
+
+${colors.slice(0, 8).join('\n')}
+
+${colors.slice(8).join('\n')}
+
+${line('background', c.BG, 'Background')}
+${line('foreground', c.FG, 'Foreground (Text)')}
+
+${line('cursor', c.FG, 'Cursor')}
+`;
+}
+
 function write(file, content) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, content);
@@ -98,6 +125,7 @@ function build() {
     }
     write(path.join(ROOT, 'iterm2-color-schemes', `Stranger Theme ${palette.displayName}.yml`),
       generateItermSchemesYaml(palette));
+    write(path.join(ROOT, 'gogh', `Stranger Theme ${palette.displayName}.yml`), generateGoghYaml(palette));
   }
   console.log('\nBuild complete!');
 }

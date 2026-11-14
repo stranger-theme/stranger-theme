@@ -108,7 +108,9 @@ function generateHelixTheme(palette) {
   };
   const scopes = Object.entries(SCOPES).map(([scope, style]) => `"${scope}" = ${toml(style)}`);
   // [palette] must come last: it captures every key after its header.
-  return `# ${palette.name} for Helix
+  return `# Author : Stranger Theme <contact@strangertheme.com>
+# License: MIT
+# ${palette.name} for Helix
 ${scopes.join('\n')}
 
 [palette]
