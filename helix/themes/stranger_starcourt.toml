@@ -48,8 +48,7 @@
 "ui.text.inactive" = "comment"
 "ui.text.info" = "fg"
 "ui.text.directory" = "cyan"
-"ui.selection" = { bg = "bg_light" }
-"ui.selection.primary" = { bg = "selection" }
+"ui.selection" = { bg = "selection" }
 "ui.cursor" = { fg = "bg", bg = "comment" }
 "ui.cursor.primary" = { fg = "bg", bg = "fg" }
 "ui.cursor.match" = { fg = "yellow", modifiers = ["bold"] }

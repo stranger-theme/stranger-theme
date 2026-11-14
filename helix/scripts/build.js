@@ -69,9 +69,8 @@ const SCOPES = {
   'ui.text.info': 'fg',
   'ui.text.directory': 'cyan',
   // Primary cursor and selection are the bright ones; the fallbacks style the secondary ones.
-  // The cursor colour is the main cue; the secondary selection is only a step dimmer, as in most bundled themes.
-  'ui.selection': { bg: 'bg_light' },
-  'ui.selection.primary': { bg: 'selection' },
+  // One selection colour, as in most bundled themes: the cursor tells primary from secondary.
+  'ui.selection': { bg: 'selection' },
   'ui.cursor': { fg: 'bg', bg: 'comment' },
   'ui.cursor.primary': { fg: 'bg', bg: 'fg' },
   'ui.cursor.match': { fg: 'yellow', modifiers: ['bold'] },

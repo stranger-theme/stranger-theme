@@ -61,7 +61,7 @@ for (const [id, palette] of variants) {
     assert.ok(scopes[scope], `${id}: Helix scope ${scope} missing`);
   }
   assert.equal(scopes['ui.background'], '{ bg = "bg" }');
-  for (const scope of ['ui.cursor', 'ui.selection']) {
+  for (const scope of ['ui.cursor']) {
     assert.ok(scopes[`${scope}.primary`], `${id}: Helix ${scope}.primary missing`);
     const bg = style => helixPalette[/bg = "([^"]+)"/.exec(style)[1]];
     assert.notEqual(bg(scopes[`${scope}.primary`]), bg(scopes[scope]), `${id}: Helix ${scope}.primary must differ from ${scope}`);
