@@ -138,7 +138,10 @@ for (const [id, palette] of variants) {
 
 // Package Control reads sublime-text/repository.json from main, so it must point at the current release asset.
 const { version } = require('../package.json');
-const [sublimeRelease] = JSON.parse(read('sublime-text/repository.json')).packages[0].releases;
+const sublimeRepo = JSON.parse(read('sublime-text/repository.json'));
+// packagecontrol.io, the default channel, does not read schema 4.0.0 (issue #24).
+assert.equal(sublimeRepo.schema_version, '3.0.0', 'sublime-text/repository.json must use schema 3.0.0');
+const [sublimeRelease] = sublimeRepo.packages[0].releases;
 assert.equal(sublimeRelease.version, version, 'sublime-text/repository.json must list the current release');
 assert.equal(sublimeRelease.url,
   `https://github.com/stranger-theme/stranger-theme/releases/download/v${version}/StrangerTheme.sublime-package`);
